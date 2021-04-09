@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | 柳世雄的个人博客</title>
+  <title>柳世雄的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Just do it!">
-<meta property="og:type" content="website">
+  <meta name="description" content="title: 哈希表总结date: 2021-04-09 14:52:32tags: leetcode hash-table  ​    由于电脑再次出现了故障，不得不重装系统。在备份数据的时候，出现了问题，造成我不得不重新再搭一个一个博客。这就导致一个问题，是重新开个仓库，还是直接把原来的顶了。在尝试直接链接到之前的博客无果之后，我决定重新搭个博客，至于之前的二叉树，链表以及数组方面的东西，我">
+<meta property="og:type" content="article">
 <meta property="og:title" content="柳世雄的个人博客">
-<meta property="og:url" content="http://example.com/archives/index.html">
+<meta property="og:url" content="http://example.com/2021/04/09/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="柳世雄的个人博客">
-<meta property="og:description" content="Just do it!">
+<meta property="og:description" content="title: 哈希表总结date: 2021-04-09 14:52:32tags: leetcode hash-table  ​    由于电脑再次出现了故障，不得不重装系统。在备份数据的时候，出现了问题，造成我不得不重新再搭一个一个博客。这就导致一个问题，是重新开个仓库，还是直接把原来的顶了。在尝试直接链接到之前的博客无果之后，我决定重新搭个博客，至于之前的二叉树，链表以及数组方面的东西，我">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-09T06:52:32.856Z">
+<meta property="article:modified_time" content="2021-04-09T11:56:15.896Z">
 <meta property="article:author" content="柳世雄">
 <meta property="article:tag" content="坚持 努力 成功">
 <meta name="twitter:card" content="summary">
@@ -166,107 +168,304 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-哈希表总结" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: 哈希表总结<br>date: 2021-04-09 14:52:32<br>tags: leetcode hash-table</p>
+<hr>
+<p>​    由于电脑再次出现了故障，不得不重装系统。在备份数据的时候，出现了问题，造成我不得不重新再搭一个一个博客。这就导致一个问题，是重新开个仓库，还是直接把原来的顶了。在尝试直接链接到之前的博客无果之后，我决定重新搭个博客，至于之前的二叉树，链表以及数组方面的东西，我会找时间给补上。</p>
+<span id="more"></span>
+
+<p>今天继续之前的步骤，介绍哈希表。（key, value)</p>
+<p>常见的三种哈希结构</p>
+<ul>
+<li>数组</li>
+<li>set(集合)</li>
+<li>map(映射)</li>
+</ul>
+<p>数组就不说了，下面通过表格我们来比较一下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">集合</th>
+<th align="center">底层实现</th>
+<th align="center">是否有序</th>
+<th align="center">数值是否可以重复</th>
+<th align="center">能否改变数值</th>
+<th align="center">查询效率</th>
+<th align="center">增删效率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">set</td>
+<td align="center">红黑树</td>
+<td align="center">有序</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">O(logn)</td>
+<td align="center">O(logn)</td>
+</tr>
+<tr>
+<td align="center">multiset</td>
+<td align="center">红黑树</td>
+<td align="center">有序</td>
+<td align="center">是</td>
+<td align="center">否</td>
+<td align="center">O(logn)</td>
+<td align="center">O(logn)</td>
+</tr>
+<tr>
+<td align="center">unordered_set</td>
+<td align="center">哈希表</td>
+<td align="center">无序</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">o(1)</td>
+<td align="center">O(1)</td>
+</tr>
+</tbody></table>
+<p>unordered_set底层实现为哈希表，set 和multiset的底层实现是红黑树，红黑树是一种平衡二叉搜索树，所以key值是有序的，但key不可修改，改动key值会导致整棵树的错乱，所以只能增加和删除。</p>
+<table>
+<thead>
+<tr>
+<th align="center">映射</th>
+<th align="center">底层实现</th>
+<th align="center">是否有序</th>
+<th align="center">数值是否可以重复</th>
+<th align="center">能否改变数值</th>
+<th align="center">查询效率</th>
+<th align="center">增删效率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">map</td>
+<td align="center">红黑树</td>
+<td align="center">key有序</td>
+<td align="center">key不可重复</td>
+<td align="center">key不可修改</td>
+<td align="center">O(logn)</td>
+<td align="center">O(logn)</td>
+</tr>
+<tr>
+<td align="center">multimap</td>
+<td align="center">红黑树</td>
+<td align="center">key有序</td>
+<td align="center">key可重复</td>
+<td align="center">key不可修改</td>
+<td align="center">O(logn)</td>
+<td align="center">O(logn)</td>
+</tr>
+<tr>
+<td align="center">unordered_map</td>
+<td align="center">哈希表</td>
+<td align="center">key无序</td>
+<td align="center">key不可重复</td>
+<td align="center">key不可修改</td>
+<td align="center">O(1)</td>
+<td align="center">O(1)</td>
+</tr>
+</tbody></table>
+<p>unordered_map的底层实现为哈希表，map和mutilmap的底层实现为红黑树，所以map和multimap的key都是有序的！</p>
+<p><strong>在解决哈希问题时，要优先考虑unordered_set(map)，因为它的查询和增删效率是最优的，如果集合是有序的考虑set 和map,如果要求重复，再考虑multiset和multimap。</strong></p>
+<p>所谓哈希问题，一般就是判断一个元素是否出现在集合里。</p>
+<h1 id="242-有效的字母异位词"><a href="#242-有效的字母异位词" class="headerlink" title="242 有效的字母异位词"></a>242 有效的字母异位词</h1><p>思路：这道题因为限制了都是小写字母，所以我们可以用数组来做</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isAnargram</span><span class="params">(sting s, string t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> record[<span class="number">26</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            record[s[i] - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; t.<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">            record[t[i] - <span class="string">&#x27;a&#x27;</span>]--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(record[i]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="comment">//上面写可以写为：</span></span><br><span class="line">            <span class="comment">//if(record[i] != 0) return false;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ture;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="349-两个数组的交集"><a href="#349-两个数组的交集" class="headerlink" title="349. 两个数组的交集"></a>349. 两个数组的交集</h1><p>思路：首先这里数组的大小确定不了，其次不考虑顺序和重复，因此我们选用unordered.</p>
+<p>我们可以先将元素放入到哈希容器中，然后再通过循环判断另一个集合中是否出现，若出现了该元素就放入到交集集合中。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">intersection</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums1, vector&lt;<span class="keyword">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="function">unordered_set&lt;<span class="keyword">int</span>&gt; <span class="title">set</span><span class="params">(nums1.beign(), nums.end())</span></span>;</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; result;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num : nums2) &#123;</span><br><span class="line">            <span class="keyword">if</span>(set.<span class="built_in">find</span>(num) != set.<span class="built_in">end</span>()) &#123;</span><br><span class="line">                result.<span class="built_in">push_back</span>(num);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="202-快乐数"><a href="#202-快乐数" class="headerlink" title="202. 快乐数"></a>202. 快乐数</h1><p>思路：这道题其实在考量我们审题一定要细心和仔细。题目中说了一句很关键的话“也可能无限循环”，这就相当于告诉我们循环结束的条件了，如果再次遇到这个数，我们就可以直接返回false;这道题真的很考量我们的审题！</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="comment">//先定义一个求和的函数</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">get</span> <span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n)&#123;        </span><br><span class="line">            sum += (n % <span class="number">10</span>) * (n % <span class="number">10</span>);</span><br><span class="line">        	n /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//判断是否为快乐数</span></span><br><span class="line">    <span class="keyword">bool</span> <span class="built_in">isHappy</span>(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        unordered_set&lt;<span class="keyword">int</span>&gt; set;</span><br><span class="line">        <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">            n = <span class="built_in">get</span> (n);</span><br><span class="line">            <span class="keyword">if</span>(n == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(set.<span class="built_in">find</span>(n) != set.<span class="built_in">end</span>()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            	set.<span class="built_in">insert</span>(n);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a>1. 两数之和</h1><p>思路：这道题的要求是找到和为目标值的两个整数，并返回他们的数组下标。因为要返回数组下标，所以我们选用unordered_map来记录。这道题是用一次循环，看当前循环的值和之间已经加入map中的值之和是否等于目标值的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Soluiton</span> &#123;</span></span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">twoSum</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; map;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">auto</span> iter = map.<span class="built_in">find</span>(target - nums[i]);</span><br><span class="line">            <span class="keyword">if</span>(iter == map.<span class="built_in">end</span>()) &#123;</span><br><span class="line">                map.<span class="built_in">insert</span>(nums[i], i);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;iter-&gt;second, i&#125;;<span class="comment">//因为题中说了只会存在一个有效答案，所以直接return</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="454-四数相加Ⅱ"><a href="#454-四数相加Ⅱ" class="headerlink" title="454. 四数相加Ⅱ"></a>454. 四数相加Ⅱ</h1><p>思路：两两相加，减少循环次数，一般有几个数，都是从这个数的中间分开循环。</p>
+<p>1.首先定义一个unordered_mp，key放a和b两数之和，value放a和b两数之和出现的次数。</p>
+<p>2.遍历A和B数组，统计两个数组之和，和出现的次数，放到map中。</p>
+<p>3.定义一个int变量result，用来统计a+b+c+d = 0出现的次数。</p>
+<p>4.在遍历C和D数组，如果0 - （c+d）在map中出现过的话，就用result把map中key对应的value也就是出现次数统计出来。</p>
+<p>5.最后返回统计值result就可以了</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">fourSumCount</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; A, vector&lt;<span class="keyword">int</span>&gt;&amp; B, vector&lt;<span class="keyword">int</span>&gt;&amp; C, vector&lt;<span class="keyword">int</span>&gt;&amp; D)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; map;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> a : A) &#123;</span><br><span class="line">            <span class="keyword">for</span>( <span class="keyword">int</span> b : B) &#123;</span><br><span class="line">                map[a + b] ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> c : C) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> d : D) &#123;</span><br><span class="line">                <span class="keyword">if</span>(map.<span class="built_in">count</span>(- c - d)) &#123;</span><br><span class="line">                    result += map[-c - d];</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="383-赎金信"><a href="#383-赎金信" class="headerlink" title="383 赎金信"></a>383 赎金信</h1><p>思路：根据这道题的假设，我们可以直接采用数组做。先将大字符串都放到数组里，然后将小字符串进行验证，如果出现负数，返回false。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canConstruct</span><span class="params">(string ransomNote, string magazine)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result[<span class="number">26</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> m : magazine) &#123;</span><br><span class="line">            result[j - <span class="string">&#x27;a&#x27;</span>] ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> n : ransomNote) &#123;</span><br><span class="line">            result[n - <span class="string">&#x27;a&#x27;</span>]--;</span><br><span class="line">            <span class="keyword">if</span>(result[n - <span class="string">&#x27;a&#x27;</span>] &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="15-三数之和"><a href="#15-三数之和" class="headerlink" title="15.三数之和"></a>15.三数之和</h1><p>这道题用哈希法其实比较难，我没有写出来，哈希法在去重的时候有很多操作要注意，在面试过程中国很难直接写出没有bug的代码，这道题更适合用双指针法，在哈希里写这个主要是让大家试试。😀</p>
+<p>双指针法：第一个数做外层循环，第二个数做头指针，最后一个数做尾指针，头尾逼近，找到等于目标和的三个数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">threeSum</span>(vector&lt;<span class="keyword">int</span>&gt; nums) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; result;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> left = i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> right = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(right &gt; left) &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i] + nums[left] + nums[right] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    right--;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums[i] + nums[left] + nums[right] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                    left++;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    result.<span class="built_in">push_back</span>(&#123;nums[i], nums[left], nums[right]&#125;);</span><br><span class="line">                    <span class="keyword">while</span>(right &gt; left &amp;&amp; nums[right] == nums[right - <span class="number">1</span>]) right--;</span><br><span class="line">                    <span class="keyword">while</span>(right &gt; left &amp;&amp; nums[left] == nums[left + <span class="number">1</span>]) left++;</span><br><span class="line">                &#125;</span><br><span class="line">                right--;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="18-四数之和"><a href="#18-四数之和" class="headerlink" title="18 .四数之和"></a>18 .四数之和</h1><p>思路：这道题其实跟上面题一样的思路，但是在去重时可以进一步简化，具体如下：</p>
+<p>1.使用两重循环分别枚举前两个数，然后在两重循环枚举到的数之后使用双指针枚举剩下的两个数。假设两重循环枚举到的前两个数分别位于下标i 和 j 。初始时，左右指针分别指向下标j+1和下标n-1。n是数组的长度。每次计算四个数的和，并进行如下操作：</p>
+<ul>
+<li>如果和等于target，则将枚举到的四个数加到答案中，然后将左指针右移知道遇到不同的数，将右指针左移，直到遇到不同的数。</li>
+<li>如果和大于target，则将左指针右移。</li>
+<li>如果和小于target，则将右指针左移。</li>
+</ul>
+<p>简化操作：</p>
+<ul>
+<li>在确定第一个数之后，如果前四个数相加大于目标值，说明此时剩下的三个数无论什么时候都大于目标值，直接退出循环。</li>
+<li>在确定第一个数之后，如果第一个数加上后三个数小于目标值，说明之后的取值也都小于目标值，直接continue；</li>
+<li>在确定第二个数之后，如果前四个书相加大于目标值，说明此时剩下的三个数无论什么时候都大于目标值，直接退出当前循环。</li>
+<li>在确定第二个数之后，如果前两个数加上后两个数小于目标值，直接进入下一层循环（continue).</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">fourSum</span>(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; result;</span><br><span class="line">        <span class="keyword">if</span>(nums.<span class="built_in">size</span>() &lt; <span class="number">4</span>) <span class="keyword">return</span> result;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">3</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] + nums[i + <span class="number">1</span>] + nums[i + <span class="number">2</span>] + nums[i + <span class="number">3</span>] &gt; target) <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] + nums[n - <span class="number">1</span>] + nums[ n - <span class="number">2</span>] + nums[n - <span class="number">3</span>] &gt; target) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>( j = i + <span class="number">1</span> ; j &lt; n <span class="number">-2</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(j &gt; i + <span class="number">1</span> &amp;&amp; nums[j] == nums[j - <span class="number">1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span>(nums[i] + nums[j] + nums[j + <span class="number">1</span>] + nums[j + <span class="number">2</span>] &gt; target) <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">if</span>(nums[i] + nums[j] + nums[n - <span class="number">1</span>] + nums[n - <span class="number">2</span>] &lt; target) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">int</span> left = j + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">int</span> right = n - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span>(right &gt; left) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(nums[i] + nums[j] + nums[left] + nums[right] &gt; target) right--;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span>(nums[i] + nums[j] + nums[left] + nums[right] &lt; target) left++;</span><br><span class="line">                    <span class="keyword">else</span>&#123;</span><br><span class="line">                        result.<span class="built_in">push_back</span>(&#123;nums[i], nums[j], nums[left], nums[right]&#125;);</span><br><span class="line">                        <span class="keyword">while</span>(right &gt; left &amp;&amp; nums[right] == nums[right - <span class="number">1</span>]) right --;</span><br><span class="line">                        <span class="keyword">while</span>(right &gt; left &amp;&amp; nums[left] == nums[left++] )left++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                right--;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>记住有固定数目的就可以用数组代表哈希，省空间又简单。</p>
+<p>下一内容： 字符串！</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/09/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2021-04-09T06:52:32.856Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liushixiong99.github.io/021/04/09/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2021-04-08T08:01:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/04/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我的第一篇博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#242-%E6%9C%89%E6%95%88%E7%9A%84%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D"><span class="toc-number">1.</span> <span class="toc-text">242 有效的字母异位词</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#349-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86"><span class="toc-number">2.</span> <span class="toc-text">349. 两个数组的交集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#202-%E5%BF%AB%E4%B9%90%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">202. 快乐数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="toc-number">4.</span> <span class="toc-text">1. 两数之和</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#454-%E5%9B%9B%E6%95%B0%E7%9B%B8%E5%8A%A0%E2%85%A1"><span class="toc-number">5.</span> <span class="toc-text">454. 四数相加Ⅱ</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#383-%E8%B5%8E%E9%87%91%E4%BF%A1"><span class="toc-number">6.</span> <span class="toc-text">383 赎金信</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#15-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="toc-number">7.</span> <span class="toc-text">15.三数之和</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#18-%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="toc-number">8.</span> <span class="toc-text">18 .四数之和</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/08/hello-world/" class="archive-article-date">
-  	<time datetime="2021-04-08T07:21:19.757Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-08</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/08/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
+
 
 
           </div>
@@ -293,8 +492,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
