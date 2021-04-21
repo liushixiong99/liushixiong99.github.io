@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: leetcode | 柳世雄的个人博客</title>
+  <title>栈与队列 | 柳世雄的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Just do it!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="柳世雄的个人博客">
-<meta property="og:url" content="http://example.com/tags/leetcode/index.html">
+  <meta name="description" content="​    先介绍一下关于堆栈的基础知识：栈提供push和pop等等接口，所有元素都必须符合先进后出规则，所以栈不提供走访功能，也不能提供迭代器（iterator)。不像是set或map提供迭代器iterator来遍历所有元素。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="栈与队列">
+<meta property="og:url" content="http://example.com/2021/04/21/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/index.html">
 <meta property="og:site_name" content="柳世雄的个人博客">
-<meta property="og:description" content="Just do it!">
+<meta property="og:description" content="​    先介绍一下关于堆栈的基础知识：栈提供push和pop等等接口，所有元素都必须符合先进后出规则，所以栈不提供走访功能，也不能提供迭代器（iterator)。不像是set或map提供迭代器iterator来遍历所有元素。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-21T00:59:29.000Z">
+<meta property="article:modified_time" content="2021-04-21T08:05:55.549Z">
 <meta property="article:author" content="柳世雄">
-<meta property="article:tag" content="坚持 努力 成功">
+<meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="柳世雄的个人博客" type="application/atom+xml">
@@ -174,35 +176,111 @@
           </div>
           <div id="js-content" class="content-ll">
             
+<article id="post-栈与队列" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      栈与队列
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/21/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" class="archive-article-date">
+
+        
+        <a href="/2021/04/21/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" class="archive-article-date">
   	<time datetime="2021-04-21T00:59:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-21</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/21/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">栈与队列</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    先介绍一下关于堆栈的基础知识：栈提供push和pop等等接口，所有元素都必须符合先进后出规则，所以栈不提供走访功能，也不能提供迭代器（iterator)。<strong>不像是set或map提供迭代器iterator来遍历所有元素。</strong></p>
+<span id="more"></span>
 
-        <div class="article-info info-on-right">
-          
+<p>​    <strong>栈是以底层容器完成其所有的工作，对外提供统一的接口，底层容器时可插拔的（也就是说我们可以控制使用哪种容器来实现栈的功能）。</strong></p>
+<p>所以STL中栈往往不被归类于容器，而被归类于container adapter（容器适配器）。</p>
+<p>在STL中，栈的底层实现可以是vector， deque，list都是可以的，主要就是数组和链表的底层实现。</p>
+<p><strong>我们常用的SGI STL,如果没有指定底层实现的话，默认是以deque为缺省情况下栈的底层结构。</strong></p>
+<p>deque是一个双向队列，只要封住一段，只开通另一端就是可以实现栈的逻辑了。</p>
+<p>队列 是先进先出的数据结构，同样不允许有遍历行为，不提供迭代器，SGL STL 中队列一样是以deque为缺省情况下的底部结构。</p>
+<p>所以STL中队列也不被归类于容器，而被归类于 container adapter （容器适配器）。</p>
+<h1 id="232-用栈实现队列"><a href="#232-用栈实现队列" class="headerlink" title="232. 用栈实现队列"></a>232. 用栈实现队列</h1><p>思路：这道题是利用两个栈（一个做输入栈，另一个做输出栈）来模拟队列的过程。push 过程 就是将数据放入输入栈中。pop过程就比较复杂，如果输出栈为空，就将输入栈里的全部导入到输出栈中，然后执行pop操作，（相当于执行了一次倒序），如果输出栈不为空，则直接从栈弹出数据即可，这种情况是因为可能中间有push过程。判断队列为空（如果进栈和出栈都为空，那队列为空）。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyQueue</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    stack&lt;<span class="keyword">int</span>&gt; stIn;</span><br><span class="line">    stack&lt;<span class="keyword">int</span>&gt; stOut;</span><br><span class="line">    <span class="built_in">MyQueue</span>() &#123;&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        stIn.<span class="built_in">push</span>(val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">pop</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(stOut.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">while</span>(!stIn.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">                stOut.<span class="built_in">push</span>(stIn.<span class="built_in">top</span>());</span><br><span class="line">                stIn.<span class="built_in">pop</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> result = stOut.<span class="built_in">top</span>();</span><br><span class="line">        stOut.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">peek</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="keyword">this</span>-&gt;<span class="built_in">pop</span>();</span><br><span class="line">        stIn.<span class="built_in">push</span>(res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">empty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> stIn.<span class="built_in">empty</span>() &amp;&amp; stOut.<span class="built_in">empty</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="225-用队列实现栈"><a href="#225-用队列实现栈" class="headerlink" title="225.用队列实现栈"></a>225.用队列实现栈</h1><p>思路：根据上一题直接想到就是利用两个队列，一个做输入队列，一个做输出队列，但是由于队列先进先出的特点，根本实现不了栈的先进后出。<strong>队列是先进先出的规则，把一个队列中的数据导入到另一个队列中，数据的顺序并没有变，并没有变成先进后出的顺序。</strong></p>
+<p>本题依然需要两个队列来模拟栈，一个相当于栈本身，另一个相当于栈的备份，具体来说，实现push，直接queue1.push（);实现pop时比较麻烦，需要先将队列1中的数字全导入到队列2中，只留下最后一个，弹出即可。然后再将队列2中的元素导入到队列1中，清空队列2。判断栈是否为空，只要判断队列1是否为空即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyStack</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    queue&lt;<span class="keyword">int</span>&gt; que1;</span><br><span class="line">    queue&lt;<span class="keyword">int</span>&gt; que2;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">MyStack</span>() &#123;&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        que.<span class="built_in">push</span>(val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> size = que1.<span class="built_in">size</span>();</span><br><span class="line">        size--;</span><br><span class="line">        <span class="keyword">while</span>(size--) &#123;</span><br><span class="line">            que2.<span class="built_in">push</span>(que1.<span class="built_in">front</span>());</span><br><span class="line">            que1.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> res = que1.<span class="built_in">front</span>();</span><br><span class="line">        que1.<span class="built_in">pop</span>();</span><br><span class="line">        que1 = que2;</span><br><span class="line">        <span class="keyword">while</span>(!que2.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            que2.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">top</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> que1.<span class="built_in">back</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">empty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> que1.<span class="built_in">empty</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="20-有效的括号"><a href="#20-有效的括号" class="headerlink" title="20.有效的括号"></a>20.有效的括号</h1><p>思路：因为正常来说，左括号肯定是在左边，右括号肯定是在右边，因此我们可以这么做：当遇到左括号时，不论是小括号，中括号，还是大括号，我们在栈中添加一个相应的右括号，如果下个元素与栈顶相同，我们就删除，最后如果栈中元素清空，且字符串你也遍历到了最后一位，返回true，其他情况为false;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        stack&lt;<span class="keyword">char</span>&gt; st;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] == <span class="string">&#x27;(&#x27;</span>) st.<span class="built_in">push</span>(<span class="string">&#x27;)&#x27;</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i] == <span class="string">&#x27;[&#x27;</span>) st.<span class="built_in">push</span>(<span class="string">&#x27;]&#x27;</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i] == <span class="string">&#x27;&#123;&#x27;</span>) st.<span class="built_in">push</span>(<span class="string">&#x27;&#125;&#x27;</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(st.<span class="built_in">empty</span>() || st.<span class="built_in">top</span>() != s[i]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">else</span> st.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> st.<span class="built_in">empty</span>();<span class="comment">//这里面既包含这匹配情况，又包含着数组已经到最后一个，但栈还没匹配完的情况。</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="1047-删除字符串中的所有相邻重复串"><a href="#1047-删除字符串中的所有相邻重复串" class="headerlink" title="1047. 删除字符串中的所有相邻重复串"></a>1047. 删除字符串中的所有相邻重复串</h1><p>思路：把字符串顺序放到一个栈中，然后如果相同的话，栈就弹出，这样最后栈里剩下的元素就是相邻不相同的元素了。由于栈先进后出的特性，最后输出时要反转下。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">removeDuplicates</span><span class="params">(string S)</span> </span>&#123;</span><br><span class="line">        stack&lt;<span class="keyword">char</span>&gt; st;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> s : S) &#123;</span><br><span class="line">            <span class="keyword">if</span>(st.<span class="built_in">empty</span>() || s != st.<span class="built_in">top</span>()) &#123;</span><br><span class="line">                st.<span class="built_in">push</span>(s);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                st.<span class="built_in">pop</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        string result = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">while</span>(!st.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            result += st.<span class="built_in">top</span>();</span><br><span class="line">            st.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">reverse</span>(result.<span class="built_in">begin</span>(), result.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="150-逆波兰表达式求值"><a href="#150-逆波兰表达式求值" class="headerlink" title="150.逆波兰表达式求值"></a>150.逆波兰表达式求值</h1><p>思路：跟上道题一样，挨个往栈里面放元素，遇到运算符的时候再对栈顶元素进行操作。<strong>其实这道题就是用栈实现的后序遍历</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">soluiton</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">evalRPN</span><span class="params">(vector&lt;string&gt;&amp; tokens)</span> </span>&#123;</span><br><span class="line">        stack&lt;<span class="keyword">int</span>&gt; st;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tokens.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(tokens[i] == <span class="string">&quot;+&quot;</span> || tokens[i] == <span class="string">&quot;-&quot;</span> || tokens[i] == <span class="string">&quot;*&quot;</span> || tokens[i] == <span class="string">&quot;/&quot;</span> ) &#123;</span><br><span class="line">                <span class="keyword">int</span> num1 = st.<span class="built_in">top</span>(); st.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">int</span> num2 = st.<span class="built_in">top</span>(); st.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">if</span>(tokens[i] == <span class="string">&quot;+&quot;</span>) st.<span class="built_in">push</span>(num1 + num2);</span><br><span class="line">                <span class="keyword">if</span>(tokens[i] == <span class="string">&quot;-&quot;</span>) st.<span class="built_in">push</span>(num2 - num1);</span><br><span class="line">                <span class="keyword">if</span>(tokens[i] == <span class="string">&quot;*&quot;</span>) st.<span class="built_in">push</span>(num1 * num2);</span><br><span class="line">                <span class="keyword">if</span>(tokens[i] == <span class="string">&quot;/&quot;</span>) st.<span class="built_in">push</span>(num2 / num1);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                st.<span class="built_in">push</span>(<span class="built_in">stoi</span>(tokens[i]));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> result = st.<span class="built_in">top</span>();</span><br><span class="line">        st.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="239-滑动窗口最大值"><a href="#239-滑动窗口最大值" class="headerlink" title="239.滑动窗口最大值"></a>239.滑动窗口最大值</h1><p>思路：定义一个<code>deque</code> 为默认底层容器的队列，这个队列需要满足的要求有</p>
+<ul>
+<li>单调队列，及单调递减或单调递增的队列。出口元素为最大，入口元素为最小。</li>
+<li>pop, 如果窗口移除的元素value等于单调队列的出口元素，那么队列弹出元素，否则不用任何操作。</li>
+<li>push，如果push的元素大于入口元素的值，那么就将入口元素弹出，直到push元素的数值小于等于队列入口元素的数值为止。</li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Soluiton</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span> :</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MyQueue</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        deque&lt;<span class="keyword">int</span>&gt; que;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(！que.<span class="built_in">empty</span>() &amp;&amp; value &gt; que.<span class="built_in">back</span>()) &#123;</span><br><span class="line">                que.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            que.<span class="built_in">push_back</span>(value);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">(<span class="keyword">int</span> value)</span></span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(!que.<span class="built_in">empty</span>() &amp;&amp; value == que.<span class="built_in">front</span>()) &#123;</span><br><span class="line">                que.<span class="built_in">pop_front</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">front</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> que.<span class="built_in">front</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">maxSlidingWindows</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        MyQueue&lt;<span class="keyword">int</span>&gt; que;</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; result;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">            que.<span class="built_in">push</span>(nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        result.<span class="built_in">push_back</span>(que.<span class="built_in">front</span>());</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = k; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            que.<span class="built_in">pop</span>(nums[i - k]);</span><br><span class="line">            que.<span class="built_in">push</span>(nums[i]);</span><br><span class="line">            result.<span class="built_in">push_back</span>(que.<span class="built_in">front</span>());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="347-前k个高频元素"><a href="#347-前k个高频元素" class="headerlink" title="347.前k个高频元素"></a>347.前k个高频元素</h1><p>思路：</p>
+<ul>
+<li>要统计元素出现的频率</li>
+<li>对频率排序</li>
+<li>找出前K个高频元素</li>
+</ul>
+<p>统计元素出现的频率，可以用map。然后对频率进行排序，可以用容器适配器就是<strong>优先级队列</strong>（我的小结中会有这方面的介绍）。优先级队列的排列顺序可以用自定义的权值。采用小顶堆，去掉最小的，剩下的就是最大的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//小顶堆，谓语</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">mycomparison</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; lhs, <span class="keyword">const</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; rhs)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> lhs.second &gt; rhs.second;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">topKFrequent</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; map;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            map[nums[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">        priority_queue&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;, vector&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt;, mycomparison&gt; pri_que;</span><br><span class="line">        <span class="keyword">for</span>(unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; :: iterator it = map.<span class="built_in">begin</span>(); it != map.<span class="built_in">end</span>(); it++) &#123;</span><br><span class="line">            pri_que.<span class="built_in">push</span>(*it);</span><br><span class="line">            <span class="keyword">if</span>(pri_que.<span class="built_in">size</span>() &gt; k) &#123;<span class="comment">//如果堆的大小大于了k,则队列弹出，保证堆的大小始终为k；</span></span><br><span class="line">                pri_que.<span class="built_in">pop</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//找出前k个高频元素，因为小顶堆先弹出的是最小的，所以倒序来输出到数组。</span></span><br><span class="line">        <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">result</span><span class="params">(k)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = k - <span class="number">1</span>; i &gt; = <span class="number">0</span>; i--) &#123;</span><br><span class="line">            result[i] = pri_que.<span class="built_in">top</span>().frist;</span><br><span class="line">            pri_que.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>栈里面的元素在内存中是连续分布的么？</p>
+<p>这个问题有两个陷阱：</p>
+<ul>
+<li>陷阱1：栈是容器适配器，底层容器使用不同的容器，（使用数组的话就是连续的，顺序栈，而链式栈就不是连续的）导致栈内数据在内存中是不是连续分布。</li>
+<li>陷阱2：缺省情况下，默认底层容器是deque，那么deque的在内存中的数据分布是什么样的呢？答案是：不连续的，下文也会提到deque。</li>
+</ul>
+<p>下一部分：对做过的双指针题目专门记一下。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -214,95 +292,121 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liushixiong99.github.io/021/04/21/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/17/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8Akmp/" class="archive-article-date">
-  	<time datetime="2021-04-17T02:10:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/04/17/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8Akmp/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">字符串及kmp</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/17/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8Akmp/">字符串及kmp</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#232-%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97"><span class="toc-number">1.</span> <span class="toc-text">232. 用栈实现队列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#225-%E7%94%A8%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E6%A0%88"><span class="toc-number">2.</span> <span class="toc-text">225.用队列实现栈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7"><span class="toc-number">3.</span> <span class="toc-text">20.有效的括号</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1047-%E5%88%A0%E9%99%A4%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E7%9B%B8%E9%82%BB%E9%87%8D%E5%A4%8D%E4%B8%B2"><span class="toc-number">4.</span> <span class="toc-text">1047. 删除字符串中的所有相邻重复串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#150-%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC"><span class="toc-number">5.</span> <span class="toc-text">150.逆波兰表达式求值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#239-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E6%9C%80%E5%A4%A7%E5%80%BC"><span class="toc-number">6.</span> <span class="toc-text">239.滑动窗口最大值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#347-%E5%89%8Dk%E4%B8%AA%E9%AB%98%E9%A2%91%E5%85%83%E7%B4%A0"><span class="toc-number">7.</span> <span class="toc-text">347.前k个高频元素</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/09/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%80%BB%E7%BB%93%EF%BC%81/" class="archive-article-date">
-  	<time datetime="2021-04-09T12:02:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-09</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/09/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%80%BB%E7%BB%93%EF%BC%81/">哈希表总结！</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
+
 
 
           </div>
@@ -329,9 +433,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
