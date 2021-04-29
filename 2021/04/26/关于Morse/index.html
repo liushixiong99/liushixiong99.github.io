@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>回溯算法（一） | 柳世雄的个人博客</title>
+  <title>关于Morse | 柳世雄的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="​    什么是回溯算法，回溯的本质是穷举，穷举出所有可能，然后得出我们想要的答案。如果想要回溯高效一些，可以加一些剪枝的操作，但也改不了回溯就是穷举的本质。">
+  <meta name="description" content="Just do it!">
 <meta property="og:type" content="article">
-<meta property="og:title" content="回溯算法（一）">
-<meta property="og:url" content="http://example.com/2021/04/23/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:title" content="关于Morse">
+<meta property="og:url" content="http://example.com/2021/04/26/%E5%85%B3%E4%BA%8EMorse/index.html">
 <meta property="og:site_name" content="柳世雄的个人博客">
-<meta property="og:description" content="​    什么是回溯算法，回溯的本质是穷举，穷举出所有可能，然后得出我们想要的答案。如果想要回溯高效一些，可以加一些剪枝的操作，但也改不了回溯就是穷举的本质。">
+<meta property="og:description" content="Just do it!">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-04-23T06:30:03.000Z">
-<meta property="article:modified_time" content="2021-04-26T06:38:50.266Z">
+<meta property="article:published_time" content="2021-04-26T08:08:33.000Z">
+<meta property="article:modified_time" content="2021-04-26T08:08:33.369Z">
 <meta property="article:author" content="柳世雄">
-<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="坚持 努力 成功">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="柳世雄的个人博客" type="application/atom+xml">
@@ -176,54 +176,27 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-回溯算法（一）" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-关于Morse" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      回溯算法（一）
+      关于Morse
     </h1>
   
 
         
-        <a href="/2021/04/23/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-04-23T06:30:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-23</time>
+        <a href="/2021/04/26/%E5%85%B3%E4%BA%8EMorse/" class="archive-article-date">
+  	<time datetime="2021-04-26T08:08:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​    什么是回溯算法，回溯的本质是穷举，穷举出所有可能，然后得出我们想要的答案。如果想要回溯高效一些，可以加一些<strong>剪枝</strong>的操作，但也改不了回溯就是穷举的本质。</p>
-<span id="more"></span>
-
-<p>回溯的关键在我看来就是回退，体现出来就是先加后减，先添加后删除。用回溯法一般可以解决如下几种问题：</p>
-<ul>
-<li>组合问题：N个数里面按一定规则找出k个数的集合。</li>
-<li>排列问题：N个数按一定规则全排列，有几种排列方式</li>
-<li>切割问题：一个字符串按一定规则有几种切割方式</li>
-<li>子集问题：一个N个数的集合里有多少符合条件的子集</li>
-<li>棋盘问题：N皇后，解数独等等。</li>
-</ul>
-<p>参考一下卡尔老师总结的回溯三部曲：</p>
-<ul>
-<li>回溯函数返回值以及参数 回溯算法函数返回值一般为void</li>
-<li>回溯函数终止条件 一般来说就是到达了树的深度</li>
-<li>回溯搜索的遍历过程  for循环表示书的宽度，递归来表示树的高度（深度）</li>
-</ul>
-<h1 id="77-求组和问题"><a href="#77-求组和问题" class="headerlink" title="77.求组和问题"></a>77.求组和问题</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">solution</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; path;</span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; result;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backtarcking</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k, <span class="keyword">int</span> startIndex)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(path.<span class="built_in">size</span>() == k) &#123;</span><br><span class="line">            result.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//未剪枝</span></span><br><span class="line">        <span class="comment">//for(int i = startIndex; i &lt;= n; i++) &#123;</span></span><br><span class="line">        <span class="comment">//剪枝 从3以后就可以不再进入循环</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = startIndex; i &lt;= n - (k - path.<span class="built_in">size</span>()) + <span class="number">1</span>; i++) &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(i);</span><br><span class="line">            <span class="built_in">backtracking</span>(n , k, i + <span class="number">1</span>);</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">conbine</span>(<span class="keyword">int</span> n, <span class="keyword">int</span> k) &#123;</span><br><span class="line">        reult.<span class="built_in">clear</span>();</span><br><span class="line">        path.<span class="built_in">clear</span>();</span><br><span class="line">        <span class="built_in">backtracking</span>(n, k, <span class="number">1</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="216-组合总和Ⅲ"><a href="#216-组合总和Ⅲ" class="headerlink" title="216. 组合总和Ⅲ"></a>216. 组合总和Ⅲ</h1><p>思路：这道题其实和上道题差不多，上道题是纯粹的组合，而这道题是组合加求和，这道题总数n也是固定的，9个</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">solution</span>&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; result;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; path;</span><br><span class="line">    <span class="comment">//targetSum: 目标和，也就是其题目中的n</span></span><br><span class="line">    <span class="comment">//k: 题目中要求k个数的集合</span></span><br><span class="line">    <span class="comment">//sum : 已经收集到的元素的总和，也就是path里元素的总和</span></span><br><span class="line">    <span class="comment">//startIndex： 下一层for循环搜索的起始位置</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backtracking</span><span class="params">(<span class="keyword">int</span> targetSum, <span class="keyword">int</span> k, <span class="keyword">int</span> sum, <span class="keyword">int</span> startIndex)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//剪枝</span></span><br><span class="line">        <span class="keyword">if</span>(sum &gt; targetSum) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(path.<span class="built_in">size</span>() == k) &#123;</span><br><span class="line">            <span class="keyword">if</span>(sum == targetSum) result.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = startIndex; i &lt;= <span class="number">9</span>; i++) &#123;</span><br><span class="line">            sum += i;</span><br><span class="line">            path.<span class="built_in">push_back</span>(i);</span><br><span class="line">            <span class="built_in">backtracking</span>(targetSum, k, sum, i + <span class="number">1</span>);</span><br><span class="line">            path.<span class="built_in">pop_back</span>();回溯</span><br><span class="line">            sum -= i;<span class="comment">//回溯</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">conbinationSum3</span>(<span class="keyword">int</span> k, <span class="keyword">int</span> n) &#123;</span><br><span class="line">        result.<span class="built_in">clear</span>();</span><br><span class="line">        path.<span class="built_in">clear</span>();</span><br><span class="line">        <span class="built_in">backtracking</span>(n, k, <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="17-电话号码的字母组合"><a href="#17-电话号码的字母组合" class="headerlink" title="17.电话号码的字母组合"></a>17.电话号码的字母组合</h1><p>思路：用回溯就是解决不能确定到底有多少次循环的问题</p>
-<p>这道题需要首先先定义一个数组，来放对应的字符串，然后之后的操作就是for循环表示2-9，深度用递归来表示。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">solution</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">const</span> string letterMap[<span class="number">10</span>] = &#123;</span><br><span class="line">        <span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;abc&quot;</span>, <span class="string">&quot;def&quot;</span>, <span class="string">&quot;ghi&quot;</span>, <span class="string">&quot;jkl&quot;</span>, <span class="string">&quot;mno&quot;</span>, <span class="string">&quot;pqrs&quot;</span>, <span class="string">&quot;tuv&quot;</span>, <span class="string">&quot;wxyz&quot;</span>,</span><br><span class="line">    &#125;;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;string&gt; result;</span><br><span class="line">    string s;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backtracking</span><span class="params">(<span class="keyword">const</span> string&amp; digits, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index == digits.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            result.<span class="built_in">push_back</span>(s);</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> digit = digits[index] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        string letter = letterMap[digit];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; letter.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            s.<span class="built_in">push_back</span>(letter[i]);</span><br><span class="line">            <span class="built_in">backtracking</span>(digits, index + <span class="number">1</span>);</span><br><span class="line">            s.<span class="built_in">pop_back</span>(letter[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">letterCombinations</span><span class="params">(string digits)</span> </span>&#123;</span><br><span class="line">        result.<span class="built_in">clear</span>();</span><br><span class="line">        s.<span class="built_in">clear</span>();</span><br><span class="line">        <span class="keyword">if</span>(digits.<span class="built_in">size</span>() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">backtracking</span>(digits, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>总结： 回溯就是在无法判断循环次数的时候用递归来代替！</p>
-
+        
       
 
       
@@ -257,17 +230,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -318,7 +280,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liushixiong99.github.io/021/04/23/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liushixiong99.github.io/021/04/26/%E5%85%B3%E4%BA%8EMorse/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -333,18 +295,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/04/26/%E5%85%B3%E4%BA%8EMorse/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/04/29/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%BA%8C%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          关于Morse
+          回溯算法（二）
         
       </div>
     </a>
   
   
-    <a href="/2021/04/21/%E2%80%9C%E5%8F%8C%E6%8C%87%E9%92%88%E2%80%9D/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">“双指针”</div>
+    <a href="/2021/04/23/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">回溯算法（一）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -371,7 +333,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#77-%E6%B1%82%E7%BB%84%E5%92%8C%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">77.求组和问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#216-%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C%E2%85%A2"><span class="toc-number">2.</span> <span class="toc-text">216. 组合总和Ⅲ</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#17-%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88"><span class="toc-number">3.</span> <span class="toc-text">17.电话号码的字母组合</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
