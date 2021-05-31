@@ -175,6 +175,204 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-贪心算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/26/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">贪心算法</a>
+    </h1>
+  
+
+        
+        <a href="/2021/05/26/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2021-05-26T02:50:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    上次总结是在10号，隔了26天，这次打算将所有有关贪心的东西都放到一起总结。为了适合回忆，我先将所有题号列到最前面：</p>
+        
+          <a class="article-more-a" href="/2021/05/26/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/05/26/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-linux指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/24/linux%E6%8C%87%E4%BB%A4/">linux指令</a>
+    </h1>
+  
+
+        
+        <a href="/2021/05/24/linux%E6%8C%87%E4%BB%A4/" class="archive-article-date">
+  	<time datetime="2021-05-24T14:16:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基础指令"><a href="#基础指令" class="headerlink" title="基础指令"></a>基础指令</h1><p>ls : 表示list列表，用来展示该目录下所有的文件和文件夹下的名称。</p>
+<p>用法2：#ls 路径</p>
+<p>含义：列出指定路径下的所有文件、文件夹的名称</p>
+<p>关于路径（重要）：</p>
+<p>路径可以分为两种：相对路径、绝对路径。相对路径：首先得有一个参照物（一般就是当前的工作路径）。绝对路径：绝对路径不需要参照物，直接从根“/“开始寻找对应路径</p>
+<ul>
+<li><p>whoami</p>
+<p>作用：“我是谁”，显示当前登录的用户名，一般用于shell脚本，用于获取当前操做的用户名方便记录日志</p>
+<p>语法：#whoami</p>
+</li>
+<li><p>ps - ef指令（重点）</p>
+<p>指令：ps</p>
+<p>作用：查看服务器的进程信息</p>
+<p>选项含义：</p>
+<p>​    -e: 表示列出全部的进程</p>
+<p>​    -f: 显示全部的列（显示全字段）</p>
+<p>语法：#ps -ef</p>
+<p>执行结果解释：（字段）</p>
+<p>UID:执行该进程的用户id</p>
+<p>PID：进程id</p>
+<p>PPID：该进程的父级进程 如果一个程序的父级进程找不到，该程序的进程称为僵尸进程</p>
+<p>C:CPU的占用率，单位是百分数</p>
+<p>STIME：该进程的启动时间</p>
+<p>TTY：终端设备，？表示系统不知道终端设备识别号，其实是系统自动的</p>
+<p>TIME：进程的执行时间</p>
+<p>CMD：这个进程对应的名称或路径</p>
+<p>案例：（一定会使用的命令）从ps中过滤自己想要的进程</p>
+<p>#ps -ef | grep + 进程名称</p>
+<p>#ps -ef | grep firefox（查看火狐浏览器的进程）</p>
+</li>
+<li><p>top 指令（重点）</p>
+<p>作用：查看服务器的进程所占的资源</p>
+<p>语法：进入命令：#top    (动态显示)   退出命令（按q显示）</p>
+<p>执行结果解释：字段解释</p>
+<p>PID：进程ID</p>
+<p>user ： 该进程对应的用户</p>
+<p>PR：优先级</p>
+<p>VIRT：虚拟内存 （申请的内存）</p>
+<p>RES：常驻内存 （实际使用的内存）</p>
+<p>SHR：共享内存 （有的进程不能独立运行，要调用其他进程，总内存就需要扣除这部分）</p>
+<p>计算一个进程实际使用的内存 = 常驻内存 -  共享内存</p>
+<p>S：表示进程的状态（sleep） s表示睡眠，R表示运行</p>
+<p>%CPU：表示CPU的占用百分比</p>
+<p>%MEM：表示内存的占用百分比</p>
+<p>TIME+：执行的时间</p>
+<p>COMMAND：进程的名称或路径</p>
+<p>方便快捷键　：在＃ｔｏｐ　后，可以按下方便的快捷键　其中M　表示将内存按照从高到低排列　　Ｐ　表示按照CPU使用率从高到低进行一个降序的排列　1：如果ｌｉｎｕｘ有多个处理器，他就可以显示所有ｃｐｕ。</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/05/24/linux%E6%8C%87%E4%BB%A4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-回溯算法（三）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -350,7 +548,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​    数字高程模型（DEM）能够对表面几何信息进行精确的存储和表达，能够逼真的表达地球表面，增进人们对地形本质的认识和理解，同时能够帮助人们进行各种量算、分析和可视化操作等。然而，无论是局部DEM模型还是全球DEM模型，均不能直接揭示地形表面的额形态特征信息，有时还会带有大量的数据冗余，其多分辨率表达时常涉及消除“裂缝”等复杂计算。与此相反，基于Morse理论的表面拓扑（或形态）模型则是通过提取表面关键点、关键线，对应到地表上就是特征点（鞍点、极小点和极大点）、特征线（山脊线、山谷线），利用拓扑数据结构形成表面网格，从拓扑特性的角度对表面进行描述、分析和表达。最关键的是他通过相同特征点的相连所形成的特征网格将表面划分成极富意义的单调变化区域，这些区域一般和水文特征息息相关。例如汇水区。</p>
+        <p>​    数字高程模型（DEM）能够对表面几何信息进行精确的存储和表达，能够逼真的表达地球表面，增进人们对地形本质的认识和理解，同时能够帮助人们进行各种量算、分析和可视化操作等。然而，无论是局部DEM模型还是全球DEM模型，均不能直接揭示地形表面的形态特征信息，有时还会带有大量的数据冗余，其多分辨率表达时常涉及消除“裂缝”等复杂计算。与此相反，基于Morse理论的表面拓扑（或形态）模型则是通过提取表面关键点、关键线，对应到地表上就是特征点（鞍点、极小点和极大点）、特征线（山脊线、山谷线），利用拓扑数据结构形成表面网格，从拓扑特性的角度对表面进行描述、分析和表达。最关键的是他通过相同特征点的相连所形成的特征网格将表面划分成极富意义的单调变化区域，这些区域一般和水文特征息息相关。例如汇水区。</p>
 <p>关于拓扑简化，就是利用高差作为拓扑简化算子，比较同一特征线上相邻特征点之间的权重差异，比如山脊线上，山谷线上。</p>
 <p>之后为了拟合真实线路，采取了一种自适应方法，利用误差作为评判标准。</p>
 <p>现在我主要做的是这个模型在地势平缓地区特征点冗余的情况。</p>
@@ -787,82 +985,10 @@
 
 
   
-    <article id="post-哈希表总结！" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/04/09/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%80%BB%E7%BB%93%EF%BC%81/">哈希表总结！</a>
-    </h1>
-  
-
-        
-        <a href="/2021/04/09/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%80%BB%E7%BB%93%EF%BC%81/" class="archive-article-date">
-  	<time datetime="2021-04-09T12:02:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​    由于电脑再次出现了故障，不得不重装系统。在备份数据的时候，出现了问题，造成我不得不重新再搭一个一个博客。这就导致一个问题，是重新开个仓库，还是直接把原来的顶了。在尝试直接链接到之前的博客无果之后，我决定重新搭个博客，至于之前的二叉树，链表以及数组方面的东西，我会找时间给补上。</p>
-        
-          <a class="article-more-a" href="/2021/04/09/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%80%BB%E7%BB%93%EF%BC%81/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/04/09/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%80%BB%E7%BB%93%EF%BC%81/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
@@ -958,6 +1084,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>

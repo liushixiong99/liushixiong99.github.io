@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>字符串及kmp | 柳世雄的个人博客</title>
+  <title>linux指令 | 柳世雄的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="​    字符串及kmp算法的相关总结，老样子，按leetcode中的题号进行总结。">
+  <meta name="description" content="基础指令ls : 表示list列表，用来展示该目录下所有的文件和文件夹下的名称。 用法2：#ls 路径 含义：列出指定路径下的所有文件、文件夹的名称 关于路径（重要）： 路径可以分为两种：相对路径、绝对路径。相对路径：首先得有一个参照物（一般就是当前的工作路径）。绝对路径：绝对路径不需要参照物，直接从根“&#x2F;“开始寻找对应路径  whoami 作用：“我是谁”，显示当前登录的用户名，一般用于shel">
 <meta property="og:type" content="article">
-<meta property="og:title" content="字符串及kmp">
-<meta property="og:url" content="http://example.com/2021/04/17/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8Akmp/index.html">
+<meta property="og:title" content="linux指令">
+<meta property="og:url" content="http://example.com/2021/05/24/linux%E6%8C%87%E4%BB%A4/index.html">
 <meta property="og:site_name" content="柳世雄的个人博客">
-<meta property="og:description" content="​    字符串及kmp算法的相关总结，老样子，按leetcode中的题号进行总结。">
+<meta property="og:description" content="基础指令ls : 表示list列表，用来展示该目录下所有的文件和文件夹下的名称。 用法2：#ls 路径 含义：列出指定路径下的所有文件、文件夹的名称 关于路径（重要）： 路径可以分为两种：相对路径、绝对路径。相对路径：首先得有一个参照物（一般就是当前的工作路径）。绝对路径：绝对路径不需要参照物，直接从根“&#x2F;“开始寻找对应路径  whoami 作用：“我是谁”，显示当前登录的用户名，一般用于shel">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-04-17T02:10:46.000Z">
-<meta property="article:modified_time" content="2021-04-17T04:10:33.880Z">
+<meta property="article:published_time" content="2021-05-24T14:16:44.000Z">
+<meta property="article:modified_time" content="2021-05-27T15:19:43.550Z">
 <meta property="article:author" content="柳世雄">
-<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="柳世雄的个人博客" type="application/atom+xml">
@@ -176,66 +176,75 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-字符串及kmp" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-linux指令" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      字符串及kmp
+      linux指令
     </h1>
   
 
         
-        <a href="/2021/04/17/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8Akmp/" class="archive-article-date">
-  	<time datetime="2021-04-17T02:10:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-17</time>
+        <a href="/2021/05/24/linux%E6%8C%87%E4%BB%A4/" class="archive-article-date">
+  	<time datetime="2021-05-24T14:16:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​    字符串及kmp算法的相关总结，老样子，按leetcode中的题号进行总结。</p>
-<span id="more"></span>
-
-<h1 id="344-反转字符串"><a href="#344-反转字符串" class="headerlink" title="344.反转字符串"></a>344.反转字符串</h1><p>思路：这道题的难点在于不能给数组分配额外的空间，必须原地修改数组。</p>
-<p>具体思路是：定义两个指针，一左一右，在互换顺序之后相互逼近。</p>
-<p>代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">soultion</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">reverseString</span><span class="params">(vector&lt;<span class="keyword">char</span>&gt;&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> , j = s.<span class="built_in">size</span>() - <span class="number">1</span>; i &lt; j;i++, j-- ) &#123;</span><br><span class="line">            <span class="built_in">swap</span>(s[i], s[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="541-反转字符串Ⅱ"><a href="#541-反转字符串Ⅱ" class="headerlink" title="541.反转字符串Ⅱ"></a>541.反转字符串Ⅱ</h1><p>思路：这道题属于用程序模拟过程，关键在于每隔2k起始点的判断。注意的一点是，因为这里主要是考察对过程的模拟，因此我们可以直接利用库函数（reverse）</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">reverseStr</span><span class="params">(string s, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i += <span class="number">2</span> * k) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i + k &lt;= s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">                <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>() + i, s.<span class="built_in">begin</span>() + i + k);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>() + i, s.<span class="built_in">begin</span>() + s.<span class="built_in">size</span>());</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="剑指offer-05-替换空格"><a href="#剑指offer-05-替换空格" class="headerlink" title="剑指offer 05.替换空格"></a>剑指offer 05.替换空格</h1><p>思路：这道题和344一样，难点在于不能使用额外的辅助空间</p>
-<p>具体方法：先将字符串扩充到能放下20%的空间；然后定义两个指针，一个指向旧字符串，一个指向新的字符串；旧指针指向的就是字符，那就新的也是字符，如果旧指针指的是空格，那新指针就按从右到左依次填写0 2 %，即可，因为，新字符串肯定能放下，所以不必的担心会掩盖。</p>
-<p>代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">replaceSpace</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> oldSize = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] = <span class="string">&#x27; &#x27;</span>) count++;</span><br><span class="line">        &#125;</span><br><span class="line">        s.<span class="built_in">resize</span>(s.<span class="built_in">size</span>() + <span class="number">2</span> * count);</span><br><span class="line">        <span class="keyword">int</span> newSize = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = newSize - <span class="number">1</span>, j = oldSize - <span class="number">1</span>; j &lt; i; i--, j--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[j] != <span class="string">&#x27; &#x27;</span>) s[i] = s[j];</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                s[i] = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                s[i - <span class="number">1</span>] = <span class="string">&#x27;2&#x27;</span>;</span><br><span class="line">                s[i - <span class="number">2</span>] = <span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">                i -= <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="151-反转字符串里的单词"><a href="#151-反转字符串里的单词" class="headerlink" title="151. 反转字符串里的单词"></a>151. 反转字符串里的单词</h1><p>要求：不能使用额外空间，空间复杂度O（1）；</p>
-<p>思路：先移除多余空格，再整体反转，最后以空格为标志，反转的单词。（注意形参用引用，否则值不会发生变化）</p>
-<p>移除多余空格：利用快慢指针，其中快指针指向整个字符串，慢指针只有当快指针指向非空字符时才移动。</p>
-<p>整体反转和单词：利用reserve(也可以利用344)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeSpace</span><span class="params">(string&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> slowIndex = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> fastIndex = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(s.<span class="built_in">size</span>() &gt; <span class="number">0</span> &amp;&amp; fastIndex &lt; s.<span class="built_in">size</span>() &amp;&amp; s[fastIndex] == <span class="string">&#x27; &#x27;</span>) &#123;</span><br><span class="line">            fastIndex++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(; fastIndex &lt; s.<span class="built_in">size</span>(); fastIndex++) &#123;</span><br><span class="line">            <span class="comment">//去掉字符串中间的冗余部分</span></span><br><span class="line">            <span class="keyword">if</span>(fastIndex &gt; <span class="number">1</span> &amp;&amp; s[fastIndex - <span class="number">1</span>] == s[fastIndex] &amp;&amp; s[fastIndex] == <span class="string">&#x27; &#x27;</span>) &#123;</span><br><span class="line">                fastIndex++;</span><br><span class="line">            &#125;<span class="keyword">else</span> s[slowIndex++] = s[fastIndex];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(slowIndex - <span class="number">1</span> &gt; <span class="number">0</span> &amp;&amp; s[slowIndex - <span class="number">1</span>] == <span class="string">&#x27; &#x27;</span>) s.<span class="built_in">resize</span>(slowIndex - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">else</span> s.<span class="built_in">resize</span>(slowIndex);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//反转字符串</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(string&amp; s, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = start, j = end; i &lt; j; i++, j--) &#123;</span><br><span class="line">            <span class="built_in">swap</span>(s[i], s[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">string <span class="title">reverseWords</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">removeSpace</span>(s);</span><br><span class="line">        <span class="built_in">reverse</span>(s, <span class="number">0</span>, s.<span class="built_in">size</span>() - <span class="number">1</span>) ;</span><br><span class="line">        <span class="comment">//int start = 0;</span></span><br><span class="line">        <span class="comment">//int end = 0;</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>; j &lt; s.<span class="built_in">size</span>() ; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[j] == <span class="string">&#x27; &#x27;</span> &amp; s[j - <span class="number">1</span>] != <span class="string">&#x27; &#x27;</span>) &#123;</span><br><span class="line">               <span class="comment">// end = j - 1;</span></span><br><span class="line">               <span class="comment">// start = i;</span></span><br><span class="line">               <span class="comment">// reverse(s, start , end);</span></span><br><span class="line">                <span class="built_in">reverse</span>(s, i , j - <span class="number">1</span> );</span><br><span class="line">                i =  j + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(j == s.<span class="built_in">size</span>() - <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="built_in">reverse</span>(s, i , j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="剑指offer-58-Ⅱ-左旋转字符串"><a href="#剑指offer-58-Ⅱ-左旋转字符串" class="headerlink" title="剑指offer 58 - Ⅱ. 左旋转字符串"></a>剑指offer 58 - Ⅱ. 左旋转字符串</h1><p>要求：不能使用额外空间</p>
-<p>思路：这道题很有意思，可以这样做，先反转前两位，再反转剩下的几位，最后整体反转就是结果。</p>
-<p>例如 ：示例1中 输入：字符串 abcdefg，n=2</p>
-<ol>
-<li>反转区间为前n的子串 ：bacdefg</li>
-<li>反转区间为n到末尾的子串：bagfedc</li>
-<li>反转整个字符串：cdefgab</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">reverseLeftWords</span><span class="params">(string s, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">begin</span>() + n);</span><br><span class="line">        <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>() + n, s.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="28-实现strStr"><a href="#28-实现strStr" class="headerlink" title="28 . 实现strStr()"></a>28 . 实现strStr()</h1><p>思路：这道题时典型的kmp算法，kmp算法的实质用一句话来说就是通过找模式串的相同前后缀确定主串下一次的匹配位置。\</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">solution</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>：</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">getNext</span><span class="params">(<span class="keyword">int</span> * next, <span class="keyword">const</span> string&amp; s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">-1</span>;</span><br><span class="line">    next[<span class="number">0</span>] = j;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">while</span>(j &gt;= <span class="number">0</span> &amp;&amp; s[i] != s[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s[i] = s[j + <span class="number">1</span>] ) &#123;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        next[i] = j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">strStr</span><span class="params">(string haystack, string needle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(needle.<span class="built_in">size</span>() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> next[needle.size];</span><br><span class="line">        <span class="built_in">getNext</span>(next, needle);</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;  i&lt; haystack.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">while</span>(j &gt; = <span class="number">0</span> &amp;&amp; haystack[i] !=  needle[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                j = next[j];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(haystack[i] == needle[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(j == needle.<span class="built_in">size</span>() - <span class="number">1</span> ) &#123;</span><br><span class="line">                <span class="keyword">return</span> i - j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="459-重复的子字符串"><a href="#459-重复的子字符串" class="headerlink" title="459.重复的子字符串"></a>459.重复的子字符串</h1><p>思路：这也是一道标准的kmp算法题，主要是考察next数组的建立。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">getNext</span><span class="params">(<span class="keyword">int</span> * next, string&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">-1</span>;</span><br><span class="line">        next[<span class="number">0</span>] = j;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">while</span>(j &gt;= <span class="number">0</span> &amp;&amp; s[i] != s[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                j = next[j];</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(s[i] == s[ j+ <span class="number">1</span>]) &#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">repeatedSubstringPattern</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.<span class="built_in">size</span>() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> next[s.<span class="built_in">size</span>()];</span><br><span class="line">        getNext[next , s];</span><br><span class="line">        <span class="keyword">if</span> (next[s.<span class="built_in">size</span>() - <span class="number">1</span>] != <span class="number">-1</span> &amp;&amp; s.<span class="built_in">size</span>() % (s.<span class="built_in">size</span>() - next[s.<span class="built_in">size</span>() - <span class="number">1</span>] - <span class="number">1</span>) == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>关于kmp算法的详细介绍，大家可以去<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/70OXnZ4Ez29CKRrUpVJmug%E3%80%82">https://mp.weixin.qq.com/s/70OXnZ4Ez29CKRrUpVJmug。</a></p>
-<p>下一部分 栈与队列！</p>
+        <h1 id="基础指令"><a href="#基础指令" class="headerlink" title="基础指令"></a>基础指令</h1><p>ls : 表示list列表，用来展示该目录下所有的文件和文件夹下的名称。</p>
+<p>用法2：#ls 路径</p>
+<p>含义：列出指定路径下的所有文件、文件夹的名称</p>
+<p>关于路径（重要）：</p>
+<p>路径可以分为两种：相对路径、绝对路径。相对路径：首先得有一个参照物（一般就是当前的工作路径）。绝对路径：绝对路径不需要参照物，直接从根“/“开始寻找对应路径</p>
+<ul>
+<li><p>whoami</p>
+<p>作用：“我是谁”，显示当前登录的用户名，一般用于shell脚本，用于获取当前操做的用户名方便记录日志</p>
+<p>语法：#whoami</p>
+</li>
+<li><p>ps - ef指令（重点）</p>
+<p>指令：ps</p>
+<p>作用：查看服务器的进程信息</p>
+<p>选项含义：</p>
+<p>​    -e: 表示列出全部的进程</p>
+<p>​    -f: 显示全部的列（显示全字段）</p>
+<p>语法：#ps -ef</p>
+<p>执行结果解释：（字段）</p>
+<p>UID:执行该进程的用户id</p>
+<p>PID：进程id</p>
+<p>PPID：该进程的父级进程 如果一个程序的父级进程找不到，该程序的进程称为僵尸进程</p>
+<p>C:CPU的占用率，单位是百分数</p>
+<p>STIME：该进程的启动时间</p>
+<p>TTY：终端设备，？表示系统不知道终端设备识别号，其实是系统自动的</p>
+<p>TIME：进程的执行时间</p>
+<p>CMD：这个进程对应的名称或路径</p>
+<p>案例：（一定会使用的命令）从ps中过滤自己想要的进程</p>
+<p>#ps -ef | grep + 进程名称</p>
+<p>#ps -ef | grep firefox（查看火狐浏览器的进程）</p>
+</li>
+<li><p>top 指令（重点）</p>
+<p>作用：查看服务器的进程所占的资源</p>
+<p>语法：进入命令：#top    (动态显示)   退出命令（按q显示）</p>
+<p>执行结果解释：字段解释</p>
+<p>PID：进程ID</p>
+<p>user ： 该进程对应的用户</p>
+<p>PR：优先级</p>
+<p>VIRT：虚拟内存 （申请的内存）</p>
+<p>RES：常驻内存 （实际使用的内存）</p>
+<p>SHR：共享内存 （有的进程不能独立运行，要调用其他进程，总内存就需要扣除这部分）</p>
+<p>计算一个进程实际使用的内存 = 常驻内存 -  共享内存</p>
+<p>S：表示进程的状态（sleep） s表示睡眠，R表示运行</p>
+<p>%CPU：表示CPU的占用百分比</p>
+<p>%MEM：表示内存的占用百分比</p>
+<p>TIME+：执行的时间</p>
+<p>COMMAND：进程的名称或路径</p>
+<p>方便快捷键　：在＃ｔｏｐ　后，可以按下方便的快捷键　其中M　表示将内存按照从高到低排列　　Ｐ　表示按照CPU使用率从高到低进行一个降序的排列　1：如果ｌｉｎｕｘ有多个处理器，他就可以显示所有ｃｐｕ。</p>
+</li>
+</ul>
 
       
 
@@ -275,7 +284,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
@@ -331,7 +340,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liushixiong99.github.io/021/04/17/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8Akmp/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liushixiong99.github.io/021/05/24/linux%E6%8C%87%E4%BB%A4/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -346,18 +355,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/04/21/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/05/26/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          栈与队列
+          贪心算法
         
       </div>
     </a>
   
   
-    <a href="/2021/04/16/%E4%BD%8D%E8%BF%90%E7%AE%97/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">位运算</div>
+    <a href="/2021/05/10/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%89%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">回溯算法（三）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -384,7 +393,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#344-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.</span> <span class="toc-text">344.反转字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#541-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%85%A1"><span class="toc-number">2.</span> <span class="toc-text">541.反转字符串Ⅱ</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%91%E6%8C%87offer-05-%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC"><span class="toc-number">3.</span> <span class="toc-text">剑指offer 05.替换空格</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#151-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D"><span class="toc-number">4.</span> <span class="toc-text">151. 反转字符串里的单词</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%91%E6%8C%87offer-58-%E2%85%A1-%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">5.</span> <span class="toc-text">剑指offer 58 - Ⅱ. 左旋转字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#28-%E5%AE%9E%E7%8E%B0strStr"><span class="toc-number">6.</span> <span class="toc-text">28 . 实现strStr()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#459-%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">7.</span> <span class="toc-text">459.重复的子字符串</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%8C%87%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">基础指令</span></a></li></ol>
                     </div>
                 </span>
             </div>
