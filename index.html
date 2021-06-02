@@ -175,6 +175,302 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux下的vim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/01/Linux%E4%B8%8B%E7%9A%84vim/">Linux下的vim</a>
+    </h1>
+  
+
+        
+        <a href="/2021/06/01/Linux%E4%B8%8B%E7%9A%84vim/" class="archive-article-date">
+  	<time datetime="2021-06-01T13:39:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    今天学习vim</p>
+        
+          <a class="article-more-a" href="/2021/06/01/Linux%E4%B8%8B%E7%9A%84vim/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">小记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/06/01/Linux%E4%B8%8B%E7%9A%84vim/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-面向对象三大特性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/31/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/">面向对象三大特性</a>
+    </h1>
+  
+
+        
+        <a href="/2021/05/31/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" class="archive-article-date">
+  	<time datetime="2021-05-31T12:57:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>public 、protected、private修饰类的成员</strong></p>
+<p>类成员的访问权限由高到低依次为public-&gt;protected-&gt;private,public成员可以通过对象来访问，private成员不能通过对象来访问。protected成员和private成员类似，也不能通过对象访问。但是当存在继承关系时，protected和private就不一样了：基类中的protected成员可以在派生类中使用，而基类中的private成员不能再派生类中使用。</p>
+<h2 id="public、protected、private-指定继承方式"><a href="#public、protected、private-指定继承方式" class="headerlink" title="public、protected、private 指定继承方式"></a>public、protected、private 指定继承方式</h2><p>不同的继承方式会影响基类成员在派生类中的访问权限。</p>
+<p><strong>1) public继承方式</strong></p>
+<ul>
+<li>基类中所有 public 成员在派生类中为 public 属性；</li>
+<li>基类中所有 protected 成员在派生类中为 protected 属性；</li>
+<li>基类中所有 private 成员在派生类中不能使用。</li>
+</ul>
+<p><strong>2) protected继承方式</strong></p>
+<ul>
+<li>基类中的所有 public 成员在派生类中为 protected 属性；</li>
+<li>基类中的所有 protected 成员在派生类中为 protected 属性；</li>
+<li>基类中的所有 private 成员在派生类中不能使用。</li>
+</ul>
+<p><strong>3) private继承方式</strong></p>
+<ul>
+<li>基类中的所有 public 成员在派生类中均为 private 属性；</li>
+<li>基类中的所有 protected 成员在派生类中均为 private 属性；</li>
+<li>基类中的所有 private 成员在派生类中不能使用。</li>
+</ul>
+<p>通过上面的分析可以发现：</p>
+<ol>
+<li>基类成员在派生类中的访问权限不得高于继承方式中指定的权限。例如，当继承方式为 protected 时，那么基类成员在派生类中的访问权限最高也为 protected，高于 protected 的会降级为 protected，但低于 protected 不会升级。再如，当继承方式为 public 时，那么基类成员在派生类中的访问权限将保持不变。</li>
+</ol>
+<p>也就是说，继承方式中的 public、protected、private 是用来指明基类成员在派生类中的最高访问权限的。</p>
+<ol start="2">
+<li><p>不管继承方式如何，基类中的 private 成员在派生类中始终不能使用（不能在派生类的成员函数中访问或调用）。</p>
+</li>
+<li><p>如果希望基类的成员能够被派生类继承并且毫无障碍地使用，那么这些成员只能声明为 public 或 protected；只有那些不希望在派生类中使用的成员才声明为 private。</p>
+</li>
+<li><p>如果希望基类的成员既不向外暴露（不能通过对象访问），还能在派生类中使用，那么只能声明为 protected。</p>
+</li>
+</ol>
+<p>注意，我们这里说的是基类的 private 成员不能在派生类中使用，并没有说基类的 private 成员不能被继承。实际上，基类的 private 成员是能够被继承的，并且（成员变量）会占用派生类对象的内存，它只是在派生类中不可见，导致无法使用罢了。private 成员的这种特性，能够很好的对派生类隐藏基类的实现，以体现面向对象的封装性。</p>
+<table>
+<thead>
+<tr>
+<th>继承方式/基类成员</th>
+<th>public成员</th>
+<th>protected成员</th>
+<th>private成员</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public继承</td>
+<td>public</td>
+<td>protected</td>
+<td>不可见</td>
+</tr>
+<tr>
+<td>protected继承</td>
+<td>protected</td>
+<td>protected</td>
+<td>不可见</td>
+</tr>
+<tr>
+<td>private继承</td>
+<td>private</td>
+<td>private</td>
+<td>不可见</td>
+</tr>
+</tbody></table>
+<h2 id="改变访问权限"><a href="#改变访问权限" class="headerlink" title="改变访问权限"></a>改变访问权限</h2><p>使用 using 关键字可以改变基类成员在派生类中的访问权限，例如将 public 改为 private、将 protected 改为 public。</p>
+<p>注意：using 只能改变基类中 public 和 protected 成员的访问权限，不能改变 private 成员的访问权限，因为基类中 private 成员在派生类中是不可见的，根本不能使用，所以基类中的 private 成员在派生类中无论如何都不能访问。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//基类People</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="keyword">char</span> *m_name;</span><br><span class="line">    <span class="keyword">int</span> m_age;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">People::show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; m_name &lt;&lt; <span class="string">&quot;的年龄是&quot;</span> &lt;&lt; m_age &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//派生类Student</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> :</span> <span class="keyword">public</span> People &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">learning</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">using</span> People::m_name;  <span class="comment">//将protected改为public</span></span><br><span class="line">    <span class="keyword">using</span> People::m_age;  <span class="comment">//将protected改为public</span></span><br><span class="line">    <span class="keyword">float</span> m_score;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">using</span> People::show;  <span class="comment">//将public改为private</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Student::learning</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;我是&quot;</span> &lt;&lt; m_name &lt;&lt; <span class="string">&quot;，今年&quot;</span> &lt;&lt; m_age &lt;&lt; <span class="string">&quot;岁，这次考了&quot;</span> &lt;&lt; m_score &lt;&lt; <span class="string">&quot;分！&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Student stu;</span><br><span class="line">    stu.m_name = <span class="string">&quot;小明&quot;</span>;</span><br><span class="line">    stu.m_age = <span class="number">16</span>;</span><br><span class="line">    stu.m_score = <span class="number">99.5f</span>;</span><br><span class="line">    stu.<span class="built_in">show</span>();  <span class="comment">//compile error</span></span><br><span class="line">    stu.<span class="built_in">learning</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码中首先定义了基类 People，它包含两个 protected 属性的成员变量和一个 public 属性的成员函数。定义 Student 类时采用 public 继承方式，People 类中的成员在 Student 类中的访问权限默认是不变的。</p>
+<p>不过，我们使用 using 改变了它们的默认访问权限，如代码第 21~25 行所示，将 show() 函数修改为 private 属性的，是降低访问权限，将 name、age 变量修改为 public 属性的，是提高访问权限。</p>
+<p>因为 show() 函数是 private 属性的，所以代码第 36 行会报错。把该行注释掉，程序输出结果为：<br>我是小明，今年16岁，这次考了99.5分！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">小记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/05/31/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-多态" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/31/%E5%A4%9A%E6%80%81/">多态</a>
+    </h1>
+  
+
+        
+        <a href="/2021/05/31/%E5%A4%9A%E6%80%81/" class="archive-article-date">
+  	<time datetime="2021-05-31T11:44:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    关于c++中的多态：</p>
+<p>多态性可以简单的概括为“一个接口，多种方法”， 他是面向对象编程的核心概念。</p>
+        
+          <a class="article-more-a" href="/2021/05/31/%E5%A4%9A%E6%80%81/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">小记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/05/31/%E5%A4%9A%E6%80%81/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-贪心算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -276,7 +572,7 @@
 <p>含义：列出指定路径下的所有文件、文件夹的名称</p>
 <p>关于路径（重要）：</p>
 <p>路径可以分为两种：相对路径、绝对路径。相对路径：首先得有一个参照物（一般就是当前的工作路径）。绝对路径：绝对路径不需要参照物，直接从根“/“开始寻找对应路径</p>
-<ul>
+<h1 id="高级指令"><a href="#高级指令" class="headerlink" title="高级指令"></a>高级指令</h1><ul>
 <li><p>whoami</p>
 <p>作用：“我是谁”，显示当前登录的用户名，一般用于shell脚本，用于获取当前操做的用户名方便记录日志</p>
 <p>语法：#whoami</p>
@@ -319,7 +615,114 @@
 <p>COMMAND：进程的名称或路径</p>
 <p>方便快捷键　：在＃ｔｏｐ　后，可以按下方便的快捷键　其中M　表示将内存按照从高到低排列　　Ｐ　表示按照CPU使用率从高到低进行一个降序的排列　1：如果ｌｉｎｕｘ有多个处理器，他就可以显示所有ｃｐｕ。</p>
 </li>
+<li><p>du-sh指令</p>
+<p>作用：查看目录的真实大小</p>
+<p>路径：#du-sh 目录路径</p>
+<p>选项含义：</p>
+<p>​    -s: （summary）只显示汇总的大小</p>
+<p>​    -h: 表示以较高可读性的形式进行显示</p>
+<p>注意不要汇总根目录，因为太大了，时间要很长</p>
+</li>
+<li><p>find指令</p>
+<p>作用：用于查找文件（其参数有55个之多）</p>
+<p>语法：#find  搜索路径范围  选项  选项的值</p>
+<p>选项：-name：按照文档名称进行搜索（支持模糊搜索）</p>
+<p>-type：按照文档的类型进行搜索 （文档类型; “-“表示文件（在使用find的时候用f来代替） “d”表示文件夹）</p>
+<p>例如：#find / -name httpd.conf</p>
+<p>#find /etc -name *.conf (找到所有后缀为.conf的文件)</p>
+<p>#find /etc/sane.d -type f    (找出该目录下所有的文件)</p>
+<p>#find /etc/sane.d -type d    (找出该目录下所有的文件夹)</p>
+</li>
+<li><p>service指令（重点）</p>
+<p>作用：用于控制一些软件的服务启动/停止/重启</p>
+<p>语法：#service 服务名  start/stop/restart</p>
+<p>例如：需要启动本机安装的Apache（网站服务器软件），其服务名叫httpd  (阿帕奇)</p>
+<p>#service httpd start</p>
+</li>
+<li><p>kill指令（重点）</p>
+<p>作用：表示杀死进程（当遇到僵尸进程或处于某些原因需要关闭进程的时候）</p>
+<p>语法：#kill 进程PID    （语法需要配合ps一起使用）</p>
+<p>案例：需要kill掉Apache的进程</p>
+<p>先#ps -ef | grep httpd  （查到Apache的PID为29867）</p>
+<p>再#kill 29867  (可以再执行一次当前命令，如果显示没有这个进程，说明该命令已被杀死)</p>
+</li>
 </ul>
+<p>​        与kill命令作用相似，但是比kill更加好用的杀死进程的命令，killall</p>
+<p>​        语法：# killall  进程名称（这种并不用ps查询）</p>
+<p>​        例如：#killall httpd</p>
+<ul>
+<li><p>ifconfig指令（重点）</p>
+<p>作用：用于操作网卡相关的命令。</p>
+<p>简单语法：#ifconfig                              （获取网卡信息）</p>
+<p>Eth0表示linux中的一个网卡，eth0是其名称，lo(loop，本地回还网卡，其IP地址一般都是127.0.0.1)也是一个网卡名称</p>
+<p>从网卡信息中要回看IP地址，位于inet addr后面</p>
+</li>
+<li><p>reboot 指令</p>
+<p>作用：重新启动计算机</p>
+<p>语法：#reboot  (简单的表示重启)</p>
+<p>语法2：#reboot -w（模拟重启，但是不重启，只写关机开机的日志，主要是用来做测试的（一般不会用到））</p>
+</li>
+<li><p>shutdown指令</p>
+<p>作用：关机                   （慎用）</p>
+<p>语法1：#shutdown -h now （立即关机）或者 #shutdown -h-t 0  或者#shutdown -h 15:25 (定时关机)</p>
+<p>语法2：#shutdown -h “关机提示”</p>
+<p>取消关机： #shutdown -c  (太早之前的版本可以用crtl + c)</p>
+<p>*除了shutdown可以关机之外，还有以下几个关机命令:#init0            # halt               #poweroff</p>
+</li>
+<li><p>uptime命令</p>
+<p>作用：用来输出计算机的持续在线时间（从开机到现在的运行时间）</p>
+<p>语法：#uptime     （在up后面显示时间）</p>
+</li>
+<li><p>uname 命令</p>
+<p>作用：获取计算机操作系统相关信息</p>
+<p>语法：#uname                (用于获取操作系统的类型)</p>
+<p>语法2：#uname  -a             (all，表示获取全部的系统信息（类型，全部主机名、内核版本、发布时间、是否开源计划）)</p>
+</li>
+<li><p>netstat -tnlp命令</p>
+<p>作用：查看网络连接状态</p>
+<p>语法：#netstat -tnlp</p>
+<p>选项说明：</p>
+<p>-t: 表示只列出tcp协议的连接；</p>
+<p>-n:表示将地址从字母组合转化成IP地址，将协议转化成端口号来显示</p>
+<p>-l:表示过滤出“state（状态）”列中其值为LISTEN（监听）的连接；</p>
+<p>-p:表示显示发起连接的进程pid和进程名称。</p>
+</li>
+<li><p>man 命令</p>
+<p>作用：manual，手册（包含了Linux中全部命令的手册，英文）</p>
+<p>语法：#man  命令                         （退出按q）</p>
+</li>
+</ul>
+<h1 id="作业："><a href="#作业：" class="headerlink" title="作业："></a>作业：</h1><p>1.如何快速的删除光标前后的内容：</p>
+<p>光标前：crtl + u;</p>
+<p>光标后：crtl + k;</p>
+<p>2.如何通过命令行重启Linux系统？  #reboot</p>
+<p>3.如何删除/temp下所有A开头的文件?  #rm -f /tmp/A*</p>
+<p>4.系统重要文件要备份，如何把/etc/passwd备份到/tmp下？</p>
+<p>#cp /etc/passwd  /tmp/</p>
+<p>5.如何查看系统中最后创建的3个用户？</p>
+<p>#tail -3 /etc/passwd</p>
+<p>6.什么命令可以统计当前系统中一共有多少账户</p>
+<p>#wc -l /etc/passwd           或者 #cat /etc/passwd | wc -l</p>
+<p>7.如何创建/tmp/test.conf文件</p>
+<p>#touch /tmp/test.conf</p>
+<p>8.如何通过vim编辑打开/tmp/test.conf?</p>
+<p>#vim /tmp/test.conf</p>
+<p>9.如何查看/etc/passwd的头三行和尾三行？</p>
+<p>#head -3 /etc/passwd</p>
+<p>#tail -3 /etc/passwd</p>
+<p>10.如何一次性创建目录/text/1/2/3/4？</p>
+<p>#mkdir -p /text/1/2/3/4</p>
+<p>11.如何快速的返回到当前账户的家目录？</p>
+<p>#cd ~                             或直接#cd</p>
+<p>12.如何查看/etc所占的磁盘空间</p>
+<p>#du -sh /etc</p>
+<p>13.如何删除/tmp下所有的文件</p>
+<p>#rm -rf /tmp/*</p>
+<p>14.尝试启动Apache的服务，并检查是否启动成功</p>
+<p>#service httpd start</p>
+<p>#ps -ef | grep httpd</p>
+<p>15.使用已学的命令，杀死Apache的进程</p>
+<p>#killall httpd       或者ps -ef一下，再kill pid</p>
 
       
 
@@ -728,234 +1131,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/04/21/%E2%80%9C%E5%8F%8C%E6%8C%87%E9%92%88%E2%80%9D/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-栈与队列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/04/21/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">栈与队列</a>
-    </h1>
-  
-
-        
-        <a href="/2021/04/21/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2021-04-21T00:59:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​    先介绍一下关于堆栈的基础知识：栈提供push和pop等等接口，所有元素都必须符合先进后出规则，所以栈不提供走访功能，也不能提供迭代器（iterator)。<strong>不像是set或map提供迭代器iterator来遍历所有元素。</strong></p>
-        
-          <a class="article-more-a" href="/2021/04/21/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/04/21/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-字符串及kmp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/04/17/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8Akmp/">字符串及kmp</a>
-    </h1>
-  
-
-        
-        <a href="/2021/04/17/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8Akmp/" class="archive-article-date">
-  	<time datetime="2021-04-17T02:10:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​    字符串及kmp算法的相关总结，老样子，按leetcode中的题号进行总结。</p>
-        
-          <a class="article-more-a" href="/2021/04/17/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8Akmp/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/04/17/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8Akmp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-位运算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/04/16/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算</a>
-    </h1>
-  
-
-        
-        <a href="/2021/04/16/%E4%BD%8D%E8%BF%90%E7%AE%97/" class="archive-article-date">
-  	<time datetime="2021-04-16T08:18:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​    最近在刷leetcode作二分查找时，用到了位运算，但是我本人对位运算忘记的差不多了，因此在此回忆一下。</p>
-        
-          <a class="article-more-a" href="/2021/04/16/%E4%BD%8D%E8%BF%90%E7%AE%97/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">小记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/04/16/%E4%BD%8D%E8%BF%90%E7%AE%97/">展开全文 >></a>
         </p>
       
 

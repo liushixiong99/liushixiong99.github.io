@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: 小记 | 柳世雄的个人博客</title>
+  <title>Linux下的vim | 柳世雄的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Just do it!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="柳世雄的个人博客">
-<meta property="og:url" content="http://example.com/tags/%E5%B0%8F%E8%AE%B0/index.html">
+  <meta name="description" content="​    今天学习vim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux下的vim">
+<meta property="og:url" content="http://example.com/2021/06/01/Linux%E4%B8%8B%E7%9A%84vim/index.html">
 <meta property="og:site_name" content="柳世雄的个人博客">
-<meta property="og:description" content="Just do it!">
+<meta property="og:description" content="​    今天学习vim">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-06-01T13:39:36.000Z">
+<meta property="article:modified_time" content="2021-06-01T14:40:14.510Z">
 <meta property="article:author" content="柳世雄">
-<meta property="article:tag" content="坚持 努力 成功">
+<meta property="article:tag" content="小记">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="柳世雄的个人博客" type="application/atom+xml">
@@ -174,35 +176,97 @@
           </div>
           <div id="js-content" class="content-ll">
             
+<article id="post-Linux下的vim" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Linux下的vim
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/01/Linux%E4%B8%8B%E7%9A%84vim/" class="archive-article-date">
+
+        
+        <a href="/2021/06/01/Linux%E4%B8%8B%E7%9A%84vim/" class="archive-article-date">
   	<time datetime="2021-06-01T13:39:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-01</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/01/Linux%E4%B8%8B%E7%9A%84vim/">Linux下的vim</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    今天学习vim</p>
+<span id="more"></span>
 
-        <div class="article-info info-on-right">
-          
+<h1 id="一、vi介绍"><a href="#一、vi介绍" class="headerlink" title="一、vi介绍"></a>一、vi介绍</h1><p>vi编辑器是所有unix及Linux系统下标准的编辑器，类似于Windows系统下的notepad（记事本），由于在unix及Linux的任何版本，vi编辑器是完全相同的，因此可以在其他任何介绍vi的地方都能进一步了解它，vi也是Linux中最基本的文本编辑器，学会它后，我们将在Linux的世界里畅行无阻，尤其是在终端中。</p>
+<p>关于vim：</p>
+<p>vi和vim都是Linux的文本编辑器，不同的是，vim比较高级，可以视为vi的升级版本，vi适用于文本编辑，但vim更适用于coding(写代码的)。</p>
+<p>vim重点是光标的移动，模式切换，删除，查找替换，复制，粘贴撤销命令的使用。</p>
+<h1 id="二、vim三种模式（重点）"><a href="#二、vim三种模式（重点）" class="headerlink" title="二、vim三种模式（重点）"></a>二、vim三种模式（重点）</h1><p>vim中存在三种模式（大众的认知）：命令模式、编辑模式（输入模式）、末行模式（尾行模式）。</p>
+<p>命令模式：在该模式下是不能对文件直接编辑的，可以输入快捷键进行一些操作（删除行，复制行、移动光标，粘贴等等）。</p>
+<p>编辑模式：在该模式下对文件的内容进行编辑。</p>
+<p>末行模式：可以在末行输入命令来对文件进行操作（搜索、替换、保存、退出、撤销、高亮等等）。</p>
+<p><strong>打开文件之后，默认进入的是命令模式。</strong></p>
+<p>vim打开文件的方式（4种，要求掌握前三种）：</p>
+<ul>
+<li>#vim 文件路径  （打开指定路径下的文件,光标停留在上一次操做的地方，所有的东西都会保留原来的状态）</li>
+<li>#vim +数字   文件路径          （打开指定的文件，并且将光标移动到指定行）#vim +10 路径</li>
+<li>#vim  +/关键词   文件路径         （打开指定的文件，并且高亮显示关键词）</li>
+<li>#vim 文件路径1  文件路径2  文件路径3  （同时打开多个文件）</li>
+</ul>
+<p>重点：先复制出一个/etc/passwd文件，不要直接改，以免系统从出错（#cp /etc/passwd ~/）</p>
+<p>打开文件之后的退出方式:               <strong>“：q”</strong>   加回车</p>
+<h1 id="三、命令模式"><a href="#三、命令模式" class="headerlink" title="三、命令模式"></a>三、命令模式</h1><p>注意：该模式是打开文件第一个看到的模式（打开模式即可进入）</p>
+<ul>
+<li><p>光标移动</p>
+<p>1.光标移动到行首：</p>
+<p>按键：shift + 6(也就是^，不是数字键盘的6)</p>
+<p>2.光标移动到行尾：</p>
+<p>按键：shift + 4(也就是$，不是数字键盘的4)</p>
+<p>3.光标移动到首行：</p>
+<p>按键：gg(小写的gg(good game))</p>
+<p>4.光标移动到末行：</p>
+<p>按键：G(大写的G)</p>
+<p>5.光标翻屏：</p>
+<p>向上翻屏：按键：ctrl + b    （before）         或   pageup</p>
+<p>向下翻屏：按键：crtl + f    （forward）   或     pagedown</p>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -214,171 +278,121 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liushixiong99.github.io/021/06/01/Linux%E4%B8%8B%E7%9A%84vim/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/05/31/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" class="archive-article-date">
-  	<time datetime="2021-05-31T12:57:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-31</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/05/31/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">面向对象三大特性</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/05/31/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/">面向对象三大特性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">小记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81vi%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">一、vi介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81vim%E4%B8%89%E7%A7%8D%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">二、vim三种模式（重点）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">三、命令模式</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/05/31/%E5%A4%9A%E6%80%81/" class="archive-article-date">
-  	<time datetime="2021-05-31T11:44:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-31</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/05/31/%E5%A4%9A%E6%80%81/">多态</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">小记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/26/%E5%85%B3%E4%BA%8EMorse/" class="archive-article-date">
-  	<time datetime="2021-04-26T08:08:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/26/%E5%85%B3%E4%BA%8EMorse/">关于Morse</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">小记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/16/%E4%BD%8D%E8%BF%90%E7%AE%97/" class="archive-article-date">
-  	<time datetime="2021-04-16T08:18:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/16/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">小记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
 
 
           </div>
@@ -405,9 +419,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
