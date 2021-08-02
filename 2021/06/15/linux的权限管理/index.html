@@ -6,18 +6,38 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: leetcode | 柳世雄的个人博客</title>
+  <title>linux的权限管理 | 柳世雄的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Just do it!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="柳世雄的个人博客">
-<meta property="og:url" content="http://example.com/tags/leetcode/index.html">
+  <meta name="description" content="​    Linux的权限操作与用户、用户组是兄弟操作。 一、权限概述总述：Linux系统一般将文件可存&#x2F;取访问的身份分为三个类别：owner、group、others，且三种身份各有read、write、execute等权限。 1.权限介绍什么是权限？ 在多用户计算机系统的管理中，权限是指某个特定的用户具有特定的系统资源使用能力，像是文件夹、特定系统指令的使用或存储量的限制。 在Linux中分别">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux的权限管理">
+<meta property="og:url" content="http://example.com/2021/06/15/linux%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="柳世雄的个人博客">
-<meta property="og:description" content="Just do it!">
+<meta property="og:description" content="​    Linux的权限操作与用户、用户组是兄弟操作。 一、权限概述总述：Linux系统一般将文件可存&#x2F;取访问的身份分为三个类别：owner、group、others，且三种身份各有read、write、execute等权限。 1.权限介绍什么是权限？ 在多用户计算机系统的管理中，权限是指某个特定的用户具有特定的系统资源使用能力，像是文件夹、特定系统指令的使用或存储量的限制。 在Linux中分别">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616100942748.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616101144435.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616102904673.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616103201464.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616152610343.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616152957139.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616164247619.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616164247619.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616171838134.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616201311430.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616204020282.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616204725730.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616205534784.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616205838295.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616210524743.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616212838976.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616213111527.png">
+<meta property="article:published_time" content="2021-06-15T09:42:26.000Z">
+<meta property="article:modified_time" content="2021-06-16T13:32:55.508Z">
 <meta property="article:author" content="柳世雄">
-<meta property="article:tag" content="坚持 努力 成功">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210616100942748.png">
   
     <link rel="alternative" href="/atom.xml" title="柳世雄的个人博客" type="application/atom+xml">
   
@@ -174,363 +194,327 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-linux的权限管理" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux的权限管理
+    </h1>
+  
+
+        
+        <a href="/2021/06/15/linux%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="archive-article-date">
+  	<time datetime="2021-06-15T09:42:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-15</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    Linux的权限操作与用户、用户组是兄弟操作。</p>
+<h1 id="一、权限概述"><a href="#一、权限概述" class="headerlink" title="一、权限概述"></a>一、权限概述</h1><p>总述：Linux系统一般将文件可存/取访问的身份分为三个类别：owner、group、others，且三种身份各有read、write、execute等权限。</p>
+<h2 id="1-权限介绍"><a href="#1-权限介绍" class="headerlink" title="1.权限介绍"></a>1.权限介绍</h2><p>什么是权限？</p>
+<p>在多用户计算机系统的管理中，权限是指某个特定的用户具有特定的系统资源使用能力，像是文件夹、特定系统指令的使用或存储量的限制。</p>
+<p>在Linux中分别有读、写、执行权限：</p>
+<p><strong>读权限：</strong></p>
+<p>​    <strong>对于文件夹来说，读权限影响用户是否能够列出目录结构</strong></p>
+<p>​    <strong>对于文件来说，读权限影响用户是否可以查看文件内容</strong></p>
+<p><strong>写权限：</strong></p>
+<p>​    <strong>对于文件夹来说，写权限影响用户是否可以在文件夹下创建/删除/复制/移动文档</strong></p>
+<p>​    <strong>对于文件来说，写权限影响用户是否可以编辑文件内容</strong></p>
+<p><strong>执行权限：</strong></p>
+<p>​    <strong>一般都是对于文件来说，特别是脚本文件。</strong></p>
+<h2 id="2-身份介绍"><a href="#2-身份介绍" class="headerlink" title="2.身份介绍"></a>2.身份介绍</h2><p>Owner身份（文件所有者）</p>
+<p>​    由于Linux是多用户、多任务的操作系统，因此可能常常有多人同时在某台主机上工作，但每个人均可以在主机上设置文件的权限，让其成为个人的“私密文件”，即个人所有者，因为设置了适当的文件权限，除本人（文件所有者）之外的用户无法查看文件内容。</p>
+<p>Group身份（与文件所有者同组的用户）</p>
+<p>​    与文件所有者同组最有用的功能就体现在多个团队在同一台主机上开发资源的时候。<img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210616100942748.png" alt="image-20210616100942748"></p>
+<p>Others身份（其他人，相对于所有者）</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210616101144435.png" alt="image-20210616101144435"></p>
+<p>Root身份（超级用户）</p>
+<p>在Linux中，还有一个神一样存在的用户，这就是root用户，因为在所有用户中它拥有最大的权限，所以管理着普通用户。</p>
+<h2 id="3-Linux的权限介绍"><a href="#3-Linux的权限介绍" class="headerlink" title="3.Linux的权限介绍"></a>3.Linux的权限介绍</h2><p>要设置权限，就需要知道文件的一些基本属性和权限的分配规则。在Linux中，ls命令常用来查看文件的属性，用于显示文件的文件名和相关属性。</p>
+<p>命令：#ls -l 路径                   【ls -l 等价于 ll】</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210616102904673.png" alt="image-20210616102904673"></p>
+<p>其中标红的部分就是文档权限属性信息。</p>
+<p>Linux中存在用户用户组和其他人的概念，各自有不同的权限，对于一个文档来说，其权限具体分配如下：</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210616103201464.png" alt="image-20210616103201464"></p>
+<p>10位字符的表示含义：</p>
+<p>第一位：表示文档类型，取值常见的有“d表示文件夹”、“-表示文件”、“l表示软连接”、“s表示套接字”等等。</p>
+<p>第2-4位：<strong>表示文档所有者的权限情况</strong>，第2位表示读权限的情况，取值有r、-；第3位表示写权限的情况，w表示可写，-表示不可写，第4位表示执行权限的情况，取值有x,-。</p>
+<p>第5-7位：<strong>表示与所有者同在一个组的用户的权限情况</strong>，第5位表示都权限的情况，取值有r,-;第6位表示写权限的情况，w表示可写，-表示不可写，第7位表示执行权限的情况，取值有x、-。</p>
+<p>第8-10位：<strong>表示除了上面的前2部分的用户之外的其他用户的权限情况</strong>，第8位表示读权限的情况，取值有r,-；第9位表示写权限的情况，w表示可写，-表示不可写，第10位表示执行权限的情况，取值有x,-。</p>
+<p>权限分配中，均是“rwx”的三个参数组合，且位置顺序不会变化，没有权限就用“-”代替。</p>
+<h1 id="二、权限设置"><a href="#二、权限设置" class="headerlink" title="二、权限设置"></a>二、权限设置</h1><p>语法：#chmod 选项 权限模式 文档</p>
+<p>注意事项：</p>
+<p>​    常用选项：</p>
+<p>​        -R：递归设置权限（当文档类型为文件夹的时候）</p>
+<p>​        权限模式：就是该文档需要设置的权限信息</p>
+<p>​        文档：可以是文件，也可以是文件夹，可以是相对路径，也可以是绝对路径。</p>
+<p>注意点：如果想给文档设置权限，操作者要么是root用户，要么就是文档的所有者。</p>
+<h2 id="1-字母形式"><a href="#1-字母形式" class="headerlink" title="1.字母形式"></a>1.字母形式</h2><p>选项                                 字母                                介绍</p>
+<p>（谁）                               u                                    用户            </p>
+<p>（谁）                               g                                    所属群体（同组用户）</p>
+<p>（谁）                               o                                    其他人</p>
+<p>（谁）                               a                                     所有人（全部）</p>
+<p>（作用）                           +                                     增加权限</p>
+<p>（作用）                           -                                       减少权限</p>
+<p>（作用）                           =                                      确定权限</p>
+<p>（权限）                           r                                       可读</p>
+<p>（权限）                           w                                      可写</p>
+<p>（权限）                            x                                       执行</p>
+<p>例如：需要给anaconda-ks.cfg文件（-rw——-）设置权限，要求所有者拥有全部的权限，同组用户拥有读和执行权限，其他用户只读权限。</p>
+<p>命令:</p>
+<p>​    ①#chmod u+x,g+rx,o+r anaconda-ks.cfg</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210616152610343.png" alt="image-20210616152610343"></p>
+<p>当一个文件中的所有者拥有执行权限时，其在终端中就会变成绿色。</p>
+<p>​    ②#chmod u= rwx,g=rx,o=r anaconda-ks.cfg</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210616152957139.png" alt="image-20210616152957139"></p>
+<h2 id="2-数字形式"><a href="#2-数字形式" class="headerlink" title="2.数字形式"></a>2.数字形式</h2><p>读：r                   4</p>
+<p>写：w                  2</p>
+<p>执行：x               1</p>
+<p>没有任何权限      0</p>
+<p>数值                   权限                                               目录列表</p>
+<p>0                         不能读，不能写，不能执行        —</p>
+<p>1                         不能读，不能写，可执行            –x</p>
+<p>2                         不能读，可写，不可执行            -w-</p>
+<p>3                          不能读，可写，可执行               -wx</p>
+<p>4                          可读，不能写，不能执行           r–</p>
+<p>5                          可读，不能写，可执行               r-x</p>
+<p>6                          可读，可写，不可执行               rw-</p>
+<p>7                          可读，可写，可执行                   rwx</p>
+<p>例如：需要给anaconda-ks.cfg设置权限，权限要求所有者拥有全部权限，同组成员可读可执行，其他仅可读</p>
+<p>命令：#chmod 754 anaconda-ks.cfg</p>
+<p><strong>面试题</strong>：用超级管理员设置文档的权限命令是#chmod -R 731 aaa，请问这个命令有没有什么不合理的地方？</p>
+<p>注意：在写权限的时候不要乱用3，因为无法打开进行写的。但可以用输出重定向进行写入，类似的数字，还有2；</p>
+<h2 id="3-注意事项"><a href="#3-注意事项" class="headerlink" title="3.注意事项"></a>3.注意事项</h2><p>使用root用户创建一个文件夹（/oo），权限默认，权限如下：</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210616164247619.png" alt="image-20210616164247619"></p>
+<p>需要在oo目录下创建文件（oo/xx.txt）,权限设置为777</p>
+<p>问题：使用other用户是否可以打开oo/xx.txt文件？ 能打开</p>
+<p>问题：使用other用户是否可以编辑oo/xx.txt文件？ 能编辑</p>
+<p>问题：使用other用户是否可以删除oo/xx.txt文件？ 不能删除</p>
+<p>注意oo的权限，无法写，意味着无法删除、复制、重命名、移动。</p>
+<p>在Linux中，如果要删除一个文件，不是看文件本身是否有权限，而是要看它所属的文件夹是否有可写权限。</p>
+<h1 id="三、属主与属组设置"><a href="#三、属主与属组设置" class="headerlink" title="三、属主与属组设置"></a>三、属主与属组设置</h1><p>属主：所属的用户（文件的主人）</p>
+<p>属组：所属的用户组</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210616164247619.png" alt="image-20210616164247619"></p>
+<p>就是下面的root 与root部分，前面的是属主（用户名），后面的是属组（组名）。</p>
+<p>这两个信息是在创建的时候会使用创建的信息（用户名和用户所属的主组名称）</p>
+<p>如果有时候需要删除某个用户，则该用户对应的文档的属主和属组信息就需要修改</p>
+<h2 id="1-chown"><a href="#1-chown" class="headerlink" title="1.chown"></a>1.chown</h2><p>作用：更改文档的所属用户  own就是owner</p>
+<p>语法：#chown  -R username 文档路径</p>
+<p>如果是文件夹就需要加-R，文件就不需要了</p>
+<p>案例：将root下的oo文件的所有者改为test</p>
+<p>#chown test oo </p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210616171838134.png" alt="image-20210616171838134"></p>
+<h2 id="2-chgrp"><a href="#2-chgrp" class="headerlink" title="2.chgrp"></a>2.chgrp</h2><p>作用：更改文档所属的用户主组</p>
+<p>语法：#chgrp -R groupname 文档路径</p>
+<p>如果是文件夹就需要加-R，文件就不需要了</p>
+<p>案例：将root下的oo文件的所属用户组改为test</p>
+<p>#chgrp test oo</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210616201311430.png" alt="image-20210616201311430"></p>
+<p><strong>思考</strong>：如何通过一个命令实现既可以更改所属的用户，也可以修改所属的用户呢？</p>
+<p>答：具体语法如下：#chown -R username：groupname  文档路径。</p>
+<h1 id="四、扩展"><a href="#四、扩展" class="headerlink" title="四、扩展"></a>四、扩展</h1><p>问题：reboot、shutdown、init、halt、user管理，在普通用户身份都是操作不了，到那时有些特殊的情况下又需要有执行权限，又不可能让root用户把自己的密码告诉普通用户，这个问题该怎么解决？</p>
+<p>该问题是可以被解决的，可以使用sudo（switch user do）命令来进行权限设置，sudo可以让管理员（root）事先定义某些特殊命令谁可以执行。</p>
+<p>默认sudo中是没有除了root之外用户的规则，要想使用则先配置sudo。</p>
+<p>配置文件位置：/etc/sudoers</p>
+<p>a.配置sudo文件请使用“#visudo”，打开之后其使用方法和vim一致</p>
+<p>b.配置普通用户的权限</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210616204020282.png" alt="image-20210616204020282"></p>
+<p>root表示的是用户名，如果是用户组，可以写成“%用户组名”</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210616204725730.png" alt="image-20210616204725730"></p>
+<p>ALL表示允许登录的主机（地址白名单）</p>
+<p>（ALL）表示以谁的身份去执行，ALL表示root命令</p>
+<p>ALL：表示当前用户可以执行的命令，多个命令可以使用“,”分割</p>
+<p>案例：本身test用户不能添加用户，要求使用sudo配置，将其设置为可以添加用户，并且可以修改密码。（但是不能修改root用户密码）。</p>
+<p>注意：首先要打开终端，切换成超级管理员进行操作。在写sudo规则的时候不建议写直接形式的命令，而是写命令的完整路径。路径可以使用which来查看（语法 #which 指令名称）</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210616205534784.png" alt="image-20210616205534784"></p>
+<p>具体操作命令：（这样其实是可以修改root密码的）</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210616205838295.png" alt="image-20210616205838295"></p>
+<p>在添加好对应的规则之后就可以切换为普通用户test了，再次执行useradd的时候前面必须要加sudo 例如：#sudo useradd aaa</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210616210524743.png" alt="image-20210616210524743"></p>
+<p>在输入sudo命令之后需要输入当前的用户密码进行确认的操作（不是root的密码），输入之后在接下来的五分钟内不需要再输入密码。</p>
+<p>设置禁止修改root密码的配置（先允许全部，再执行）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app  ALL&#x3D;(ALL)       NOPASSWD:&#x2F;usr&#x2F;bin&#x2F;passwd [a-zA-Z]*,!&#x2F;usr&#x2F;bin&#x2F;passwd root</span><br></pre></td></tr></table></figure>
+
+<p>中间加入这个“!/user/bin/passwd root ”这样就可以实现不能修改root用户的密码了。</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210616212838976.png" alt="image-20210616212838976"></p>
+<p><strong>补充</strong>：再普通用户下怎么知道自己可以执行哪些命令呢</p>
+<p>#sudo -l</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210616213111527.png" alt="image-20210616213111527"></p>
+<p>最后：sudo不是任何分支都有的命令，常见的centos和Ubuntu都存在sudo命令。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="archive-article-date">
-  	<time datetime="2021-08-02T01:23:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liushixiong99.github.io/021/06/15/linux%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/05/26/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2021-05-26T02:50:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-26</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2021/06/17/linux%E7%9A%84%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          linux的网络基础
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/06/06/Linux%E8%87%AA%E6%9C%89%E6%9C%8D%E5%8A%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux自有服务</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/05/26/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">贪心算法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%9D%83%E9%99%90%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">一、权限概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%9D%83%E9%99%90%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">1.权限介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%BA%AB%E4%BB%BD%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.</span> <span class="toc-text">2.身份介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Linux%E7%9A%84%E6%9D%83%E9%99%90%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.3.</span> <span class="toc-text">3.Linux的权限介绍</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">二、权限设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AD%97%E6%AF%8D%E5%BD%A2%E5%BC%8F"><span class="toc-number">2.1.</span> <span class="toc-text">1.字母形式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%95%B0%E5%AD%97%E5%BD%A2%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">2.数字形式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">2.3.</span> <span class="toc-text">3.注意事项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%B1%9E%E4%B8%BB%E4%B8%8E%E5%B1%9E%E7%BB%84%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">三、属主与属组设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-chown"><span class="toc-number">3.1.</span> <span class="toc-text">1.chown</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-chgrp"><span class="toc-number">3.2.</span> <span class="toc-text">2.chgrp</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%89%A9%E5%B1%95"><span class="toc-number">4.</span> <span class="toc-text">四、扩展</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/05/10/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%89%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-05-10T00:31:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-10</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/05/10/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%89%EF%BC%89/">回溯算法（三）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/29/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%BA%8C%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-04-29T00:44:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/29/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%BA%8C%EF%BC%89/">回溯算法（二）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/23/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-04-23T06:30:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/23/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/">回溯算法（一）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/21/%E2%80%9C%E5%8F%8C%E6%8C%87%E9%92%88%E2%80%9D/" class="archive-article-date">
-  	<time datetime="2021-04-21T08:14:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/21/%E2%80%9C%E5%8F%8C%E6%8C%87%E9%92%88%E2%80%9D/">“双指针”</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/21/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2021-04-21T00:59:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/21/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">栈与队列</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/17/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8Akmp/" class="archive-article-date">
-  	<time datetime="2021-04-17T02:10:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/17/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8Akmp/">字符串及kmp</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/09/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%80%BB%E7%BB%93%EF%BC%81/" class="archive-article-date">
-  	<time datetime="2021-04-09T12:02:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/09/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%80%BB%E7%BB%93%EF%BC%81/">哈希表总结！</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -557,9 +541,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

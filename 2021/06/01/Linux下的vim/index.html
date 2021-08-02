@@ -15,11 +15,14 @@
 <meta property="og:site_name" content="柳世雄的个人博客">
 <meta property="og:description" content="​    今天学习vim">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210603162615914.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210606103609238.png">
 <meta property="article:published_time" content="2021-06-01T13:39:36.000Z">
-<meta property="article:modified_time" content="2021-06-02T00:55:42.902Z">
+<meta property="article:modified_time" content="2021-06-06T06:50:16.504Z">
 <meta property="article:author" content="柳世雄">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210603162615914.png">
   
     <link rel="alternative" href="/atom.xml" title="柳世雄的个人博客" type="application/atom+xml">
   
@@ -232,6 +235,166 @@
 <p>向上翻屏：按键：ctrl + b    （before）         或   pageup</p>
 <p>向下翻屏：按键：crtl + f    （forward）   或     pagedown</p>
 </li>
+<li><p>复制操作</p>
+<p>1.复制光标所在行</p>
+<p>按键：yy(注意是小写)</p>
+<p>粘贴：p（在想要粘贴（paste）的地方）</p>
+<p>2.以光标所在行为准，向下复制指定的行数（包含了当前行）</p>
+<p>按键：数字 yy</p>
+<p>粘贴：p(在想要粘贴的地方按下p键)</p>
+<p>3.可视化复制</p>
+<p>按键：crtl + v  (然后根据方向键选择要复制的块，之后按下yy和p键进行复制和粘贴)。</p>
+<p>退出可视化：两下esc键。</p>
+</li>
+<li><p>剪切/删除</p>
+<p>1.剪切/删除光标所在行</p>
+<p>按键：dd（删除之后下一行上移）</p>
+<p>如果想要实现剪切：光标移动到指定位置再按下p键进行粘贴。</p>
+<p>2.剪切/删除光标所在行为准，向下删除/剪切指定行</p>
+<p>按键：数字 dd   (删除之后下一行上移)</p>
+<p>如果想要实现剪切：光标移动到指定位置再按下p键进行粘贴。</p>
+<p>3.剪切/删除光标所在行，但删除之后下一行不上移，也就是当前行会变成空白行。</p>
+<p>按键：D  （删除行会变成空白行） </p>
+</li>
+<li><p>撤销/恢复</p>
+<p>撤销：按下 ：u(小写)键 或者直接u键也可以，不用冒号 ,：u其实不属于命令模式。直接按u键才是正宗的命令模式。</p>
+<p>恢复：crtl + r  (恢复之前撤销的操作)</p>
+</li>
+<li><p>扩展1：光标的快速移动</p>
+<p>1.快速将光标移动到指定的行数</p>
+<p>按键： 数字 G</p>
+<p>2.以当前光标为准向上或向下移动指定的行数</p>
+<p>按键：数字 ↑    数字 ↓</p>
+<p>3.以当前光标为准向左或向右移动指定的字符</p>
+<p>按键 数字 ←      数字 →</p>
+<p>4.末行模式下的快速移动方式：移动到指定的行</p>
+<p>按键：先输入英文“:”，其后输入行数数字，按下回车。</p>
+</li>
+</ul>
+<h1 id="四、模式间的相互切换"><a href="#四、模式间的相互切换" class="headerlink" title="四、模式间的相互切换"></a>四、模式间的相互切换</h1><p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210603162615914.png" alt="image-20210603162615914"></p>
+<h1 id="五、末行模式（按回车执行）"><a href="#五、末行模式（按回车执行）" class="headerlink" title="五、末行模式（按回车执行）"></a>五、末行模式（按回车执行）</h1><p>进入方式：由命令模式进入，按下英文状态下:即可。 </p>
+<p>退出方式：1.按一下esc（较慢）</p>
+<p>2.按两下esc（很快）</p>
+<p>3.删除末行中的全部命令</p>
+<ul>
+<li><p>保存操作</p>
+<p>输入： “:w”                      (小写)      保存文件</p>
+</li>
+<li><p>另存为</p>
+<p>输入：”:w  路径”                          (小写)   另存为文件</p>
+</li>
+<li><p>退出</p>
+<p>输入：”:q”</p>
+</li>
+<li><p>保存并退出</p>
+<p>输入：”:wq”</p>
+</li>
+<li><p>强制（!）</p>
+<p>输入：“:q!”                           表示强制退出，刚才做的操作不做保存</p>
+</li>
+<li><p>调用外部命令（了解）</p>
+<p>输入：”:! 外部命令”                 比如”:! ls”  查看当前目录</p>
+<p>当外部命令执行完之后，按下任意键回到vim</p>
+</li>
+<li><p>搜索/查找</p>
+<p>输入：“/关键词”                      搜索对应的关键词高亮显示</p>
+<p>在搜索结果中切换上/下一个结果：N/n</p>
+<p>如果要取消高亮，则需要输入：”nohl”   (表示不要高亮显示)</p>
+</li>
+<li><p>替换(4个)</p>
+<p>1.输入 ：“:s/搜索的关键词/新的内容”                （替换光标所在行的第一处，只替换当前查找结果）</p>
+<p>2.输入：”:s/搜索的关键词/新的内容/g”                 （替换光标所在行的全部搜索结果）</p>
+<p>3.输入：”:%s/搜索的关键词/新的内容”                     (替换整个文档中每行第一个的搜索结果)</p>
+<p>4.输入：”%s/搜索的关键词/新的内容/g”                       （全部替换）</p>
+<p>%  表示整个文档，g表示全局（global）</p>
+</li>
+<li><p>显示行号</p>
+<p>输入：”:set nu”          (显示行号数字)</p>
+<p>撤销行号显示：”:set  nonu”                 (撤销行号显示)</p>
+<p>行号显示都是临时显示的。</p>
+</li>
+<li><p>使用vim同时打开多个文件，在末行模式下切换文件</p>
+<p>查看当前已经打开的文件名称：“:files”</p>
+<p>出现结果：</p>
+<p>1       %a                        “文件1”              光标在此文件第几行</p>
+<p>2                                     “文件2”              光标在此文件第几行</p>
+<p>3                                     “文件3”              光标在此文件第几行</p>
+<p>注：其中在%a的位置有两种可能：</p>
+<p>%a: a = active,表示当前正在打开的文件；</p>
+<p>#：表示上一个打开的文件</p>
+<p>切换文件的方式：</p>
+<p>a.需要指定切换文件的文件名：则可以输入：”: open 文件名”；</p>
+<p>b.可以通过其他命令来切换上一个文件和其他文件</p>
+<p>输入：”:bn”        切换到下一个文件  （back next）</p>
+<p>输入：”:bp”         切换到上一个文件（是指上一个打开的文件）(back previous)</p>
+</li>
+</ul>
+<h1 id="六、编辑模式-别用小键盘"><a href="#六、编辑模式-别用小键盘" class="headerlink" title="六、编辑模式(别用小键盘)"></a>六、编辑模式(别用小键盘)</h1><ul>
+<li><p>进入方式：</p>
+<p>i：在光标所在字符前进行插入(insert)</p>
+<p>a：在光标所在字符后进行插入(after)</p>
+<p>o：在光标所在行的下面另起一新行进行插入</p>
+<p>I：在光标所在行的行首开始插入，如果行首有空格则在空格之后插入</p>
+<p>A：在光标所在行的行尾开始插入</p>
+<p>O：在光标所在行的上面另起一行开始插入</p>
+<p>S：删除光标所在行并开始插入</p>
+<p>重点看前两个指令：“i”, “a”。</p>
+</li>
+<li><p>退出方式：按一下esc键</p>
+</li>
+</ul>
+<h1 id="七、实用小功能"><a href="#七、实用小功能" class="headerlink" title="七、实用小功能"></a>七、实用小功能</h1><ul>
+<li><p>代码着色</p>
+<p>如何控制着色与否？</p>
+<p>显示：”:syntax on”   (默认是开着的)</p>
+<p>关闭显示：”:syntax off”</p>
+</li>
+<li><p>vim中的计算器的使用</p>
+<p>当在编辑文件的时候突然需要使用计算器去计算一些公式：vim自身集成了一个简易的计算器</p>
+<p>a.首先进入编辑模式</p>
+<p>b.按下按键”crtl + R“，然后输入等于号，此时光标会移动到末行</p>
+<p>c.输入需要的内容，按下回车</p>
+</li>
+</ul>
+<h1 id="八-、扩展"><a href="#八-、扩展" class="headerlink" title="八 、扩展"></a>八 、扩展</h1><ul>
+<li><p>vim的配置（重点）</p>
+<p>vim是一款编辑器，编辑器也是有配置文件的。</p>
+<p>vim配置有三种情况：</p>
+<p>a.在文件打开的时候在末行模式下输入的配置（临时的）</p>
+<p>b.在个人配置文件（位置：”~/.vimrc”）(这个目录不一定存在，如果没有可以自行新建，名字不要写错)</p>
+<p>c.全局配置文件（vim自带，位置：”/etc/vimrc”）</p>
+<p>​        ①新建好个人的配置文件内之后进入编辑</p>
+<p>​        ②在配置文件中进行配置：</p>
+<p>​                    例如设置默认显示行号：set nu</p>
+<p>​                    都不显示着色：syntax off</p>
+<p>​        ③配置好之后文件就会永远按你设置的显示</p>
+<p>问题：如果针对某个配置项，在个人配置文件与全局配置文件产生冲突的时候应该以谁为准？</p>
+<p>回答：以个人配置为准</p>
+</li>
+<li><p>异常退出</p>
+<p>什么是异常退出：在文件编辑之后并没有正常的退出（”:wq”）,二十遇到突然关闭终端或者是断电的情况，则会显示下面的效果，这个情况称为异常退出。</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210606103609238.png" alt="image-20210606103609238"></p>
+<p>解决方法：将提示的交换文件（在变成过程中产生的临时文件）删掉</p>
+<p>命令：rm -f .pass.swp</p>
+</li>
+<li><p>别名机制</p>
+<p>作用：相当于创建一些属于自己的自定义命令</p>
+<p>例如：在Windows下清屏的命令（cls）,linux下没有这个命令，可以通过别名来创建cls命令。</p>
+<p>原理：别名机制是依靠一个别名映射文件，（位置：~/.bashrc）</p>
+<p>进入 编辑模式，加入下面的语法</p>
+<p>语法：alias cls = ‘clear’</p>
+<p>注意：如果想新创造命令生效，必须重新登陆当前用户</p>
+</li>
+<li><p>退出方式：</p>
+<p>①之前”:q” 和 “:wq”;</p>
+<p>②除了上面的这个语法之外，vim还支持另外一种：”:x”</p>
+<p>说明：</p>
+<ul>
+<li>“:x”,在文件没有修改的情况下，表示直接退出，在文件修改的情况下表示保存并退出；</li>
+<li>如果文件没有修改，但是使用了”:q”,则文件的修改时间会被更新，但是如果使用”:x”,文件修改时间不会被更新；</li>
+</ul>
+<p> 综上：建议使用”:x”。（注意x是小写，大写X是对文件进行加密）</p>
+</li>
 </ul>
 
       
@@ -343,6 +506,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2021/06/06/Linux%E8%87%AA%E6%9C%89%E6%9C%8D%E5%8A%A1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Linux自有服务
+        
+      </div>
+    </a>
+  
   
     <a href="/2021/05/31/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">面向对象三大特性</div>
@@ -372,7 +544,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81vi%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">一、vi介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81vim%E4%B8%89%E7%A7%8D%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">二、vim三种模式（重点）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">三、命令模式</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81vi%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">一、vi介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81vim%E4%B8%89%E7%A7%8D%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">二、vim三种模式（重点）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">三、命令模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%A8%A1%E5%BC%8F%E9%97%B4%E7%9A%84%E7%9B%B8%E4%BA%92%E5%88%87%E6%8D%A2"><span class="toc-number">4.</span> <span class="toc-text">四、模式间的相互切换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%9C%AB%E8%A1%8C%E6%A8%A1%E5%BC%8F%EF%BC%88%E6%8C%89%E5%9B%9E%E8%BD%A6%E6%89%A7%E8%A1%8C%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">五、末行模式（按回车执行）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E7%BC%96%E8%BE%91%E6%A8%A1%E5%BC%8F-%E5%88%AB%E7%94%A8%E5%B0%8F%E9%94%AE%E7%9B%98"><span class="toc-number">6.</span> <span class="toc-text">六、编辑模式(别用小键盘)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%AE%9E%E7%94%A8%E5%B0%8F%E5%8A%9F%E8%83%BD"><span class="toc-number">7.</span> <span class="toc-text">七、实用小功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AB-%E3%80%81%E6%89%A9%E5%B1%95"><span class="toc-number">8.</span> <span class="toc-text">八 、扩展</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -502,6 +674,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">c++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
             
             <div class="clearfix"></div>

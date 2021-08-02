@@ -6,18 +6,59 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: leetcode | 柳世雄的个人博客</title>
+  <title>Linux自有服务 | 柳世雄的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Just do it!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="柳世雄的个人博客">
-<meta property="og:url" content="http://example.com/tags/leetcode/index.html">
+  <meta name="description" content="一、运行模式自有服务，即不需要用户独立去安装软件的服务，而是当系统安装好之后就可以直接使用的服务（内置） 运行模式也可以称为运行级别。 在Linux中存在一个进程：init（initalize，初始化），进程id是1. 查看进程：”#ps-ef | grep init”，该进程存在一个对应的配置文件，inittab（系统运行级别配置文件，位置”&#x2F;etc&#x2F;inittab”）  根据上述的描述可以得知">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux自有服务">
+<meta property="og:url" content="http://example.com/2021/06/06/Linux%E8%87%AA%E6%9C%89%E6%9C%8D%E5%8A%A1/index.html">
 <meta property="og:site_name" content="柳世雄的个人博客">
-<meta property="og:description" content="Just do it!">
+<meta property="og:description" content="一、运行模式自有服务，即不需要用户独立去安装软件的服务，而是当系统安装好之后就可以直接使用的服务（内置） 运行模式也可以称为运行级别。 在Linux中存在一个进程：init（initalize，初始化），进程id是1. 查看进程：”#ps-ef | grep init”，该进程存在一个对应的配置文件，inittab（系统运行级别配置文件，位置”&#x2F;etc&#x2F;inittab”）  根据上述的描述可以得知">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210607091336342.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210607094133887.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210607094624421.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210607104240743.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210607142656230.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210607143933740.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210608091035620.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210608091616548.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210608100842285.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210608101929723.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210608103734314.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210608105625885.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210608141031121.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210608141152200.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210608141630770.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210608141814047.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210608143326442.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210608143402481.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210608214842787.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210608215102844.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210608215255931.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210608220603957.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210611153523374.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210611154245327.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210611155021794.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210611155441750.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210611155603461.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210611162004659.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210611162535645.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210611164415456.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210611172001033.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210611175920000.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210611195946030.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210611211630879.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210612093801788.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210612094753788.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210612095935480.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210612103321136.png">
+<meta property="article:published_time" content="2021-06-06T06:50:44.000Z">
+<meta property="article:modified_time" content="2021-06-15T09:40:49.293Z">
 <meta property="article:author" content="柳世雄">
-<meta property="article:tag" content="坚持 努力 成功">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210607091336342.png">
   
     <link rel="alternative" href="/atom.xml" title="柳世雄的个人博客" type="application/atom+xml">
   
@@ -174,363 +215,547 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-Linux自有服务" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux自有服务
+    </h1>
+  
+
+        
+        <a href="/2021/06/06/Linux%E8%87%AA%E6%9C%89%E6%9C%8D%E5%8A%A1/" class="archive-article-date">
+  	<time datetime="2021-06-06T06:50:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-06</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、运行模式"><a href="#一、运行模式" class="headerlink" title="一、运行模式"></a>一、运行模式</h1><p>自有服务，即不需要用户独立去安装软件的服务，而是当系统安装好之后就可以直接使用的服务（内置）</p>
+<p>运行模式也可以称为运行级别。</p>
+<p>在Linux中存在一个进程：init（initalize，初始化），进程id是1.</p>
+<p>查看进程：”#ps-ef | grep init”，该进程存在一个对应的配置文件，inittab（系统运行级别配置文件，位置”/etc/inittab”）</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210607091336342.png" alt="image-20210607091336342"></p>
+<p>根据上述的描述可以得知，centos6.5中存在7种运行级别/模式。</p>
+<p>0 - 表示关机级别（不要将默认的运行模式设置称该级别）</p>
+<p>1 - 单用户模式</p>
+<p>2 - 多用户模式，不带NFS（Network File System）</p>
+<p>3 - 完全的多用户模式（不带桌面的纯用户模式）</p>
+<p>4 - 没有被使用的模式（被保留模式）</p>
+<p>5 - X11，完整的图形化界面模式</p>
+<p>6 - 表示重启级别（不要将默认的运行级别设置成该级别）</p>
+<p>id: 5 : initdefault 表示默认的是完整的图形化界面模式</p>
+<p>注意：init命令都必须是超级管理员权限，普通用户无法使用</p>
+<p>这些命令其实都是调用的init进程，讲数字（运行级别）传递给进程，进程去读配置文件执行对应的操作。</p>
+<p>① 切换到纯命令模式下：</p>
+<p>#init 3</p>
+<p>② 回到桌面模式</p>
+<p>#init 5</p>
+<p>③ 设置模式为永久命令行模式</p>
+<p>#vim /etc/intitab</p>
+<p>将id: 5 : initdefault  这个5设为3即可。</p>
+<h1 id="二、用户与用户组管理"><a href="#二、用户与用户组管理" class="headerlink" title="二、用户与用户组管理"></a>二、用户与用户组管理</h1><p>Linux是一个多用户多任务的操做系统，任何一个要使用系统资源的用户，都必须首先向系统管理员申请一个账号，然后以这个账号的身份进入系统。</p>
+<p>用户的账号一方面可以帮助系统管理员对使用系统的用户进行跟踪，并控制他们对系统资源的访问；另一方面也可以帮助用户组织文件，并为用户提供安全性保护。</p>
+<p>每个用户都拥有唯一一个账号和密码。</p>
+<p>用户在登录时要键入正确的用户名和密码后，就能狗进入系统和自己的主目录。</p>
+<p>要想实现用户帐号的管理，要完成的工作主要有以下几个方面:</p>
+<p>用户账号的添加、删除、修改以及用户密码的管理。</p>
+<p>用户组的管理。</p>
+<p>注意三个文件：</p>
+<p>“/etc/passwd”            存储用户的关键信息</p>
+<p>“/etc/group”               存储用户组的关键信息</p>
+<p>“/etc/shadow”            存储用户的密码</p>
+<h2 id="1-用户管理"><a href="#1-用户管理" class="headerlink" title="1.用户管理"></a>1.用户管理</h2><p>① 添加用户</p>
+<p>常用语法：#useradd 选项 用户名</p>
+<p>常用选项：</p>
+<p>​    -g ：表示指定用户的用户主组，选项的值可以是用户的id，也可以是组名</p>
+<p>​    -G：表示指定用户的用户附加组，选项的值可以是用户的id，也可以是组名</p>
+<p>​    -u：uid，用户的id（用户的标识符），系统默认会从500之后按顺序分配uid，如果不想使用系统分配的，可以通过该选项自定义【类似于腾讯QQ的自选靓号服务】</p>
+<p>​    -c：修改注释</p>
+<p><strong>案例</strong>：创建用户zhangsan，不带任何选项</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210607094133887.png" alt="image-20210607094133887"></p>
+<p>验证是否成功（两种）：</p>
+<p>Ⅰ：验证/etc/passwd的最后一行，是否有zhangsan的信息。</p>
+<p>Ⅱ：验证是否存在家目录（在Centos下创建好用户之后随之产生一个同名家目录）；</p>
+<p><strong>扩展</strong>：认识passwd文件</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210607094624421.png" alt="image-20210607094624421"></p>
+<p>对应格式如下：</p>
+<p>用户名：密码：用户id：用户组id：注释：家目录：解释器shell</p>
+<p>用户名：创建新用户名称，后期登录的时候需要输入；</p>
+<p>密码：此密码位置一般情况都是”x“，表示密码的占位；</p>
+<p>用户id：用户的标识符；</p>
+<p>用户组id：该用户所属的主组id；</p>
+<p>注释：解释用户是做什么用的；</p>
+<p>家目录：用户登录进入系统之后默认的位置；</p>
+<p>解释器shell：等待用户进入系统之后，用户输入指令之后，该解释器会收集用户输入的指令，传递给内核处理；</p>
+<p><strong>注意：在不添加选项的时候，执行#useradd的时候自动执行一系列的操作：</strong></p>
+<p><strong>① 创建同名的家目录</strong></p>
+<p><strong>② 创建同名的用户组</strong></p>
+<p><strong>注意：查看用户的主组可以查看passwd文件，查看附加组可以查看group文件。</strong></p>
+<p>② 修改用户</p>
+<p>常用语法：#usermod 选项 用户名</p>
+<p>usermod ：user modify，用户修改</p>
+<p>常用选项：</p>
+<p>-g：表示指定用户的用户主组，选项的值可以是用户的id，也可以是组名</p>
+<p>-G：表示指定用户的用户附加组，选项的值可以是用户的id，也可以是组名</p>
+<p>-u：uid，用户的id（用户的标识符），系统默认会从500之后按顺序分配uid，如果不想使用系统分配的，可以通过该选项自定义【类似于腾讯QQ的自选靓号服务】</p>
+<p>-l：修改用户名；</p>
+<p><strong>案例：</strong>修改zhangsan用户主组为500，附加组改为501</p>
+<p><strong>命令</strong>：#usermod -g 500 -G 501 zhangsan</p>
+<p><strong>案例</strong>：修改shangsan用户用户名，改为wangerma</p>
+<p><strong>命令：</strong>#usermod -l wangerma shangsan</p>
+<p>③ 设置密码</p>
+<p>Linux不允许没有密码的用户登陆系统，因此前面创建的用户目前都处于锁定状态，需要设置密码之后才能登录计算机</p>
+<p>常用语法：#passwd 用户名</p>
+<p>设置密码之后shadow会更新</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210607104240743.png" alt="image-20210607104240743"></p>
+<p>可以分辨出李四并没有设置密码</p>
+<p>在设置好用户密码之后就可以登陆账号了</p>
+<p><strong>切换用户命令：</strong>#su   [用户名]         （switch user）</p>
+<p>如果用户名不指定，默认切换到root</p>
+<p>例如：#su shangsan</p>
+<p>切换用户需要注意的事项：从root往普通用户切换不需要密码，但是反之需要root密码；  切换用户之后前后的工作路径是不变的；普通用户没有办法访问root用户家目录，但是反之可以</p>
+<p>④删除用户</p>
+<p>常用语法：#userdel 选项 用户名</p>
+<p>userdel：user delete（用户删除）</p>
+<p>常用选项：</p>
+<pre><code> -r：在删除用户的同时删除家目录
+</code></pre>
+<p><strong>注意：</strong>已经登录的用户名，是无法通过该命令删除</p>
+<p><strong>解决方法：</strong>kill对应用户的全部进程</p>
+<p>① #ps -ef | grep wangerma</p>
+<p>② #kill pid</p>
+<p>③ #userdel -r wangerma</p>
+<p><strong>友情提示：</strong>所有跟用户操做相关的命令（除了设置password），值有root有权限执行</p>
+<h2 id="2-用户组管理"><a href="#2-用户组管理" class="headerlink" title="2.用户组管理"></a>2.用户组管理</h2><p>每个用户都有一个用户组，系统可以对一个用户组中的所有用户进行集中管理，不同Linux系统对用户组的规定有所不同，如Linux下的用户属于与它同名的用户组，这个用户组在创建用户的时候同时创建。</p>
+<p>用户组的管理涉及用户组的添加、删除和修改。组的添加、删除和修改实际上就是对/etc/group文件的<em>更新</em>。</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210607142656230.png" alt="image-20210607142656230"></p>
+<p>文件结构：</p>
+<p>用户组名字：用户组密码：用户组id：表示组内用户名</p>
+<p>用户组密码：x知识一个占位符，虽然用户组可以设置密码，但是绝大情况下不设置密码</p>
+<p>组内用户名：表示附加组是该组的用户名称；</p>
+<p>① 用户组添加：</p>
+<p>常用语法：#groupadd  选项   用户组名</p>
+<p>常用选项：</p>
+<p>​    -g：类似用户添加的-u操作，-g表示选择自己设置一个自定义用户组id数字，如果自己不指定，则默认从500之后递增。</p>
+<p><strong>案例</strong>：使用groupadd创建一个用户组，名字为admin</p>
+<p><strong>命令：</strong>#groupadd admin</p>
+<p>② 用户组编辑</p>
+<p>常用语法：#groupmod  选项 用户组名</p>
+<p>常用选项：</p>
+<p>​    -g：类似用户添加的-u操作，-g表示选择自己设置一个自定义的用户组id数字</p>
+<p>​    -n：类似用户修改的-l操作，表示设置新的用户组的名称</p>
+<p><strong>案例</strong>：修改admin用户组，将组id从502改为520，将名称改为admins</p>
+<p>命令：#groupmod -g 520 -n admins admin</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210607143933740.png" alt="image-20210607143933740"></p>
+<p>③ 用户组删除</p>
+<p>常用语法：#groupdel 用户组名</p>
+<p>注意：当如果需要删除一个组，但是这个组是某个用户的主组时，则不允许删除；如果确实需要删除，则先从组内移除所有用户</p>
+<p>移除用户的方法：修改用户的主组id -g</p>
+<h1 id="三、网络设置"><a href="#三、网络设置" class="headerlink" title="三、网络设置"></a>三、网络设置</h1><p>首先知道网卡配置文件所在的位置：”/etc/sysconfig/network-scripts”</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210608091035620.png" alt="image-20210608091035620"></p>
+<p>在目录中网卡的配置文件命名格式：ifcfg -网卡名称 </p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210608091616548.png" alt="image-20210608091616548"></p>
+<p>ONBOOT：是否自动开机</p>
+<p>BOOTPROTO：IP地址分配方式，DHCP表示动态主机分配协议</p>
+<p>HWADDR：硬件地址，MAC地址</p>
+<p><strong>问题：</strong>如果后续需要重启网卡，怎么去操做？</p>
+<p>方式1：#service network restart   (不建议，因为有的分支版本中可能没有service服务)</p>
+<p>方式2：从共性的目录：”/etc/inti.d”（快捷方式文件，存放着对应网卡的快捷反式）出发</p>
+<p>命令：#/etc/init.d /  network restart(通用性好)</p>
+<p><strong>扩展：</strong>例如我们需要修改网卡的配置文件，到那时配置文件的目录层次很深，此时可以在浅的目录中创建一个快捷方式（软连接），方便以后去查找。</p>
+<p>#ln -s 原始文件的的路径  快捷方式的路径</p>
+<p>例如：#ln -s /etc/sysconfig/network-scripts/ifcfg-eth0   ~/ifcfg-eth0</p>
+<p><strong>扩展：</strong>如何重启的单个网卡</p>
+<p>停止某个网卡：#ifdown 网卡名</p>
+<p>开启某个网卡：#ifup 网卡名</p>
+<p>例如：需要停止- 启动（重启）eth0;</p>
+<p>#ifdown eth0;  (停止后通过#ifconfig 查看可以发现没有了IP地址)</p>
+<p>#ifup eth0;</p>
+<p>提示：在实际工作中不要随意禁网卡。</p>
+<p>四、ssh服务（重点）</p>
+<p>ssh(secure shell ,安全外壳协议)，该协议有两个常用的作用：远程连接协议、远程文件传输协议</p>
+<p>协议使用端口号：默认是22，端口号也可以被修改。修改ssh的配置文件（”#vim /etc/ssh/ssh config”）</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210608100842285.png" alt="image-20210608100842285"></p>
+<p>修改端口号，首先需要先将注释去掉（#），还要注意注意端口号的值有范围（0 ~ 65535），必须在此范围内，另外不能使用别的服务已经占用的端口号</p>
+<p>服务启动/停止/重启</p>
+<p>#service sshd start/stop/restart</p>
+<p>#/etc/init.d/sshd start/stop/restart</p>
+<h2 id="1-远程终端"><a href="#1-远程终端" class="headerlink" title="1.远程终端"></a>1.远程终端</h2><p>工具：帮助运维人员连接远程的服务器，常见终端工具：xshell、secureCRT、putty等。以putty为例：</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210608101929723.png" alt="image-20210608101929723"></p>
+<p>注意：22端口号，在host name 中输入自己的IP地址 </p>
+<p>① 获取服务器ip地址，可以通过ifconfig查看，然后顺手测试ip的连接相通性（windows 下 ping ip地址）</p>
+<p>②打开putty，输入host name 与port </p>
+<p>③点击open</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210608103734314.png" alt="image-20210608103734314"></p>
+<p>弹出个警告，点是。</p>
+<p>④输入登录信息</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210608105625885.png" alt="image-20210608105625885"></p>
+<h2 id="2-ssH服务文件传输"><a href="#2-ssH服务文件传输" class="headerlink" title="2.ssH服务文件传输"></a>2.ssH服务文件传输</h2><p>可视化的界面传输工具：fileZilla</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210608141031121.png" alt="image-20210608141031121"></p>
+<p>步骤①选择”文件“-”站点管理器（crtl + s）“ </p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210608141152200.png" alt="image-20210608141152200"></p>
+<p>②新建站点，输入站点名 在主机中输入ip地址，端口中输入”22“，协议选择ssh，登陆类型选择”正常“ ，输入用户名和密码</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210608141630770.png" alt="image-20210608141630770"></p>
+<p>③点击连接或确定，文件下方的工具栏中就会出现自己的站点，选择并进行连接。</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210608141814047.png" alt="image-20210608141814047"></p>
+<p>④从本地的windows上传文件到Linux中，拖拽或右键点击上传</p>
+<p>⑤下载Linux文件到Windows，拖拽或右键点击下载</p>
+<p><strong>扩展：</strong>通过命令行工具来传输文件或文件夹</p>
+<p>工具：PSCP.exe(必须通过cmd命令行打开)，为了使用方便，可以将其放到环境变量中，如果不清楚哪些路径是环境变量，可以直接将文件，放入到c：/Windows下</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210608143326442.png" alt="image-20210608143326442"></p>
+<p>用法：</p>
+<p>a. pscp 选项 用户名@Linux 主机地址：资源路径  Windows本地的地址         （下载到win）、</p>
+<p>b. pscp 选项 资源路径 用户名@Linux主机地址：远程路径 （上传到Linux）</p>
+<p>c. pscp 选项 ls 用户名@Linux主机地址 (列出远程路径下结构)</p>
+<p>关于选项：</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210608143402481.png" alt="image-20210608143402481"></p>
+<h1 id="四、设置主机名"><a href="#四、设置主机名" class="headerlink" title="四、设置主机名"></a>四、设置主机名</h1><p>回顾：</p>
+<p>​    #hostname  (查看主机名)</p>
+<p>​    #hostname -f（查看主机名的详细信息，全限定域名）</p>
+<p>①临时设置主机名（立竿见影）</p>
+<p>命令:#hostname 新主机名</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210608214842787.png" alt="image-20210608214842787"></p>
+<p>注意：需要切换用户使其生效</p>
+<p>②永久设置主机名（重启才能生效）</p>
+<ul>
+<li><p>先找对应的配置文件</p>
+<p>位置：”/etc/sysconfig/network”</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210608215102844.png" alt="image-20210608215102844">修改其中标白的位置，也就是hostname=</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210608215255931.png" alt="image-20210608215255931"></p>
+<p>:x退出vim</p>
+</li>
+</ul>
+<p>③ 修改Linux服务器的hosts文件，将yunwei(新主机名)指向本地（设置FQDN）</p>
+<p>Hosts文件的位置：/etc/hosts</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210608220603957.png" alt="image-20210608220603957"></p>
+<p><strong>问题：</strong>不设置FQDN会怎么样？</p>
+<p>​    ①很多开源服务器软件，例如Apache无法启动，或出现报错</p>
+<p>​    ②方便记忆，看到主机名对其作用有一个初步的解释</p>
+<p>​    ③如果不设置则会影响本地的域名的解析（本地访问）；</p>
+<h1 id="五、chkconfig"><a href="#五、chkconfig" class="headerlink" title="五、chkconfig"></a>五、chkconfig</h1><p>作用：相当于Windows下“安全卫士”、“电脑管家”之类的安全辅助工具提供“开机启动项”的一个管理服务。</p>
+<p>在Linux下不是所有的软件安装完成之后都有开机启动服务，有的可能需要自己去添加。除此之外还可以查看和删除。</p>
+<p>①开机启动服务查询</p>
+<p>#chkconfig –list</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210611153523374.png" alt="image-20210611153523374"></p>
+<hr>
+<p><strong>解释：</strong>其中0 -6 表示各个启动级别</p>
+<p>例如：以httpd为例，其3级别为关闭（off）,则表示其在3启动形式下默认开机不启动，5对应的也是关闭，则其表示其在桌面环境下也是开机不启动。</p>
+<p>再例如：kdump服务，在2，3，4，5的级别下默认开机启动的，其他级别下开机默认不启动</p>
+<p>②删除服务</p>
+<p>#chkconfig –del 服务名</p>
+<p>例如删除服务名httpd</p>
+<p>#chkconfig –del httpd</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210611154245327.png" alt="image-20210611154245327"></p>
+<p>③添加开机启动服务（进程和服务不是一个东西）</p>
+<p>#chkconfig –add 服务名         【必须要保证服务正常运行】</p>
+<p>#chkconfig –add httpd</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210611155021794.png" alt="image-20210611155021794"></p>
+<p>④设置服务在某个级别下开机启动/关闭  【重点命令】</p>
+<p>命令：#chkconfig –level 35 服务名  on/off        (表示在3和5级别下启动)</p>
+<p>案例：#chkconfig –level 35 httpd  on   (表示设置httpd在3和5级别下开机自动启动)</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210611155441750.png" alt="image-20210611155441750"></p>
+<p>案例：设置httpd在5的级别下默认开机不启动</p>
+<p><strong>#chkconfig –level 5 httpd off</strong></p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210611155603461.png" alt="image-20210611155603461"></p>
+<h1 id="六、ntp服务"><a href="#六、ntp服务" class="headerlink" title="六、ntp服务"></a>六、ntp服务</h1><p>作用：ntp主要是用于对计算机的时间同步管理操作。</p>
+<p>时间对于服务器来说是很重要的，一般很多网站都需要读取服务器时间来记录相关的信息，如果时间不准，则可能造成很大的影响。</p>
+<p>同步时间服务器的方式有两个：一次性同步（手动同步）、通过服务器自动同步。</p>
+<p><em>扩展：</em>时间服务器上游</p>
+<ul>
+<li><p>一次性同步：</p>
+<p>#ntpdate 时间服务器的域名或IP地址</p>
+<p>ip地址可以访问<a target="_blank" rel="noopener" href="http://www.ntp.org.cn/pool">服务器列表 - 全球可用的NTP服务器列表与解析服务 - ntp.org.cn &amp; ntpdate.net</a></p>
+</li>
+</ul>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210611162004659.png" alt="image-20210611162004659"></p>
+<ul>
+<li><p>设置时间同步的服务</p>
+<p>服务名：ntpd</p>
+<p>启动ntpd服务，会自动更新时间</p>
+<p>​    <strong>命令：</strong>#services ntpd start            或者   /etc/init.d/ntpd start</p>
+<p>将ntpd 设置为开机自动启动</p>
+<p>#chkconfig –level 35 ntpd on</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210611162535645.png" alt="image-20210611162535645"></p>
+</li>
+</ul>
+<h1 id="七、防火墙设置"><a href="#七、防火墙设置" class="headerlink" title="七、防火墙设置"></a>七、防火墙设置</h1><p>防火墙，指防范一些网络攻击，由软件防火墙和硬件防火墙之分。</p>
+<p>防火墙选择让请求通过，从而保证网络安全。</p>
+<p>在当前的centos6.5中防火墙有一个名称：iptables【7.x中默认使用的是firewalld】</p>
+<p>① 查看iptables是否开机启动</p>
+<p>#chkconfig –list | grep iptables</p>
+<p>②iptables服务启动/停止/重启</p>
+<p>#services iptables start</p>
+<p>/etc/init.d/iptables start</p>
+<p>③查看iptables的状态</p>
+<p>#services iptables status</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210611164415456.png" alt="image-20210611164415456"></p>
+<p>④查看iptables的规则</p>
+<p>#iptables -L -n</p>
+<p>含义：</p>
+<p>​    -L:表示列出规则</p>
+<p>​    -n:表示将单词表达形式换为数字表达形式</p>
+<p>⑤简单设置防火墙规则（建议百度）</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210611172001033.png" alt="image-20210611172001033"></p>
+<p>-A 表示add（添加禁止（reject）规则，最后面） -p 表示协议  -j 表示操作(允许或禁止)</p>
+<p>-I 表示将规则放到最前面（跟add效果一样，一般用来添加允许规则）</p>
+<p>input ：进站请求  -dport ： 端口号         允许或禁止（accept / reject）</p>
+<p>⑥保存防火墙规则</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210611175920000.png" alt="image-20210611175920000"></p>
+<p>#/etc/init.d/iptables save</p>
+<h1 id="八、rpm管理"><a href="#八、rpm管理" class="headerlink" title="八、rpm管理"></a>八、rpm管理</h1><p>作用：负责软件包安装、卸载、查询等</p>
+<p>① 查询</p>
+<p>#rpm -qa | grep 关键词          查询某个软件包</p>
+<p>选项：</p>
+<p>​    -q：查询，query</p>
+<p>​    -a：全部，all</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210611195946030.png" alt="image-20210611195946030"></p>
+<p>②卸载</p>
+<p>#rpm -e 软件的名称</p>
+<p>#rpm -e firefox</p>
+<p>当卸载软件包与另一个软件包存在依赖关系无法卸载时，可以采取下面的命令强制卸载。</p>
+<p>#rpm -e 软件包的名称 –nodeps  （有依赖关系下的强制卸载）</p>
+<p>③软件的安装</p>
+<ul>
+<li><p>找到软件的安装包 ，软件包的获得方式：a.去官网下载； b.不介意老版本的话，可以从光盘（镜像文件）中读取</p>
+<p>以b方案为例，查看块状设备的信息：</p>
+<p>#lsblk       (list block devices)          查看块状设备的信息</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210611211630879.png" alt="image-20210611211630879"></p>
+<p>解释：name ：名称</p>
+<p>size : 设备的大小</p>
+<p>type：类型</p>
+<p>MountPoint：挂载点（类似于Windows下的盘符）</p>
+<p><strong>扩展：光盘的挂载和解挂</strong></p>
+<p>a.解挂操作：</p>
+<p>​    命令：umount</p>
+<p>​    语法：#umount 现有设备的位置（路径：例如上图中的/meida/Centos_6.5_Final）</p>
+<p>b.挂载光盘</p>
+<p>​    命令：mount</p>
+<p>​    语法：#mount 设备的原始地址 要挂载的路径</p>
+<p>​    设备原始地址：地址统一都在/dev下，然后根据大小确定具体name值，拼凑在一起组成原始地址，例如当前：“/dev/sr0”</p>
+<p>​    要挂载的位置路径：挂载目录一般都在mnt下，也可以在mnt下建目录，此处以“/mnt/dvd”为例。</p>
+</li>
+</ul>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210612093801788.png" alt="image-20210612093801788"></p>
+<p>​    <strong>安装软件的命令：</strong>#rpm -ivh 软件包完整名称（路径）</p>
+<p>​    选项：</p>
+<p>​        -i ： install ，安装</p>
+<p>​        -v：显示进度条</p>
+<p>​        -h：以#形式显示进度条</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210612094753788.png" alt="image-20210612094753788"></p>
+<h1 id="九、cron-crontab计划任务（重点）"><a href="#九、cron-crontab计划任务（重点）" class="headerlink" title="九、cron/crontab计划任务（重点）"></a>九、cron/crontab计划任务（重点）</h1><p>作用：操做系统不可能24小时都有人在操作，有些时候需要在指定的时间点去执行任务，此时可以交给计划任务程序去执行操作。</p>
+<p>语法：#crontab 选项</p>
+<p>选项：-l：list,列出指定用户的计划任务列表</p>
+<p>​            -e：edit，编辑指定用户的计划任务列表</p>
+<p>​            -u:user，指定的用户名，如果不指定，则表示当前用户</p>
+<p>​            -r：remove，删除指定用户的计划任务列表</p>
+<p>①列出</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210612095935480.png" alt="image-20210612095935480"></p>
+<p>②编辑计划任务（重点）</p>
+<p><strong>扩展：计划任务的规则语法格式，以行为单位，一行则为一个计划：</strong></p>
+<p><strong>分 时 日 月 周 需要执行的命令</strong></p>
+<p>例如，需要在每天的0点0分执行reboot指令，则可以写成</p>
+<p>0 0 * * * reboot        （*表示没有具体指定）</p>
+<p>取值范围：</p>
+<p>分：0-59</p>
+<p>时：0 -23</p>
+<p>日：1-31</p>
+<p>月：1-12</p>
+<p>周：0-6.0表示星期天</p>
+<p>四个符号：</p>
+<p>*：表示取值范围内的每一个数字</p>
+<p>-：做连续区间的表达式，例如 1 -7</p>
+<p>/：表示每多少个，例如：想每10分钟一次，则可以在分的位置写：*/10</p>
+<p>，：表示多个不连续的取值，比如想在1点，3点，12点执行，则可以在时的位置写：1，3，12</p>
+<p><strong>练习</strong></p>
+<p>1.每月1、10、22日的4：45重启network服务</p>
+<p>45 4 1,10,22 * * service network restart</p>
+<p>2.每周六、周日的1：10重启network服务</p>
+<p>10 1 * * 6,0 service network restart</p>
+<p>3.每天18：00至23：00之间每隔30分钟重启network服务</p>
+<p>*/10 18 -23 * * * service network restart</p>
+<p>4.每隔两天的上午8点到11点的第3和第15分钟执行一次重启</p>
+<p>3,15 8 -11 */2 * * reboot</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210612103321136.png" alt="image-20210612103321136"></p>
+<p>有点问题，需要注意 在cron中输入date，%前面要加\</p>
+<p>crontab权限问题：本身是任何用户都可以创建自己的计划任务，但是超级管理员可以通过配置来设置某些用户不允许设置计划任务：</p>
+<p>​    配置文件位于：”/etc/cron.deny”         在配置文件中添加用户名即可，一行一个，（相当于黑名单）</p>
+<p>还有一个配置文件：（白名单）</p>
+<p>​    “/etc/cron.allow”                (本身不存在，自己创建)</p>
+<p>注意：白名单优先级高于黑名单，如果一个用户同时存在两个名单文件中，则会被默认允许创建计划任务。如果都不在默认是允许的</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="archive-article-date">
-  	<time datetime="2021-08-02T01:23:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liushixiong99.github.io/021/06/06/Linux%E8%87%AA%E6%9C%89%E6%9C%8D%E5%8A%A1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/05/26/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2021-05-26T02:50:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-26</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2021/06/15/linux%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          linux的权限管理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/06/01/Linux%E4%B8%8B%E7%9A%84vim/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux下的vim</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/05/26/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">贪心算法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">一、运行模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%94%A8%E6%88%B7%E4%B8%8E%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">二、用户与用户组管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text">1.用户管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86"><span class="toc-number">2.2.</span> <span class="toc-text">2.用户组管理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">三、网络设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%BF%9C%E7%A8%8B%E7%BB%88%E7%AB%AF"><span class="toc-number">3.1.</span> <span class="toc-text">1.远程终端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-ssH%E6%9C%8D%E5%8A%A1%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93"><span class="toc-number">3.2.</span> <span class="toc-text">2.ssH服务文件传输</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E8%AE%BE%E7%BD%AE%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="toc-number">4.</span> <span class="toc-text">四、设置主机名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81chkconfig"><span class="toc-number">5.</span> <span class="toc-text">五、chkconfig</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81ntp%E6%9C%8D%E5%8A%A1"><span class="toc-number">6.</span> <span class="toc-text">六、ntp服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E7%BD%AE"><span class="toc-number">7.</span> <span class="toc-text">七、防火墙设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AB%E3%80%81rpm%E7%AE%A1%E7%90%86"><span class="toc-number">8.</span> <span class="toc-text">八、rpm管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B9%9D%E3%80%81cron-crontab%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">九、cron&#x2F;crontab计划任务（重点）</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/05/10/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%89%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-05-10T00:31:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-10</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/05/10/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%89%EF%BC%89/">回溯算法（三）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/29/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%BA%8C%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-04-29T00:44:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/29/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%BA%8C%EF%BC%89/">回溯算法（二）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/23/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-04-23T06:30:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/23/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/">回溯算法（一）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/21/%E2%80%9C%E5%8F%8C%E6%8C%87%E9%92%88%E2%80%9D/" class="archive-article-date">
-  	<time datetime="2021-04-21T08:14:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/21/%E2%80%9C%E5%8F%8C%E6%8C%87%E9%92%88%E2%80%9D/">“双指针”</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/21/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2021-04-21T00:59:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/21/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">栈与队列</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/17/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8Akmp/" class="archive-article-date">
-  	<time datetime="2021-04-17T02:10:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/17/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8Akmp/">字符串及kmp</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/09/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%80%BB%E7%BB%93%EF%BC%81/" class="archive-article-date">
-  	<time datetime="2021-04-09T12:02:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/09/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%80%BB%E7%BB%93%EF%BC%81/">哈希表总结！</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -557,9 +782,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
