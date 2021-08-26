@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | 柳世雄的个人博客</title>
+  <title>动态规划之背包问题（一） | 柳世雄的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Just do it!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="柳世雄的个人博客">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="​        背包问题可以用下面这张图来表示：  在日常练习中，只要掌握01背包和完全背包就可以了，而完全背包也是01背包稍作变化而来，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态规划之背包问题（一）">
+<meta property="og:url" content="http://example.com/2021/08/25/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
 <meta property="og:site_name" content="柳世雄的个人博客">
-<meta property="og:description" content="Just do it!">
+<meta property="og:description" content="​        背包问题可以用下面这张图来表示：  在日常练习中，只要掌握01背包和完全背包就可以了，而完全背包也是01背包稍作变化而来，">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210825194153889.png">
+<meta property="article:published_time" content="2021-08-25T11:40:30.000Z">
+<meta property="article:modified_time" content="2021-08-26T09:25:11.894Z">
 <meta property="article:author" content="柳世雄">
-<meta property="article:tag" content="坚持 努力 成功">
+<meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210825194153889.png">
   
     <link rel="alternative" href="/atom.xml" title="柳世雄的个人博客" type="application/atom+xml">
   
@@ -174,35 +178,173 @@
           </div>
           <div id="js-content" class="content-ll">
             
+<article id="post-动态规划之背包问题（一）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      动态规划之背包问题（一）
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/25/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
+
+        
+        <a href="/2021/08/25/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
   	<time datetime="2021-08-25T11:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-25</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/25/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/">动态规划之背包问题（一）</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​        背包问题可以用下面这张图来表示：</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210825194153889.png" alt="image-20210825194153889"></p>
+<p>在日常练习中，只要掌握01背包和完全背包就可以了，而完全背包也是01背包稍作变化而来，<span id="more"></span>即： 完全背包的物品数量是无限的。对背包问题的理解：背包问题是在求最大容量的问题，他有两个要素，一个是物品，一个是物品的价值。在实际解决问题的过程中关键就是将实际问题怎么转化为我们知道的背包问题。</p>
+<h1 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h1><p>有N件物品和一个最多能背重量为W的背包。第i件物品的重量是weight[i]，得到的价值是value[i]。<strong>每件物品只能用一次</strong>，求解将哪些物品装入背包里物品价值总和最大。</p>
+<p>二维数组的情况：</p>
+<p><code>dp[i][j]</code>表示从下标为[0 - i]的物品里任意取，每个仅能取用一次，放进容量为j的背包，价值总和最大是多少？</p>
+<p><code>dp[i][j]</code>由两个方向可以推出，一是由<code>dp[i - 1][j]</code>推出，即背包容量为j，里面不放物品i的最大价值，此时<code>dp[i][j]</code>就是<code>dp[i - 1][j]</code>；二是由<code>dp[i - 1][j - weight[i]]</code>推出，<code>dp[i - 1][j - weight[i]]</code>为背包容量不放物品i的最大价值，那么<code>dp[i - 1][j - weight[i]] + value[i]</code>（物品的价值），就是背包放物品i得到的最大价值。</p>
+<p>所以递推公式：<code>dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i]);</code></p>
+<p>一维数组的情况：（也就是一维滚动数组）</p>
+<p>根据总结出的二维数组的递归公式，我们可以这么想，如果把<code>dp[i - 1]</code>那一层拷贝到<code>dp[i]</code>上，就是相当于一次覆盖操作，那么对应的递推公式就应该是<code>dp[j] = max(dp[j], dp[j - weight[i]] + value[i]);</code></p>
+<p>一维数组和二维数组在使用时的不同：</p>
+<ul>
+<li><p>初始化：</p>
+<p>对于二维数组来说：首先从<code>dp[i][j]</code>的定义出发，如果背包容量j为0的话，即<code>dp[i][0]</code>，无论是选取哪些物品，背包价值总和一定为0。再看其他情况，从递推公式可以看出，<code>dp[i][j]</code>都是有i- 1的情况推出的，所以我们有必要对其进行初始化。在初始化的过程中一定要注意，由于每个物品只能使用一次，因此为了避免重复加入背包，在遍历的时候，我们应该使用倒序遍历</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = bagWeight; j &gt;= weight[<span class="number">0</span>]; j--) &#123;</span><br><span class="line">    dp[<span class="number">0</span>][j] = dp[<span class="number">0</span>][j - weight[<span class="number">0</span>]] + value[<span class="number">0</span>]; <span class="comment">// 初始化i为0时候的情况</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<p>对于一维滚动数组来说，因为他只有<code>dp[j]</code>不需要i-1的赋值，dp数组在推导的时候一定时取价值最大的数，<strong>如果题目给定的价值都是正整数那么非0下标都初始化为0就可以了，如果题目给的价值有负数，那么非0下标就要初始化为负无穷</strong>。这样才能让dp数组在递推公式的过程中取得嘴的的价值，而不是被初始值覆盖了。</p>
+</li>
+<li><p>遍历顺序:</p>
+<p>一维数组因为要有覆盖操作，所以在遍历的时候和二维数组不同，需要用倒序</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; weight.<span class="built_in">size</span>(); i++) &#123; <span class="comment">// 遍历物品</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = bagWeight; j &gt;= weight[i]; j--) &#123; <span class="comment">// 遍历背包容量</span></span><br><span class="line">        dp[j] = <span class="built_in">max</span>(dp[j], dp[j - weight[i]] + value[i]);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于二维dp数组来说，dp都是通过上一层即<code>dp[i - 1][j]</code>计算而来，本层的dp并不会被覆盖！所以就不需要使用倒序。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// weight数组的大小 就是物品个数</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; weight.<span class="built_in">size</span>(); i++) &#123; <span class="comment">// 遍历物品</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= bagWeight; j++) &#123; <span class="comment">// 遍历背包容量 </span></span><br><span class="line">        <span class="keyword">if</span> (j &lt; weight[i]) dp[i][j] = dp[i - <span class="number">1</span>][j]; <span class="comment">// 这个是为了展现dp数组里元素的变化</span></span><br><span class="line">        <span class="keyword">else</span> dp[i][j] = <span class="built_in">max</span>(dp[i - <span class="number">1</span>][j], dp[i - <span class="number">1</span>][j - weight[i]] + value[i]);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="416-分割等和子集"><a href="#416-分割等和子集" class="headerlink" title="416.分割等和子集"></a>416.分割等和子集</h1><p>题目描述：给定一个只包含正整数的飞空数组。是否可以将这个数组分割成两个子集，使得两个子集的元素和相等</p>
+<p>思路：这道题应该怎么转化成背包问题：背包问题的两个重要要素，物品，重量。</p>
+<p>首先，一个元素只能使用一次，我们可以确定大概方向是往01背包上。元素就相当于是物品，元素的值就是重量，那么背包重量呢，因为要分成两个相同的子集，所以背包容量就是sum / 2。背包正好装满就是招到了背包容量为sum/2的子集，那剩下的一定也是sum/2。理所当然就可以想到如果sum是奇数，直接返回false就可以了，一定不存在两个相等子集的解。</p>
+<p>动态规划五部曲：</p>
+<ul>
+<li>确定dp数组以及下标的含义</li>
+<li>确定递推公式</li>
+<li>dp数组如何初始化</li>
+<li>确定遍历顺序</li>
+<li>举例推导dp数组</li>
+</ul>
+<p>递推公式：<code>dp[j] = max(dp[j], dp[j - nums[i]] + nums[i]);</code></p>
+<p>初始化：因为元素的值都是正整数，直接初始化0即可</p>
+<p>代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>：</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canPartition</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(<span class="number">2001</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i : nums) &#123;</span><br><span class="line">        sum += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(sum % <span class="number">2</span> == <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">int</span> target = sum / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = target; j &gt;= num[i]; j--) &#123;</span><br><span class="line">            dp[j] = <span class="built_in">max</span>(dp[j], dp[j - nums[i]] +  nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//怎么判断是否有</span></span><br><span class="line">    <span class="keyword">if</span>(dp[target] == target) <span class="keyword">return</span> <span class="literal">true</span>; </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(n)，虽然dp数组大小为一个常数，但是大常数</li>
+</ul>
+<h1 id="1049-最后一块石头的重量Ⅱ"><a href="#1049-最后一块石头的重量Ⅱ" class="headerlink" title="1049.最后一块石头的重量Ⅱ"></a>1049.最后一块石头的重量Ⅱ</h1><p>题目描述：有一堆石头，每块石头的重量都是正整数。每一回合，从中选出任意两块石头，然后将他们一起粉碎，假设石头的重量分别为x和y，且x &lt;= y。那么粉碎的可能结果如下：</p>
+<p>如果x == y，那么两块石头都会被完全粉碎；</p>
+<p>如果x != y，那么重量为x的石头将会完全粉碎，而重量为y的石头新重量为y - x。最后，最多只会剩下一块石头。返回此石头的最小的可能重量，如果没有石头剩下，就返回0.</p>
+<p>思路：转化为背包问题：要返回最小的可能重量，意思就是应该先将石头块分成重量差不多相等的两堆，相撞之后剩下的石头最小，另外每颗石头只能用一次，所以是01背包。这样转化下来其实与上道题目有些类似。</p>
+<p>代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lastStoneWeightII</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; stone)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(<span class="number">15001</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i : stone) sum += i;</span><br><span class="line">        <span class="keyword">int</span> target = sum / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stone.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = target; j &gt;= stone[i]; j--) &#123;</span><br><span class="line">             dp[j] = <span class="built_in">max</span>(dp[j], dp[j - stone[i]] + stone[i]);   </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum -dp[target] - dp[target];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>时间复杂度：O(m * n) , m是石头总重量（准确的说是总重量的一半），n为石头块数</li>
+<li>空间复杂度：O(m)</li>
+</ul>
+<h1 id="494-目标和"><a href="#494-目标和" class="headerlink" title="494.目标和"></a>494.目标和</h1><p>题目介绍：给定一个非负整数数组，a1，a2，…，an，和一个目标数，S。现在你有两个符号+ 和 -。对于数组中的任意一个整数，你都可以从+或-中选择一个符号添加在前面。</p>
+<p>返回可以使最终数组和为目标数S的所有添加符号的方法数。</p>
+<p>思路：如何转化为背包问题，首先先搞清这道题属于01背包，因为数组中每个元素只能使用一次，其次物体就是元素，物体的价格就是元素本身的值。可以跟上面两道题一样，既然有加减两种不同的符号，我们可以将元素分成两堆，一堆代表正的，另一堆代表负的，他俩相加为目标值target。即<code>left - right = target, left + right = sum</code>,求得<code>left = (target + sum) / 2</code>。因此问题就转化成了在集合nums中找出和为left的组合有几种方法。同样如果<code>(target + sum) / 2</code>是奇数的话，代表是无解的，直接return 0；<strong>看到这种表达式，应该本能的反应，两个int相加数值可能溢出的问题，当然本题并没有溢出</strong>。</p>
+<ol>
+<li><p>确定dp数组以及下标的含义</p>
+<p>dp[j]：表示填满这么大容积的包，有dp[j]种方法</p>
+</li>
+<li><p>递推公式</p>
+<p>dp[j]是由什么而来的呢，在不考虑当前nums[i]的情况下，目标为j，那么我们想要填满它，我需要找的dp[j - nums[i]]的方法数。即<code>dp[j] += dp[j - nums[i]];</code>(组合问题一般都是i这个公式)</p>
+</li>
+<li><p>初始化</p>
+<p><strong>dp[0] = 0;这个是错的，因为这样累加之后所有的都是0，累加的初始化一定不为0！</strong></p>
+<p>在初始化的时候dp[0] 一定要初始化为1，因为dp[0]是在公式中一切递推结果的起源，如果dp[0]是0的话，递归结果将都是0。</p>
+</li>
+</ol>
+<p>代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findTargetSumWays</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> S)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i : nums) sum += i;</span><br><span class="line">        <span class="keyword">if</span> (S &gt; sum) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> ((S + sum) % <span class="number">2</span> == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = (S + sum) / <span class="number">2</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(left + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = left; j &gt;= nums[i]; j--) &#123;</span><br><span class="line">                dp[j] += dp[j - nums[i]];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[left];	</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：在求装满背包有几种方法时，递推公式一般都是<code>dp[j] += dp[j - nums[i]]</code></strong></p>
+<h1 id="474-一和零"><a href="#474-一和零" class="headerlink" title="474. 一和零"></a>474. 一和零</h1><p>题目介绍：给你一个二进制字符串数组strs和两个整数m 和 n。请你找出并返回strs的最大子集的大小，该子集中最多有m个0和n 个1。</p>
+<p>思路：首先可以肯定的是01背包，因为每个元素只能使用一次，元素就是物品，物品的价值就是0和1的个数。<strong>这道题比前几题难的地方就在于他有两个维度，一个是m，一个是n。</strong></p>
+<ol>
+<li><p>确定dp数组以及下标的含义</p>
+<p><code>dp[i][j]</code>:最多有i个0和j个1的最大子集的大小为<code>dp[i][j]</code>.</p>
+</li>
+<li><p>确定递推公式</p>
+<p><code>dp[i][j]</code>可以由前一个strs里的字符串推导出来，strs里的字符串有zeroNum个0，oneNum个1。<code>dp[i][j]</code>就可以是<code>dp[i - zeroNum][j - oneNum] + 1</code>。然后我们在遍历的过程中，取<code>dp[i][j]</code>的最大值，所以递推公式：<code>dp[i][j] = max(dp[i][j], dp[i - zeroNum][j - oneNum] + 1)</code></p>
+</li>
+<li><p>初始化</p>
+<p>这个没有什么特殊的，直接初始化为0就可以。</p>
+</li>
+</ol>
+<p>代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findMaxForm</span><span class="params">(vector&lt;string&gt;&amp; strs, <span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">dp</span>(m + <span class="number">1</span>, vector&lt;<span class="keyword">int</span>&gt;(n + <span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="comment">//接下来这个遍历很关键</span></span><br><span class="line">        <span class="keyword">for</span>(string str: strs) &#123;</span><br><span class="line">            <span class="keyword">int</span> oneNum = <span class="number">0</span>, zeroNum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">char</span> c : str) &#123;</span><br><span class="line">                <span class="keyword">if</span>(c == <span class="string">&#x27;0&#x27;</span>) &#123;</span><br><span class="line">                    zeroNum++;</span><br><span class="line">                &#125;<span class="keyword">else</span> oneNum++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = m; i &gt;= zeroNum; i--) &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = n; j &gt;= oneNum; j--) &#123;</span><br><span class="line">                    dp[i][j] = <span class="built_in">max</span>(dp[i][j], dp[i - zeroNum][j - oneNum] + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="完全背包"><a href="#完全背包" class="headerlink" title="完全背包"></a>完全背包</h1><p>完全背包和01背包的不同就在于每种物品有无限件，意味着你可以重复往背包里放。</p>
+<p>从而，01背包和完全背包唯一不同就是体现在<strong>遍历顺序</strong>上。由于01背包只能添加一次，所以在内嵌循环中要从大到小遍历，为了保证每个物品仅被添加一次，而完全背包的物品是可以添加多次的，所以要从小到大去遍历。</p>
+<p><strong>01背包中二维dp数组的两个for遍历的先后循序是可以颠倒了，一位dp数组的两个for循环先后循序一定是先遍历物品，再遍历背包容量。在完全背包中，对于一维dp数组来说，其实两个for循环嵌套顺序同样无所谓！</strong></p>
+<h1 id="518-零钱兑换Ⅱ"><a href="#518-零钱兑换Ⅱ" class="headerlink" title="518.零钱兑换Ⅱ"></a>518.零钱兑换Ⅱ</h1><p>题目介绍：给定不同面额的硬币和一个总金额。写出函数来计算可以凑成总金额的硬币组合数。假设每一种面额的硬币有无限个。</p>
+<p>思路：背包：总金额，物品：硬币，价值，硬币值</p>
+<p>由于硬币可以多次使用，所以他是一个完全背包问题</p>
+<ol>
+<li><p>dp数组的意义</p>
+<p>dp[j]就表示达到j有多少种组合方法</p>
+</li>
+<li><p>确定递推公式</p>
+<p>这是求方法的问题，所以应该想到前面提到的累加公式：<code>dp[j] += dp[j - coins[i]];</code></p>
+</li>
+<li><p>初始化</p>
+<p>首先dp[0]一定要为1，dp[0] = 1是 递归公式的基础。</p>
+<p>从dp[i]的含义上来讲就是，凑成总金额0的货币组合数为1。</p>
+<p>下标非0的dp[j]初始化为0，这样累计加dp[j - coins[i]]的时候才不会影响真正的dp[j]。</p>
+</li>
+<li><p>确定遍历顺序</p>
+<p>上面提到完全背包的一维数组的两个for循环的先后顺序是可以调换的，但是本题由于求得是组合数，元素之间要求没有顺序。如果是先遍历背包，后遍历物品，就是出现（1，5）（5， 1）两种结果。但实际上他是一种组合，因此需要先遍历物品，后遍历背包。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> amount, vector&lt;<span class="keyword">int</span>&gt;&amp; coins)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(amount + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; coins.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = coins[i]; j &lt;= amount; j++) &#123;</span><br><span class="line">                dp[j] += dp[j - coins[i]];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -214,365 +356,121 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liushixiong99.github.io/021/08/25/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/08/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92a%E4%B9%8B%E5%9F%BA%E7%A1%80%E9%A2%98%E7%9B%AE/" class="archive-article-date">
-  	<time datetime="2021-08-08T00:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/08/08/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92a%E4%B9%8B%E5%9F%BA%E7%A1%80%E9%A2%98%E7%9B%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">动态规划å之基础题目</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/08/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92a%E4%B9%8B%E5%9F%BA%E7%A1%80%E9%A2%98%E7%9B%AE/">动态规划å之基础题目</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#01%E8%83%8C%E5%8C%85"><span class="toc-number">1.</span> <span class="toc-text">01背包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#416-%E5%88%86%E5%89%B2%E7%AD%89%E5%92%8C%E5%AD%90%E9%9B%86"><span class="toc-number">2.</span> <span class="toc-text">416.分割等和子集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1049-%E6%9C%80%E5%90%8E%E4%B8%80%E5%9D%97%E7%9F%B3%E5%A4%B4%E7%9A%84%E9%87%8D%E9%87%8F%E2%85%A1"><span class="toc-number">3.</span> <span class="toc-text">1049.最后一块石头的重量Ⅱ</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#494-%E7%9B%AE%E6%A0%87%E5%92%8C"><span class="toc-number">4.</span> <span class="toc-text">494.目标和</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#474-%E4%B8%80%E5%92%8C%E9%9B%B6"><span class="toc-number">5.</span> <span class="toc-text">474. 一和零</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85"><span class="toc-number">6.</span> <span class="toc-text">完全背包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#518-%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2%E2%85%A1"><span class="toc-number">7.</span> <span class="toc-text">518.零钱兑换Ⅱ</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="archive-article-date">
-  	<time datetime="2021-08-02T01:23:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-02</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/23/shell-%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2021-06-23T08:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/23/shell-%E5%9F%BA%E7%A1%80/">shell 基础</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/17/linux%E7%9A%84%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2021-06-17T00:57:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/17/linux%E7%9A%84%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">linux的网络基础</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/15/linux%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="archive-article-date">
-  	<time datetime="2021-06-15T09:42:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/15/linux%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">linux的权限管理</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/06/Linux%E8%87%AA%E6%9C%89%E6%9C%8D%E5%8A%A1/" class="archive-article-date">
-  	<time datetime="2021-06-06T06:50:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/06/Linux%E8%87%AA%E6%9C%89%E6%9C%8D%E5%8A%A1/">Linux自有服务</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/01/Linux%E4%B8%8B%E7%9A%84vim/" class="archive-article-date">
-  	<time datetime="2021-06-01T13:39:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/01/Linux%E4%B8%8B%E7%9A%84vim/">Linux下的vim</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/05/31/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" class="archive-article-date">
-  	<time datetime="2021-05-31T12:57:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/05/31/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/">面向对象三大特性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">小记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/05/31/%E5%A4%9A%E6%80%81/" class="archive-article-date">
-  	<time datetime="2021-05-31T11:44:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/05/31/%E5%A4%9A%E6%80%81/">多态</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -599,8 +497,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
