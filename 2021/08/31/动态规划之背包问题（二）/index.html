@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021/8 | 柳世雄的个人博客</title>
+  <title>动态规划之背包问题（二） | 柳世雄的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Just do it!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="柳世雄的个人博客">
-<meta property="og:url" content="http://example.com/archives/2021/08/index.html">
+  <meta name="description" content="​    接着背包问题（一）开始总结，还是完全背包。需要注意的是不管是01背包还是完全背包，在做题的过程中，都要找到对应的背包，物品，及物品的价值，这样才能使用背包的概念。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态规划之背包问题（二）">
+<meta property="og:url" content="http://example.com/2021/08/31/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89/index.html">
 <meta property="og:site_name" content="柳世雄的个人博客">
-<meta property="og:description" content="Just do it!">
+<meta property="og:description" content="​    接着背包问题（一）开始总结，还是完全背包。需要注意的是不管是01背包还是完全背包，在做题的过程中，都要找到对应的背包，物品，及物品的价值，这样才能使用背包的概念。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-30T23:58:53.000Z">
+<meta property="article:modified_time" content="2021-08-31T02:51:18.548Z">
 <meta property="article:author" content="柳世雄">
-<meta property="article:tag" content="坚持 努力 成功">
+<meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="柳世雄的个人博客" type="application/atom+xml">
@@ -174,35 +176,131 @@
           </div>
           <div id="js-content" class="content-ll">
             
+<article id="post-动态规划之背包问题（二）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      动态规划之背包问题（二）
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/31/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89/" class="archive-article-date">
+
+        
+        <a href="/2021/08/31/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89/" class="archive-article-date">
   	<time datetime="2021-08-30T23:58:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-31</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/31/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89/">动态规划之背包问题（二）</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    接着背包问题（一）开始总结，还是完全背包。需要注意的是不管是01背包还是完全背包，在做题的过程中，都要找到对应的背包，物品，及物品的价值，这样才能使用背包的概念。</p>
+<span id="more"></span>
 
-        <div class="article-info info-on-right">
-          
+<h1 id="377-组合总和Ⅳ"><a href="#377-组合总和Ⅳ" class="headerlink" title="377.组合总和Ⅳ"></a>377.组合总和Ⅳ</h1><p>题目简介：给定一个由正整数组成且不存在重复数字的数组，找出和为给定目标正整数的组合的个数。</p>
+<p>思路：这道题往背包方向转，目标正整数就是背包大小，数组中的元素就是物品，元素的值就是物品的价值。这道题由演示实例可以看出每个元素可以无限次使用，因此这道题属于完全背包问题。</p>
+<ul>
+<li><p>dp的意义</p>
+<p>dp[i]凑成目标正整数为i的排列个数为dp[i]；</p>
+</li>
+<li><p>递推公式</p>
+<p>这道题求的方法总数，因此递推公式和之前一样，<code>dp[i] += dp[i - nums[j]]   </code></p>
+</li>
+<li><p>dp数组的初始化</p>
+<p>因为递推公式是累加的形式，因此在初始化的时候<code>dp[0] = 1</code>，至于其他的dp[i]初始化为0即可。</p>
+</li>
+<li><p>确定遍历顺序</p>
+<p>这道题根据给出的例子可以知道，同样的元素，如果组合顺序不同，也代表一种结果，实际上这道题属于排列问题。根据在零钱兑换Ⅱ中总结的规律来看：我们需要先遍历背包，后遍历物品，来保证所得结果是排列。</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">combinationSum4</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(target + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= target; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; num.<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(i &gt;= nums[j] &amp;&amp; dp[i] &lt; INT_MAX - dp[i - nums[j]]) &#123;</span><br><span class="line">                    dp[i] += dp[i - nums[j]];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[target];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里要注意的是在条件判断中的<code>dp[i] &lt; INT_MAX - dp[i - nums[j]]</code>这句话的意思是，因为dp[i]一直在累加，所以他很容易超了int的上限，但你又不能写成<code>dp[i] + dp[i - nums[j]] &lt; INT_MAX</code>的形式，因为左边如果本身已经超过了int范围，直接会报错，根本无法与INT_MAX比较。</p>
+<h1 id="70-爬楼梯"><a href="#70-爬楼梯" class="headerlink" title="70.爬楼梯"></a>70.爬楼梯</h1><p>题目简介：假设你正在爬楼梯，需要n阶你才能到达楼顶。每次你可以爬1或2个台阶。你有多少种方法可以爬到楼顶呢？</p>
+<p>思路：这道题之前做的时候是按普通动态规划的方法，通过前后的关系，正常推导出来的。这道题如果改成每次可以爬1、2或者m个台阶。问有多少种不同的方法可以爬到楼顶呢?</p>
+<p>这时候可以转换为背包问题，n阶就是背包，一次爬多少个台阶就是物品及物品的价值，因为台阶可以重复上，所以它是一个完全背包问题。</p>
+<ul>
+<li><p>确定dp数组以及下标的含义</p>
+<p>dp[i]：爬到有i个台阶的楼顶，有dp[i]种方法。</p>
+</li>
+<li><p>确定递推公式</p>
+<p>求方法总和，老样子<code>dp[i] = dp[i - j]</code></p>
+</li>
+<li><p>初始化</p>
+<p>首先由于累加的缘故，dp[0] = 1;其次将其他的值初始化为0</p>
+</li>
+<li><p>遍历顺序</p>
+<p>这道题要注意，因为你先爬一个台阶，再爬两个台阶，与先爬两个台阶，再爬一个台阶是不一样的。这道题本质上是一道排列题，所以我们需要将背包放到外层，物品放到内层。</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Soluiton</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(i &gt;= j) &#123;</span><br><span class="line">                    dp[i] += dp[i - j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="322-零钱兑换"><a href="#322-零钱兑换" class="headerlink" title="322.零钱兑换"></a>322.零钱兑换</h1><p>题目简介：给定不同面额的硬币coins和一个总金额amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数，如果没有一种硬币组合能组成总金额，返回-1。假设每种硬币的个数是无限的。</p>
+<p>思路：这道题思路很明显，属于完全背包问题，其中背包就是总金额amount，硬币就是物品，硬币面额就是物品价值。这道题和之前有所不同的就是，求得是最少的情况。在初始化的时候就要注意将初始值设定成较大的值，这道题无所谓排列也无所谓组合的，因此我们可以按之前的先物品后背包。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(amount + <span class="number">1</span>, INT_MAX)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>]= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; coins.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = coins[i]; j &lt;= amount; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(dp[j - coins[i]] != INT_MAX) &#123;</span><br><span class="line">                    dp[j] = <span class="built_in">min</span>(dp[j], dp[j - coins[i]] + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(dp[amount] == INT_MAX) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">return</span> dp[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>if (dp[j - coins[i]] != INT_MAX)</code> ** <strong>// 如果dp[j - coins[i]]是初始值则跳过</strong> **</p>
+<h1 id="279-完全平方数"><a href="#279-完全平方数" class="headerlink" title="279.完全平方数"></a>279.完全平方数</h1><p>题目简介：给定正整数，找到若干个完全平方数（比如1，4，9，16，…）使得它们的和等于n。你需要让组成和的完全平方数的个数最少。</p>
+<p>思路：物品是完全平方数，物品的价值就是完全平方数的值，背包是n。这道题也是求最小，因此初始值需要设为大值。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numSquares</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>, INT_MAX)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i * i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i * i; j &lt;= n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(dp[j - i * i] != INT_MAX) &#123;</span><br><span class="line">                    dp[j] = <span class="built_in">min</span> (dp[j], dp[j - i * i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="139-单词拆分"><a href="#139-单词拆分" class="headerlink" title="139.单词拆分"></a>139.单词拆分</h1><p>题目简介：给定一个非空字符串s和一个包含非空单词的列表wordDict，判定s是否可以被空格拆分成一个或多个出现的单词。</p>
+<p>思路：背包就是s，物品就是wordDict中的单词。物品可以多次使用，因此它属于完全背包。这道题应该先遍历背包，因为需要将背包拆分出的单词与字典中的单词做对比，这样比较方便。</p>
+<ul>
+<li><p>dp数组的意义</p>
+<p>dp[i]  就是表示i长度的字符串是否可以被拆分</p>
+</li>
+<li><p>递推公式</p>
+<p>dp[i]的来源与上一个有关，即如果dp[j]存在，且wordDict[j]在字典中也可以找到，那dp[i] = true;</p>
+</li>
+<li><p>初始化</p>
+<p>一般其他的我们需要初始化为false,对于dp[0]可以初始化为true。</p>
+</li>
+<li><p>遍历顺序</p>
+<p>本题有特殊性，因为是要求子串，最好是遍历背包放在外循环，将遍历物品放在内循环。</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">wordBreak</span><span class="params">(string s, vector&lt;string&gt;&amp; wrodDict)</span> </span>&#123;</span><br><span class="line">        <span class="function">unordered_set&lt;string&gt; <span class="title">wordSet</span><span class="params">(wordDict.begin(), wrdDict.end())</span></span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="keyword">bool</span>&gt; <span class="title">dp</span><span class="params">(s.size() + <span class="number">1</span>, <span class="literal">false</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                string word = s.<span class="built_in">substr</span>(<span class="number">0</span>, i - j);</span><br><span class="line">                <span class="keyword">if</span>(wordSet.<span class="built_in">find</span>(word) != wordDict.<span class="built_in">end</span>() &amp;&amp; dp[j]) &#123;</span><br><span class="line">                    dp[i] = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[s.<span class="built_in">size</span>()];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>​    关于多重背包有个简单的理解就行，多重背包就是几个01背包的简单相加。在leetcode中没有找到相关习题。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -214,133 +312,121 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liushixiong99.github.io/021/08/31/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/25/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-08-25T11:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-25</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/08/25/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">动态规划之背包问题（一）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/25/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/">动态规划之背包问题（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#377-%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C%E2%85%A3"><span class="toc-number">1.</span> <span class="toc-text">377.组合总和Ⅳ</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#70-%E7%88%AC%E6%A5%BC%E6%A2%AF"><span class="toc-number">2.</span> <span class="toc-text">70.爬楼梯</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#322-%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2"><span class="toc-number">3.</span> <span class="toc-text">322.零钱兑换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#279-%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">279.完全平方数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#139-%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86"><span class="toc-number">5.</span> <span class="toc-text">139.单词拆分</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/08/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92a%E4%B9%8B%E5%9F%BA%E7%A1%80%E9%A2%98%E7%9B%AE/" class="archive-article-date">
-  	<time datetime="2021-08-08T00:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-08</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/08/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92a%E4%B9%8B%E5%9F%BA%E7%A1%80%E9%A2%98%E7%9B%AE/">动态规划å之基础题目</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="archive-article-date">
-  	<time datetime="2021-08-02T01:23:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
 
 
           </div>
@@ -367,8 +453,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
