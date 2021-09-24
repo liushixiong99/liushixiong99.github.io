@@ -6,55 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>动态规划 | 柳世雄的个人博客</title>
+  <title>Archives: 2021/9 | 柳世雄的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="​    什么是动态规划？ 动态规划就是讲一个问题拆成几个子问题，每个子问题要满足无后效性与最优子结构。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="动态规划">
-<meta property="og:url" content="http://example.com/2021/08/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.html">
+  <meta name="description" content="Just do it!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="柳世雄的个人博客">
+<meta property="og:url" content="http://example.com/archives/2021/09/index.html">
 <meta property="og:site_name" content="柳世雄的个人博客">
-<meta property="og:description" content="​    什么是动态规划？ 动态规划就是讲一个问题拆成几个子问题，每个子问题要满足无后效性与最优子结构。">
+<meta property="og:description" content="Just do it!">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Ctext%7Bcost%7D+=+f(4)+++1+=+4+++1+=+5">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=f(10)+++1+=+2+++1+=+3">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Ctext%7Bcost%7D=f(4)+1=4+1=5">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Ctext%7Bcost%7D=f(10)+1=2+1=3">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Ctext%7Bcost%7D=f(14)+1=4+1=5">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=f(n)">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=f(n-1),f(n-5),f(n-11)">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=f(n)=%5Cmin%5C%7Bf(n-1),f(n-5),f(n-11)%5C%7D+1">
-<meta property="og:image" content="https://pic2.zhimg.com/50/v2-6a5ba74fb90968533ece429ed329c903_720w.jpg?source=1940ef5c">
-<meta property="og:image" content="https://pic2.zhimg.com/80/v2-6a5ba74fb90968533ece429ed329c903_720w.jpg?source=1940ef5c">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=O(n)">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=f(n)">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=f(n-1),f(n-5),f(n-11)">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=f(w)">
-<meta property="og:image" content="https://pic1.zhimg.com/50/v2-38e9a487997d2eea979097fbc9e9e674_720w.jpg?source=1940ef5c">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-38e9a487997d2eea979097fbc9e9e674_720w.jpg?source=1940ef5c">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=f(T)=%5Cmin%E2%81%A1%5C%7Bf(C)+20,f(D)+10%5C%7D">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=S+%5Cto+P%5Cto+Q%5Cto+T">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=S%5Cto+P%5Cto+Q">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=f(P)=%5Cmin%E2%81%A1%5C%7Bf(R)+w_%7BR%E2%86%92P%7D%5C%7D">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=w_%7BR%E2%86%92P%7D">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=f(x)">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=a_x">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cmax%5C%7Bf(x)%5C%7D">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=a_x%3Ea_p">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=a_x">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=a_p">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=a_x">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=a_p">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=f(x)=%5Cmax_%7Bp%3Cx+,+a_p%3Ca_x+%7D%E2%81%A1%5C%7Bf(p)%5C%7D+1">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=O(n%5E2)">
-<meta property="og:image" content="https://pic1.zhimg.com/50/v2-73ea19922aaac11c15dff9146a5c5b41_720w.jpg?source=1940ef5c">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-73ea19922aaac11c15dff9146a5c5b41_720w.jpg?source=1940ef5c">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=O(n%5Clog+n)">
-<meta property="article:published_time" content="2021-08-02T01:23:56.000Z">
-<meta property="article:modified_time" content="2021-08-24T00:56:08.122Z">
 <meta property="article:author" content="柳世雄">
-<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="坚持 努力 成功">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.zhihu.com/equation?tex=%5Ctext%7Bcost%7D+=+f(4)+++1+=+4+++1+=+5">
   
     <link rel="alternative" href="/atom.xml" title="柳世雄的个人博客" type="application/atom+xml">
   
@@ -211,236 +174,97 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-动态规划" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 class="article-title" itemprop="name">
-      动态规划
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/09/24/%E9%9D%92%E6%98%A5/" class="archive-article-date">
+  	<time datetime="2021-09-24T07:30:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-24</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/09/24/%E9%9D%92%E6%98%A5/">青春</a>
     </h1>
   
 
-        
-        <a href="/2021/08/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="archive-article-date">
-  	<time datetime="2021-08-02T01:23:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​    什么是动态规划？</p>
-<p>动态规划就是讲一个问题拆成几个子问题，每个子问题要满足无后效性与最优子结构。</p>
-<span id="more"></span>
-
-<p>这里我在知乎上看到一篇很好的文章，跟大家分享一下：</p>
-<p>作者：阮行止<br>链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/23995189/answer/613096905">https://www.zhihu.com/question/23995189/answer/613096905</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-<h1 id="0-intro"><a href="#0-intro" class="headerlink" title="0. intro"></a>0. intro</h1><p>很有意思的问题。以往见过许多教材，对动态规划（DP）的引入属于“奉天承运，皇帝诏曰”式：不给出一点引入，见面即拿出一大堆公式吓人；学生则死啃书本，然后突然顿悟。针对入门者的教材不应该是这样的。恰好我给入门者讲过四次DP入门，迭代出了一套比较靠谱的教学方法，所以今天跑过来献丑。　　现在，我们试着自己来一步步“重新发明”DP。</p>
-<h1 id="1-从一个生活问题谈起"><a href="#1-从一个生活问题谈起" class="headerlink" title="1. 从一个生活问题谈起"></a>1. 从一个生活问题谈起</h1><p>先来看看生活中经常遇到的事吧——假设您是个土豪，身上带了足够的1、5、10、20、50、100元面值的钞票。现在您的目标是凑出某个金额w，<strong>需要用到尽量少的钞票。</strong>　　依据生活经验，我们显然可以采取这样的策略：能用100的就尽量用100的，否则尽量用50的……依次类推。在这种策略下，666=6×100+1×50+1×10+1×5+1×1，共使用了10张钞票。　　这种策略称为“<strong>贪心</strong>”：假设我们面对的局面是“需要凑出w”，<strong>贪心策略会尽快让w变得更小</strong>。能让w少100就尽量让它少100，这样我们接下来面对的局面就是凑出w-100。长期的生活经验表明，贪心策略是正确的。　　但是，如果我们换一组钞票的面值，贪心策略就也许不成立了。如果一个奇葩国家的钞票面额分别是1、5、11，那么我们在凑出15的时候，贪心策略会出错：<br>　　15=1×11+4×1    （贪心策略使用了5张钞票）<br>　　15=3×5               （正确的策略，只用3张钞票）<br>　　为什么会这样呢？贪心策略错在了哪里？　　</p>
-<p><strong>鼠目寸光。</strong><br>　　刚刚已经说过，贪心策略的纲领是：“尽量使接下来面对的w更小”。这样，贪心策略在w=15的局面时，会优先使用11来把w降到4；但是在这个问题中，凑出4的代价是很高的，必须使用4×1。如果使用了5，w会降为10，虽然没有4那么小，但是凑出10只需要两张5元。<br>　　在这里我们发现，贪心是一种<strong>只考虑眼前情况</strong>的策略。　　那么，现在我们怎样才能避免鼠目寸光呢？　　如果直接暴力枚举凑出w的方案，明显复杂度过高。太多种方法可以凑出w了，枚举它们的时间是不可承受的。我们现在来尝试找一下性质。<br>　　重新分析刚刚的例子。w=15时，我们如果取11，接下来就面对w=4的情况；如果取5，则接下来面对w=10的情况。我们发现这些问题都有相同的形式：“给定w，凑出w所用的最少钞票是多少张？”接下来，我们用f(n)来表示“凑出n所需的最少钞票数量”。　　那么，如果我们取了11，最后的代价（用掉的钞票总数）是多少呢？<br>　　明显<img src="https://www.zhihu.com/equation?tex=%5Ctext%7Bcost%7D+=+f(4)+++1+=+4+++1+=+5" alt="[公式]"> ，它的意义是：利用11来凑出15，付出的代价等于f(4)加上自己这一张钞票。现在我们暂时不管f(4)怎么求出来。<br>　　依次类推，马上可以知道：如果我们用5来凑出15，cost就是<img src="https://www.zhihu.com/equation?tex=f(10)+++1+=+2+++1+=+3" alt="[公式]"> 。　　那么，现在w=15的时候，我们该取那种钞票呢？<strong>当然是各种方案中，cost值最低的那一个</strong>！　　- 取11：<img src="https://www.zhihu.com/equation?tex=%5Ctext%7Bcost%7D=f(4)+1=4+1=5" alt="[公式]"></p>
-<p>取5：  <img src="https://www.zhihu.com/equation?tex=%5Ctext%7Bcost%7D=f(10)+1=2+1=3" alt="[公式]"></p>
-<p>取1：  <img src="https://www.zhihu.com/equation?tex=%5Ctext%7Bcost%7D=f(14)+1=4+1=5" alt="[公式]">　　显而易见，cost值最低的是取5的方案。<strong>我们通过上面三个式子，做出了正确的决策</strong>！　　这给了我们一个<strong>至关重要</strong>的启示—— <img src="https://www.zhihu.com/equation?tex=f(n)" alt="[公式]"> 只与 <img src="https://www.zhihu.com/equation?tex=f(n-1),f(n-5),f(n-11)" alt="[公式]"> 相关；更确切地说：<img src="https://www.zhihu.com/equation?tex=f(n)=%5Cmin%5C%7Bf(n-1),f(n-5),f(n-11)%5C%7D+1" alt="[公式]">　　这个式子是非常激动人心的。我们要求出f(n)，只需要求出几个更小的f值；既然如此，我们从小到大把所有的f(i)求出来不就好了？注意一下边界情况即可。代码如下：<img src="https://pic2.zhimg.com/50/v2-6a5ba74fb90968533ece429ed329c903_720w.jpg?source=1940ef5c" alt="img"><img src="https://pic2.zhimg.com/80/v2-6a5ba74fb90968533ece429ed329c903_720w.jpg?source=1940ef5c" alt="img">　　我们以 <img src="https://www.zhihu.com/equation?tex=O(n)" alt="[公式]"> 的复杂度解决了这个问题。现在回过头来，我们看看它的原理：　　- <img src="https://www.zhihu.com/equation?tex=f(n)" alt="[公式]"> 只与<img src="https://www.zhihu.com/equation?tex=f(n-1),f(n-5),f(n-11)" alt="[公式]">的<strong>值</strong>相关。</p>
-<p>我们只关心 <img src="https://www.zhihu.com/equation?tex=f(w)" alt="[公式]"> 的<strong>值</strong>，不关心是怎么凑出w的。　　这两个事实，保证了我们做法的正确性。它比起贪心策略，会分别算出取1、5、11的代价，从而做出一个正确决策，这样就避免掉了”鼠目寸光”！　　它与暴力的区别在哪里？我们的暴力枚举了“使用的硬币”，然而这属于冗余信息。我们要的是答案，根本不关心这个答案是怎么凑出来的。譬如，要求出f(15)，只需要知道f(14),f(10),f(4)的值。<strong>其他信息并不需要。</strong>我们舍弃了冗余信息。我们只记录了对解决问题有帮助的信息——f(n).　　我们能这样干，取决于问题的性质：求出f(n)，只需要知道几个更小的f(c)。<strong>我们将求解f(c)称作求解f(n)的“子问题”。</strong><br><strong>这就是DP</strong>（动态规划，dynamic programming).　　<strong>将一个问题拆成几个子问题，分别求解这些子问题，即可推断出大问题的解</strong>。思考题：请稍微修改代码，输出我们凑出w的<strong>方案</strong>。</p>
-<h1 id="2-几个简单的概念"><a href="#2-几个简单的概念" class="headerlink" title="2. 几个简单的概念"></a>2. 几个简单的概念</h1><p>【无后效性】　　</p>
-<p>一旦f(n)确定，“我们如何凑出f(n)”就再也用不着了。　　要求出f(15)，只需要知道f(14),f(10),f(4)的值，而f(14),f(10),f(4)是如何算出来的，对之后的问题没有影响。　　<strong>“未来与过去无关”，</strong>这就是<strong>无后效性</strong>。　　（严格定义：如果给定某一阶段的状态，则在这一阶段以后过程的发展不受这阶段以前各段状态的影响。）<br>【最优子结构】　　</p>
-<p>回顾我们对f(n)的定义：我们记“凑出n所需的<strong>最少</strong>钞票数量”为f(n).　　f(n)的定义就已经蕴含了“最优”。利用w=14,10,4的<strong>最优</strong>解，我们即可算出w=15的<strong>最优</strong>解。　　大问题的<strong>最优解</strong>可以由小问题的<strong>最优解</strong>推出，这个性质叫做“最优子结构性质”。<br>　　引入这两个概念之后，我们如何判断一个问题能否使用DP解决呢？<br>　　<strong>能将大问题拆成几个小问题，且满足无后效性、最优子结构性质。</strong></p>
-<h1 id="3-DP的典型应用：DAG最短路"><a href="#3-DP的典型应用：DAG最短路" class="headerlink" title="3. DP的典型应用：DAG最短路"></a>3. DP的典型应用：DAG最短路</h1><p>问题很简单：给定一个城市的地图，所有的道路都是单行道，而且不会构成环。每条道路都有过路费，问您从S点到T点花费的最少费用。<img src="https://pic1.zhimg.com/50/v2-38e9a487997d2eea979097fbc9e9e674_720w.jpg?source=1940ef5c" alt="img"><img src="https://pic1.zhimg.com/80/v2-38e9a487997d2eea979097fbc9e9e674_720w.jpg?source=1940ef5c" alt="img">一张地图。边上的数字表示过路费。　　这个问题能用DP解决吗？我们先试着记从S到P的最少费用为f(P).<br>　　想要到T，要么经过C，要么经过D。从而<img src="https://www.zhihu.com/equation?tex=f(T)=%5Cmin%E2%81%A1%5C%7Bf(C)+20,f(D)+10%5C%7D" alt="[公式]">.　　好像看起来可以DP。现在我们检验刚刚那两个性质：</p>
-<p>无后效性：对于点P，一旦f(P)确定，以后就只关心f(P)的值，不关心怎么取的。</p>
-<p>最优子结构：对于P，我们当然只关心到P的最小费用，即f(P)。如果我们从S走到T是 <img src="https://www.zhihu.com/equation?tex=S+%5Cto+P%5Cto+Q%5Cto+T" alt="[公式]"> ，那肯定S走到Q的最优路径是 <img src="https://www.zhihu.com/equation?tex=S%5Cto+P%5Cto+Q" alt="[公式]"> 。对一条最优的路径而言，从S走到<strong>沿途上所有的点（子问题）</strong>的最优路径，都是这条大路的一部分。这个问题的最优子结构性质是显然的。　　既然这两个性质都满足，那么本题可以DP。式子明显为：<img src="https://www.zhihu.com/equation?tex=f(P)=%5Cmin%E2%81%A1%5C%7Bf(R)+w_%7BR%E2%86%92P%7D%5C%7D" alt="[公式]">　　其中R为有路通到P的所有的点， <img src="https://www.zhihu.com/equation?tex=w_%7BR%E2%86%92P%7D" alt="[公式]"> 为R到P的过路费。　　代码实现也很简单，拓扑排序即可。</p>
-<h1 id="4-对DP原理的一点讨论【DP的核心思想】"><a href="#4-对DP原理的一点讨论【DP的核心思想】" class="headerlink" title="4. 对DP原理的一点讨论【DP的核心思想】"></a>4. 对DP原理的一点讨论【DP的核心思想】</h1><p>DP为什么会快？<br>无论是DP还是暴力，我们的算法都是在<strong>可能解空间</strong>内，寻找<strong>最优解</strong>。　　来看钞票问题。暴力做法是枚举所有的可能解，这是最大的可能解空间。<br>　　DP是枚举<strong>有希望成为答案的解</strong>。这个空间比暴力的小得多。　　也就是说：DP自带剪枝。　　DP舍弃了一大堆不可能成为最优解的答案。譬如：<br>　　15 = 5+5+5 被考虑了。<br>　　15 = 5+5+1+1+1+1+1 从来没有考虑过，因为这不可能成为最优解。　　从而我们可以得到DP的核心思想：<strong>尽量缩小可能解空间。</strong>　　在暴力算法中，可能解空间往往是指数级的大小；如果我们采用DP，那么有可能把解空间的大小降到多项式级。　　一般来说，解空间越小，寻找解就越快。这样就完成了优化。<br>【DP的操作过程】　　一言以蔽之：<strong>大事化小，小事化了。</strong>　　将一个大问题转化成几个小问题；<br>　　求解小问题；<br>　　推出大问题的解。【如何设计DP算法】　　下面介绍比较通用的设计DP算法的步骤。　　首先，把我们面对的<strong>局面</strong>表示为x。这一步称为<strong>设计状态</strong>。<br>　　对于状态x，记我们要求出的答案(e.g. 最小费用)为f(x).我们的目标是求出f(T).<br><strong>找出f(x)与哪些局面有关（记为p）</strong>，写出一个式子（称为<strong>状态转移方程</strong>），通过f(p)来推出f(x).【DP三连】　　设计DP算法，往往可以遵循DP三连：　　</p>
-<p>​        我是谁？  ——设计状态，表示局面<br>　　我从哪里来？<br>　　我要到哪里去？  ——设计转移　　设计状态是DP的基础。接下来的设计转移，有两种方式：一种是考虑我从哪里来（本文之前提到的两个例子，都是在考虑”我从哪里来”）；另一种是考虑我到哪里去，这常见于求出f(x)之后，<strong>更新能从x走到的一些解</strong>。这种DP也是不少的，我们以后会遇到。　　总而言之，“我从哪里来”和“我要到哪里去”只需要考虑清楚其中一个，就能设计出状态转移方程，从而写代码求解问题。前者又称pull型的转移，后者又称push型的转移。（这两个词是 <a target="_blank" rel="noopener" href="http://www.zhihu.com/people/31585b1079521ef37391925a95a5d4ba">@阮止雨</a> 妹妹告诉我的，不知道源出处在哪)</p>
-<blockquote>
-<p>思考题：如何把钞票问题的代码改写成“我到哪里去”的形式？<br>提示：求出f(x)之后，更新f(x+1),f(x+5),f(x+11).</p>
-</blockquote>
-<h1 id="5-例题：最长上升子序列"><a href="#5-例题：最长上升子序列" class="headerlink" title="5. 例题：最长上升子序列"></a>5. 例题：最长上升子序列</h1><p>　　扯了这么多形而上的内容，还是做一道例题吧。</p>
-<p>　　最长上升子序列（LIS）问题：给定长度为n的序列a，从a中抽取出一个子序列，这个子序列需要单调递增。问最长的上升子序列（LIS）的长度。<br>　　e.g. 1,5,3,4,6,9,7,8的LIS为1,3,4,6,7,8，长度为6。</p>
-<p>　　如何设计状态（我是谁）？</p>
-<p>　　我们记 <img src="https://www.zhihu.com/equation?tex=f(x)" alt="[公式]"> 为以 <img src="https://www.zhihu.com/equation?tex=a_x" alt="[公式]"> 结尾的LIS长度，那么答案就是 <img src="https://www.zhihu.com/equation?tex=%5Cmax%5C%7Bf(x)%5C%7D" alt="[公式]"> .</p>
-<p>　　状态x从哪里推过来（我从哪里来）？</p>
-<p>　　考虑比x小的每一个p：如果 <img src="https://www.zhihu.com/equation?tex=a_x%3Ea_p" alt="[公式]"> ，那么f(x)可以取f(p)+1.<br>　　解释：我们把 <img src="https://www.zhihu.com/equation?tex=a_x" alt="[公式]"> 接在 <img src="https://www.zhihu.com/equation?tex=a_p" alt="[公式]"> 的后面，肯定能构造一个以 <img src="https://www.zhihu.com/equation?tex=a_x" alt="[公式]"> 结尾的上升子序列，长度比以 <img src="https://www.zhihu.com/equation?tex=a_p" alt="[公式]"> 结尾的LIS大1.那么，我们可以写出状态转移方程了：</p>
-<p><img src="https://www.zhihu.com/equation?tex=f(x)=%5Cmax_%7Bp%3Cx+,+a_p%3Ca_x+%7D%E2%81%A1%5C%7Bf(p)%5C%7D+1" alt="[公式]"></p>
-<p>　　至此解决问题。两层for循环，复杂度 <img src="https://www.zhihu.com/equation?tex=O(n%5E2)" alt="[公式]"> .</p>
-<p><img src="https://pic1.zhimg.com/50/v2-73ea19922aaac11c15dff9146a5c5b41_720w.jpg?source=1940ef5c" alt="img"><img src="https://pic1.zhimg.com/80/v2-73ea19922aaac11c15dff9146a5c5b41_720w.jpg?source=1940ef5c" alt="img"></p>
-<p>　　从这三个例题中可以看出，DP是一种思想，一种“大事化小，小事化了”的思想。带着这种思想，DP将会成为我们解决问题的利器。</p>
-<p>　　最后，我们一起念一遍DP三连吧——我是谁？我从哪里来？我要到哪里去？</p>
-<h1 id="6-习题"><a href="#6-习题" class="headerlink" title="6. 习题"></a>6. 习题</h1><p>如果读者有兴趣，可以试着完成下面几个习题：</p>
-<p>一、请采取一些优化手段，以 <img src="https://www.zhihu.com/equation?tex=O(n%5Clog+n)" alt="[公式]"> 的复杂度解决LIS问题。</p>
-<p>提示：可以参考这篇博客 <a href="https://link.zhihu.com/?target=https://pks-loving.blog.luogu.org/junior-dynamic-programming-dong-tai-gui-hua-chu-bu-ge-zhong-zi-xu-lie">Junior Dynamic Programming–动态规划初步·各种子序列问题</a></p>
-<p>二、“按顺序递推”和“记忆化搜索”是实现DP的两种方式。请查阅资料，简单描述“记忆化搜索”是什么。并采用记忆化搜索写出钞票问题的代码，然后完成<a href="https://link.zhihu.com/?target=https://www.luogu.org/problemnew/show/P1541">P1541 乌龟棋 - 洛谷</a> 。</p>
-<p>三、01背包问题是一种常见的DP模型。请完成<a href="https://link.zhihu.com/?target=https://www.luogu.org/problemnew/show/P1048">P1048 采药 - 洛谷</a>。</p>
-<p>谢谢您看完本文 ⁄(⁄ ⁄ ⁄ω⁄ ⁄ ⁄)⁄</p>
-<p><a target="_blank" rel="noopener" href="http://www.zhihu.com/question/23995189/answer/613096905">http://www.zhihu.com/question/23995189/answer/613096905</a>)</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/wechat.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">撒贝宁</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liushixiong99.github.io/021/08/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2021/08/08/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92a%E4%B9%8B%E5%9F%BA%E7%A1%80%E9%A2%98%E7%9B%AE/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          动态规划å之基础题目
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2021/06/23/shell-%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">shell 基础</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/09/04/c-%E5%85%AB%E8%82%A1%E6%96%87/" class="archive-article-date">
+  	<time datetime="2021-09-04T07:28:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-04</time>
+</a>
         </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0-intro"><span class="toc-number">1.</span> <span class="toc-text">0. intro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E4%BB%8E%E4%B8%80%E4%B8%AA%E7%94%9F%E6%B4%BB%E9%97%AE%E9%A2%98%E8%B0%88%E8%B5%B7"><span class="toc-number">2.</span> <span class="toc-text">1. 从一个生活问题谈起</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%87%A0%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">3.</span> <span class="toc-text">2. 几个简单的概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-DP%E7%9A%84%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8%EF%BC%9ADAG%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="toc-number">4.</span> <span class="toc-text">3. DP的典型应用：DAG最短路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%AF%B9DP%E5%8E%9F%E7%90%86%E7%9A%84%E4%B8%80%E7%82%B9%E8%AE%A8%E8%AE%BA%E3%80%90DP%E7%9A%84%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3%E3%80%91"><span class="toc-number">5.</span> <span class="toc-text">4. 对DP原理的一点讨论【DP的核心思想】</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E4%BE%8B%E9%A2%98%EF%BC%9A%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97"><span class="toc-number">6.</span> <span class="toc-text">5. 例题：最长上升子序列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E4%B9%A0%E9%A2%98"><span class="toc-number">7.</span> <span class="toc-text">6. 习题</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/09/04/c-%E5%85%AB%E8%82%A1%E6%96%87/">c++八股文</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
         </div>
-        
-    </div>
-</aside>
-
-
-
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
   
+    </div></section>
   
 
-  
-
-  
-
-  
-
+    
 
 
           </div>
@@ -467,8 +291,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
