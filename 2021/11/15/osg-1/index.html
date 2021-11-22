@@ -6,28 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>linux的网络基础 | 柳世雄的个人博客</title>
+  <title>osg(1) | 柳世雄的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="​    Linux的网络基础 记一个实用的在线工具网站，可以直接查找：tool.chinaz.com">
+  <meta name="description" content="# 11.15学习内容  1）OSG的场景是以树形组织的，最上层为根节点，根结点只能有一个，根结点Node类型，一般使用Group； 2）根结点有多个分支，每个分支可以再有分支，每个分支点最上层的节点可以看做该分支的根结点，用于管理整个分支的状态信息（例如光照、融合、透明等），为Node类型，一般使用Group; 3）每个分支末端会是一个叶节点，叶节点用于管理绘制体，叶节点为Geode或其继承类（">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux的网络基础">
-<meta property="og:url" content="http://example.com/2021/06/17/linux%E7%9A%84%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:title" content="osg(1)">
+<meta property="og:url" content="http://example.com/2021/11/15/osg-1/index.html">
 <meta property="og:site_name" content="柳世雄的个人博客">
-<meta property="og:description" content="​    Linux的网络基础 记一个实用的在线工具网站，可以直接查找：tool.chinaz.com">
+<meta property="og:description" content="# 11.15学习内容  1）OSG的场景是以树形组织的，最上层为根节点，根结点只能有一个，根结点Node类型，一般使用Group； 2）根结点有多个分支，每个分支可以再有分支，每个分支点最上层的节点可以看做该分支的根结点，用于管理整个分支的状态信息（例如光照、融合、透明等），为Node类型，一般使用Group; 3）每个分支末端会是一个叶节点，叶节点用于管理绘制体，叶节点为Geode或其继承类（">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210617091941492.png">
-<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210617154711233.png">
-<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210617160237612.png">
-<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210617161225282.png">
-<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210623103137951.png">
-<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210623104047901.png">
-<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210623105657326.png">
-<meta property="article:published_time" content="2021-06-17T00:57:19.000Z">
-<meta property="article:modified_time" content="2021-08-24T00:56:57.036Z">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20211115093628352.png">
+<meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20211115093706450.png">
+<meta property="article:published_time" content="2021-11-15T01:15:50.000Z">
+<meta property="article:modified_time" content="2021-11-22T03:07:49.559Z">
 <meta property="article:author" content="柳世雄">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="osg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20210617091941492.png">
+<meta name="twitter:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20211115093628352.png">
   
     <link rel="alternative" href="/atom.xml" title="柳世雄的个人博客" type="application/atom+xml">
   
@@ -184,66 +179,40 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-linux的网络基础" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-osg-1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      linux的网络基础
+      osg(1)
     </h1>
   
 
         
-        <a href="/2021/06/17/linux%E7%9A%84%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2021-06-17T00:57:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-17</time>
+        <a href="/2021/11/15/osg-1/" class="archive-article-date">
+  	<time datetime="2021-11-15T01:15:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​    Linux的网络基础</p>
-<p>记一个实用的在线工具网站，可以直接查找：tool.chinaz.com</p>
-<span id="more"></span>
-
-<h1 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h1><p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210617091941492.png" alt="image-20210617091941492"></p>
-<p>ip地址的选取标准主要是依照最大主机数这一栏来选取，需要的主机数多就选用第一个，否则选用第三个。</p>
-<h1 id="网络相关命令"><a href="#网络相关命令" class="headerlink" title="网络相关命令"></a>网络相关命令</h1><h2 id="1-ping"><a href="#1-ping" class="headerlink" title="1.ping"></a>1.ping</h2><p>作用：检测当前主机与目标主机之间的连通性（不是100%准确，有的服务器是禁ping）</p>
-<p>语法：#ping 主机地址（IP地址，主机名，域名等）</p>
-<p>例如，测试和baidu.com的连通性</p>
-<p>#ping <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></p>
-<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210617154711233.png" alt="image-20210617154711233"></p>
-<p>该命令可以跨平台，Windows下也可以使用，语法一致（区别在于Linux下一直发送，Windows下默认发送四个数据包）</p>
-<h2 id="2-netstat"><a href="#2-netstat" class="headerlink" title="2.netstat"></a>2.netstat</h2><p>作用：表示查看网络的连接信息</p>
-<p>语法：#netstat -tnlp                (-t:tcp协议， -n:将字母转化为数字， -l，列出状态为监听   -p,显示进程相关信息)</p>
-<p>​            #netstat -an                      （-a: 表示全部， -n:将字母转化为数字）</p>
-<h2 id="3-traceroute"><a href="#3-traceroute" class="headerlink" title="3.traceroute"></a>3.traceroute</h2><p>作用：去查找当前主机与目标主机之间的所有的网关（路由器，会给沿途各个路由器发送kmp数据包，路由器可能会不给响应）。</p>
-<p>该命令不是内置命令，需要安装。</p>
-<p>语法：#traceroute 主机地址</p>
-<p>例如：#traceroute <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></p>
-<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210617160237612.png" alt="image-20210617160237612"></p>
-<p><strong>扩展：</strong>在Windows下也有类似的命令：tracert 主机地址</p>
-<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210617161225282.png" alt="image-20210617161225282"></p>
-<h2 id="4-arp"><a href="#4-arp" class="headerlink" title="4.arp"></a>4.arp</h2><p>地址解析协议，即ARP(Address Resolution Protocol)，是根据IP地址获取（MAC）物理地址的协议。</p>
-<p> <img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210623103137951.png" alt="image-20210623103137951"></p>
-<p>当一个主机发送数据时，首先要查看本机MAC地址缓存中有没有目标主机的MAC地址，如果有就是用缓存中的结果，如果没有，ARP协议就会发出一个广播包，该广播包要求查询目标主机IP地址对应的MAC地址，拥有该IP地址的主机就会发出回应，回应中包括了目标主机的MAC地址，这样发送方就得到了目标主机的MAC地址，如果目标主机不在本地子网中，则ARP解析得到的MAC地址时默认网关的MAC地址。</p>
-<p>常用语法：#arp -a        作用：查看本地缓存的MAC地址</p>
-<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210623104047901.png" alt="image-20210623104047901"></p>
-<p>#arp -d    ip                   作用：删除指定的IP地址缓存记录</p>
-<h2 id="5-tcpdump-了解"><a href="#5-tcpdump-了解" class="headerlink" title="5.tcpdump(了解)"></a>5.tcpdump(了解)</h2><p>作用：抓包，抓取数据表</p>
-<p>常用语法：</p>
-<p>​    #tcpdump 协议 port端口</p>
-<p>​    #tcpdump 协议 port端口 host地址</p>
-<p>​    #tcpdump -i 网卡设备名</p>
-<p>查看22端口的数据包：#tcpdump port 22</p>
-<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20210623105657326.png" alt="image-20210623105657326"></p>
-<p>00:09:17              监听数据的时分秒</p>
-<p>IP：                       使用的数据类型</p>
-<p>192.168.21.1        数据包的一个方向</p>
-<p>192.168.21.136    数据包的另一个方向</p>
-<p><a target="_blank" rel="noopener" href="https://man.linuxde.net/">Linux命令大全(手册)_Linux常用命令行实例详解_Linux命令学习手册 (linuxde.net)</a></p>
+        <pre><code># 11.15学习内容
+</code></pre>
+<p>1）OSG的场景是以树形组织的，最上层为根节点，根结点只能有一个，根结点Node类型，一般使用Group；</p>
+<p>2）根结点有多个分支，每个分支可以再有分支，每个分支点最上层的节点可以看做该分支的根结点，用于管理整个分支的状态信息（例如光照、融合、透明等），为Node类型，一般使用Group;</p>
+<p>3）每个分支末端会是一个叶节点，叶节点用于管理绘制体，叶节点为Geode或其继承类（Billboard）；</p>
+<p>4）可绘制体保存有绘制信息，例如几何体，文字，像素等。绘制体（Drawable）由叶节点管理，必须添加到叶节点才能最终被OSG渲染到窗口显示（虽然有些版本可以不添加到叶节点）。</p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20211115093628352.png" alt="image-20211115093628352"></p>
+<p><img src="C:\Users\LSX\AppData\Roaming\Typora\typora-user-images\image-20211115093706450.png" alt="image-20211115093706450"></p>
+<p>图元绘制知识点：</p>
+<p>1）掌握Vec3d、Vec3Array、Vec4d、Vec4Array、Geode、Geometry、DrawArrays类的使用方法，了解图元的连线方式，熟悉图元类型，顶点复用的原理和方法；</p>
+<p>2）掌握Geode、Geometry的使用原理和使用场景；</p>
+<p>3）熟悉图元有哪些类型、各类型的功能及创建 方法；</p>
+<p>4）掌握常用的顶点的功能、绑定方式和用法（颜色、法线、纹理坐标等）；</p>
+<p>5）掌握DrawArray图元组的特点和用法；（和DrawElements的区别）；</p>
 
       
 
@@ -283,7 +252,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">osg</a>
         		</li>
       		
 		</ul>
@@ -339,7 +308,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liushixiong99.github.io/021/06/17/linux%E7%9A%84%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liushixiong99.github.io/021/11/15/osg-1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -354,18 +323,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/06/23/shell-%E5%9F%BA%E7%A1%80/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/11/22/%E4%BD%8D%E8%BF%90%E7%AE%97new/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          shell 基础
+          位运算new
         
       </div>
     </a>
   
   
-    <a href="/2021/06/15/linux%E7%9A%84%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">linux的权限管理</div>
+    <a href="/2021/09/24/%E9%9D%92%E6%98%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">青春</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -392,7 +361,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#IP%E5%9C%B0%E5%9D%80"><span class="toc-number">1.</span> <span class="toc-text">IP地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">网络相关命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-ping"><span class="toc-number">2.1.</span> <span class="toc-text">1.ping</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-netstat"><span class="toc-number">2.2.</span> <span class="toc-text">2.netstat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-traceroute"><span class="toc-number">2.3.</span> <span class="toc-text">3.traceroute</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-arp"><span class="toc-number">2.4.</span> <span class="toc-text">4.arp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-tcpdump-%E4%BA%86%E8%A7%A3"><span class="toc-number">2.5.</span> <span class="toc-text">5.tcpdump(了解)</span></a></li></ol></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
