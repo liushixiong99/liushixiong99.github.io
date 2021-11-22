@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>osg(1) | 柳世雄的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="# 11.15学习内容  1）OSG的场景是以树形组织的，最上层为根节点，根结点只能有一个，根结点Node类型，一般使用Group； 2）根结点有多个分支，每个分支可以再有分支，每个分支点最上层的节点可以看做该分支的根结点，用于管理整个分支的状态信息（例如光照、融合、透明等），为Node类型，一般使用Group; 3）每个分支末端会是一个叶节点，叶节点用于管理绘制体，叶节点为Geode或其继承类（">
+  <meta name="description" content="# 11.15学习内容">
 <meta property="og:type" content="article">
 <meta property="og:title" content="osg(1)">
 <meta property="og:url" content="http://example.com/2021/11/15/osg-1/index.html">
 <meta property="og:site_name" content="柳世雄的个人博客">
-<meta property="og:description" content="# 11.15学习内容  1）OSG的场景是以树形组织的，最上层为根节点，根结点只能有一个，根结点Node类型，一般使用Group； 2）根结点有多个分支，每个分支可以再有分支，每个分支点最上层的节点可以看做该分支的根结点，用于管理整个分支的状态信息（例如光照、融合、透明等），为Node类型，一般使用Group; 3）每个分支末端会是一个叶节点，叶节点用于管理绘制体，叶节点为Geode或其继承类（">
+<meta property="og:description" content="# 11.15学习内容">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20211115093628352.png">
 <meta property="og:image" content="c:/Users/LSX/AppData/Roaming/Typora/typora-user-images/image-20211115093706450.png">
 <meta property="article:published_time" content="2021-11-15T01:15:50.000Z">
-<meta property="article:modified_time" content="2021-11-22T03:07:49.559Z">
+<meta property="article:modified_time" content="2021-11-22T03:17:32.256Z">
 <meta property="article:author" content="柳世雄">
 <meta property="article:tag" content="osg">
 <meta name="twitter:card" content="summary">
@@ -201,6 +201,8 @@
       
         <pre><code># 11.15学习内容
 </code></pre>
+<span id="more"></span>
+
 <p>1）OSG的场景是以树形组织的，最上层为根节点，根结点只能有一个，根结点Node类型，一般使用Group；</p>
 <p>2）根结点有多个分支，每个分支可以再有分支，每个分支点最上层的节点可以看做该分支的根结点，用于管理整个分支的状态信息（例如光照、融合、透明等），为Node类型，一般使用Group;</p>
 <p>3）每个分支末端会是一个叶节点，叶节点用于管理绘制体，叶节点为Geode或其继承类（Billboard）；</p>
