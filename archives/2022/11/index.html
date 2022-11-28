@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>位运算new | 柳世雄的个人博客</title>
+  <title>Archives: 2022/11 | 柳世雄的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.位运算概述">
-<meta property="og:type" content="article">
-<meta property="og:title" content="位运算new">
-<meta property="og:url" content="http://example.com/2021/11/22/%E4%BD%8D%E8%BF%90%E7%AE%97new/index.html">
+  <meta name="description" content="Just do it!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="柳世雄的个人博客">
+<meta property="og:url" content="http://example.com/archives/2022/11/index.html">
 <meta property="og:site_name" content="柳世雄的个人博客">
-<meta property="og:description" content="1.位运算概述">
+<meta property="og:description" content="Just do it!">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-11-22T03:08:23.000Z">
-<meta property="article:modified_time" content="2021-11-22T03:16:48.447Z">
 <meta property="article:author" content="柳世雄">
-<meta property="article:tag" content="位运算">
+<meta property="article:tag" content="坚持 努力 成功">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="柳世雄的个人博客" type="application/atom+xml">
@@ -176,324 +174,59 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-位运算new" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 class="article-title" itemprop="name">
-      位运算new
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2022" class="archive-year">2022</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022/11/28/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2022-11-28T02:48:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-28</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/11/28/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89/">c++多线程（一）</a>
     </h1>
   
 
-        
-        <a href="/2021/11/22/%E4%BD%8D%E8%BF%90%E7%AE%97new/" class="archive-article-date">
-  	<time datetime="2021-11-22T03:08:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-位运算概述"><a href="#1-位运算概述" class="headerlink" title="1.位运算概述"></a>1.位运算概述</h3><span id="more"></span>
-
-<p>从现代计算机中所有的数据二进制的形式存储在设备中。即 0、1 两种状态，计算机对二进制数据进行的运算(+、-、*、/)都是叫位运算，即将符号位共同参与运算的运算。</p>
-<p>口说无凭，举一个简单的例子来看下 CPU 是如何进行计算的，比如这行代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a &#x3D; 35;</span><br><span class="line">int b &#x3D; 47;</span><br><span class="line">int c &#x3D; a + b;</span><br></pre></td></tr></table></figure>
-
-<p>计算两个数的和，因为在计算机中都是以二进制来进行运算，所以上面我们所给的 int 变量会在机器内部先转换为二进制在进行相加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">35:  0 0 1 0 0 0 1 1</span><br><span class="line">47:  0 0 1 0 1 1 1 1</span><br><span class="line">————————————————————</span><br><span class="line">82:  0 1 0 1 0 0 1 0</span><br></pre></td></tr></table></figure>
-
-<p>所以，相比在代码中直接使用(+、-、*、/)运算符，合理的运用位运算更能显著提高代码在机器上的执行效率。</p>
-<h3 id="2-位运算概览"><a href="#2-位运算概览" class="headerlink" title="2.位运算概览"></a>2.位运算概览</h3><table>
-<thead>
-<tr>
-<th align="left">符号</th>
-<th align="left">描述</th>
-<th align="left">运算规则</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">&amp;</td>
-<td align="left">与</td>
-<td align="left">两个位都为1时，结果才为1</td>
-</tr>
-<tr>
-<td align="left">|</td>
-<td align="left">或</td>
-<td align="left">两个位都为0时，结果才为0</td>
-</tr>
-<tr>
-<td align="left">^</td>
-<td align="left">异或</td>
-<td align="left">两个位相同为0，相异为1</td>
-</tr>
-<tr>
-<td align="left">~</td>
-<td align="left">取反</td>
-<td align="left">0变1，1变0</td>
-</tr>
-<tr>
-<td align="left">&lt;&lt;</td>
-<td align="left">左移</td>
-<td align="left">各二进位全部左移若干位，高位丢弃，低位补0</td>
-</tr>
-<tr>
-<td align="left">&gt;&gt;</td>
-<td align="left">右移</td>
-<td align="left">各二进位全部右移若干位，对无符号数，高位补0，有符号数，各编译器处理方法不一样，有的补符号位（算术右移），有的补0（逻辑右移）</td>
-</tr>
-</tbody></table>
-<h3 id="3-按位与运算符（-amp-）"><a href="#3-按位与运算符（-amp-）" class="headerlink" title="3.按位与运算符（&amp;）#"></a>3.按位与运算符（&amp;）#</h3><p><strong>定义</strong>：参加运算的两个数据，按二进制位进行”与”运算。</p>
-<p>运算规则：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0&amp;0&#x3D;0  0&amp;1&#x3D;0  1&amp;0&#x3D;0  1&amp;1&#x3D;1</span><br></pre></td></tr></table></figure>
-
-<p>总结：两位同时为1，结果才为1，否则结果为0。</p>
-<p>例如：3&amp;5 即 0000 0011&amp; 0000 0101 = 0000 0001，因此 3&amp;5 的值得1。</p>
-<p>注意：负数按补码形式参加按位与运算。</p>
-<p><strong>与运算的用途：</strong></p>
-<p>1）清零</p>
-<p>如果想将一个单元清零，即使其全部二进制位为0，只要与一个各位都为零的数值相与，结果为零。</p>
-<p>2）取一个数的指定位</p>
-<p>比如取数 X=1010 1110 的低4位，只需要另找一个数Y，令Y的低4位为1，其余位为0，即Y=0000 1111，然后将X与Y进行按位与运算（X&amp;Y=0000 1110）即可得到X的指定位。</p>
-<p>3）判断奇偶</p>
-<p>只要根据最未位是0还是1来决定，为0就是偶数，为1就是奇数。因此可以用if ((a &amp; 1) == 0)代替if (a % 2 == 0)来判断a是不是偶数。</p>
-<h3 id="4-按位或运算符（-）"><a href="#4-按位或运算符（-）" class="headerlink" title="4.按位或运算符（|）"></a>4.按位或运算符（|）</h3><p>定义：参加运算的两个对象，按二进制位进行”或”运算。</p>
-<p>运算规则：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0|0&#x3D;0  0|1&#x3D;1  1|0&#x3D;1  1|1&#x3D;1</span><br></pre></td></tr></table></figure>
-
-<p>总结：参加运算的两个对象只要有一个为1，其值为1。</p>
-<p>例如：3|5即 0000 0011| 0000 0101 = 0000 0111，因此，3|5的值得7。　</p>
-<p>注意：负数按补码形式参加按位或运算。</p>
-<p>或运算的用途：</p>
-<p>1）常用来对一个数据的某些位设置为1</p>
-<p>比如将数 X=1010 1110 的低4位设置为1，只需要另找一个数Y，令Y的低4位为1，其余位为0，即Y=0000 1111，然后将X与Y进行按位或运算（X|Y=1010 1111）即可得到。</p>
-<h3 id="5-异或运算符（-）"><a href="#5-异或运算符（-）" class="headerlink" title="5.异或运算符（^）"></a>5.异或运算符（^）</h3><p>定义：参加运算的两个数据，按二进制位进行”异或”运算。</p>
-<p>运算规则：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0^0&#x3D;0  0^1&#x3D;1  1^0&#x3D;1  1^1&#x3D;0</span><br></pre></td></tr></table></figure>
-
-<p>总结：参加运算的两个对象，如果两个相应位相同为0，相异为1。</p>
-<p>异或的几条性质:</p>
-<ul>
-<li>1、交换律</li>
-<li>2、结合律 (a^b)^c == a^(b^c)</li>
-<li>3、对于任何数x，都有 x^x=0，x^0=x</li>
-<li>4、自反性: a^b^b=a^0=a;</li>
-</ul>
-<p>异或运算的用途：</p>
-<p>1）翻转指定位</p>
-<p>比如将数 X=1010 1110 的低4位进行翻转，只需要另找一个数Y，令Y的低4位为1，其余位为0，即Y=0000 1111，然后将X与Y进行异或运算（X^Y=1010 0001）即可得到。</p>
-<p>2）与0相异或值不变</p>
-<p>例如：1010 1110 ^ 0000 0000 = 1010 1110</p>
-<p>3）交换两个数</p>
-<p>实例（不借助第三个数来交换两个数）</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Swap</span><span class="params">(<span class="keyword">int</span>&amp; a, <span class="keyword">int</span>&amp; b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a ！= b) &#123;</span><br><span class="line">        a ^= b;</span><br><span class="line">        b ^= a;</span><br><span class="line">        a ^= b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-取反运算符"><a href="#6-取反运算符" class="headerlink" title="6.取反运算符 (~)"></a>6.取反运算符 (~)</h3><p>定义：参加运算的一个数据，按二进制进行”取反”运算。</p>
-<p>运算规则：　</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~1&#x3D;0</span><br><span class="line">~0&#x3D;1</span><br></pre></td></tr></table></figure>
-
-<p>总结：对一个二进制数按位取反，即将0变1，1变0。</p>
-<p>异或运算的用途：</p>
-<p>1）使一个数的最低位为零</p>
-<p>使a的最低位为0，可以表示为：a &amp; <del>1。</del>1的值为 1111 1111 1111 1110，再按”与”运算，最低位一定为0。因为” ~”运算符的优先级比算术运算符、关系运算符、逻辑运算符和其他运算符都高。</p>
-<h3 id="7-左移运算符（-lt-lt-）"><a href="#7-左移运算符（-lt-lt-）" class="headerlink" title="7.左移运算符（&lt;&lt;）"></a>7.左移运算符（&lt;&lt;）</h3><p>定义：将一个运算对象的各二进制位全部左移若干位（左边的二进制位丢弃，右边补0）。</p>
-<p>设 a=1010 1110，a = a&lt;&lt; 2 将a的二进制位左移2位、右补0，即得a=1011 1000。</p>
-<p>若左移时舍弃的高位不包含1，则每左移一位，相当于该数乘以2。</p>
-<h3 id="8-右移运算符（-gt-gt-）"><a href="#8-右移运算符（-gt-gt-）" class="headerlink" title="8.右移运算符（&gt;&gt;）"></a>8.右移运算符（&gt;&gt;）</h3><p>定义：将一个数的各二进制位全部右移若干位，正数左补0，负数左补1，右边丢弃。</p>
-<p>例如：a=a&gt;&gt;2 将a的二进制位右移2位，左补0 或者 左补1得看被移数是正还是负。</p>
-<p>操作数每右移一位，相当于该数除以2。</p>
-<h3 id="10-复合赋值运算符"><a href="#10-复合赋值运算符" class="headerlink" title="10.复合赋值运算符"></a>10.复合赋值运算符</h3><p>位运算符与赋值运算符结合，组成新的复合赋值运算符，它们是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&amp;&#x3D;        例：a&amp;&#x3D;b    相当于     a&#x3D;a&amp;b</span><br><span class="line"></span><br><span class="line">|&#x3D;        例：a|&#x3D;b    相当于     a&#x3D;a|b</span><br><span class="line"></span><br><span class="line">&gt;&gt;&#x3D;      例：a&gt;&gt;&#x3D;b   相当于     a&#x3D;a&gt;&gt;b</span><br><span class="line"></span><br><span class="line">&lt;&lt;&#x3D;      例：a&lt;&lt;&#x3D;b     相当于      a&#x3D;a&lt;&lt;b</span><br><span class="line"></span><br><span class="line">^&#x3D;        例：a^&#x3D;b    相当于   a&#x3D;a^b</span><br></pre></td></tr></table></figure>
-
-<p>运算规则：和前面讲的复合赋值运算符的运算规则相似。</p>
-<p>不同长度的数据进行位运算：如果两个不同长度的数据进行位运算时，系统会将二者按右端对齐，然后进行位运算。</p>
-<p>以”与运算”为例说明如下：我们知道在C语言中long型占4个字节，int型占2个字节，如果一个long型数据与一个int型数据进行”与运算”，右端对齐后，左边不足的位依下面三种情况补足，</p>
-<ul>
-<li><p>1）如果整型数据为正数，左边补16个0。</p>
-</li>
-<li><p>2）如果整型数据为负数，左边补16个1。</p>
-</li>
-<li><p>3）如果整形数据为无符号数，左边也补16个0。</p>
-</li>
-<li><p>如：long a=123；int b=1；计算a&amp; b。</p>
-</li>
-<li></li>
-<li><p>如：long a=123；int b=-1；计算a&amp; b。</p>
-</li>
-<li><p>如：long a=123；unsigned intb=1；计算a &amp; b。</p>
-</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/wechat.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">位运算</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liushixiong99.github.io/021/11/22/%E4%BD%8D%E8%BF%90%E7%AE%97new/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2021/11/26/c-note/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          c++note
-        
-      </div>
-    </a>
   
   
-    <a href="/2021/11/15/osg-1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">osg(1)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%8D%E8%BF%90%E7%AE%97%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">1.位运算概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BD%8D%E8%BF%90%E7%AE%97%E6%A6%82%E8%A7%88"><span class="toc-number">2.</span> <span class="toc-text">2.位运算概览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%8C%89%E4%BD%8D%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%88-amp-%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">3.按位与运算符（&amp;）#</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%8C%89%E4%BD%8D%E6%88%96%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%88-%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">4.按位或运算符（|）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%88-%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">5.异或运算符（^）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%8F%96%E5%8F%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">6.</span> <span class="toc-text">6.取反运算符 (~)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%B7%A6%E7%A7%BB%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%88-lt-lt-%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">7.左移运算符（&lt;&lt;）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E5%8F%B3%E7%A7%BB%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%88-gt-gt-%EF%BC%89"><span class="toc-number">8.</span> <span class="toc-text">8.右移运算符（&gt;&gt;）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E5%A4%8D%E5%90%88%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">9.</span> <span class="toc-text">10.复合赋值运算符</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
-
+    
 
 
           </div>
@@ -520,8 +253,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
