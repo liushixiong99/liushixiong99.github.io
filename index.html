@@ -175,6 +175,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-c-note" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/26/c-note/">c++note</a>
+    </h1>
+  
+
+        
+        <a href="/2021/11/26/c-note/" class="archive-article-date">
+  	<time datetime="2021-11-26T07:13:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    随笔记：</p>
+<p>1.c++类的静态成员</p>
+<p>我们可以使用 <strong>static</strong> 关键字来把类成员定义为静态的。当我们声明类的成员为静态时，这意味着无论创建多少个类的对象，静态成员都只有一个副本。</p>
+<p>即所有c++类的实例共享一个静态成员</p>
+<p>静态成员在类的所有对象中是共享的。如果不存在其他的初始化语句，在创建第一个对象时，所有的静态数据都会被初始化为零。我们不能把静态成员的初始化放置在类的定义中，但是可以在类的外部通过使用范围解析运算符 <strong>::</strong> 来重新声明静态变量从而对它进行初始化</p>
+<p>下面的实例有助于更好地理解静态成员数据的概念：</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Box</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">      <span class="keyword">static</span> <span class="keyword">int</span> objectCount;</span><br><span class="line">      <span class="comment">// 构造函数定义</span></span><br><span class="line">      <span class="built_in">Box</span>(<span class="keyword">double</span> l=<span class="number">2.0</span>, <span class="keyword">double</span> b=<span class="number">2.0</span>, <span class="keyword">double</span> h=<span class="number">2.0</span>)</span><br><span class="line">      &#123;</span><br><span class="line">         cout &lt;&lt;<span class="string">&quot;Constructor called.&quot;</span> &lt;&lt; endl;</span><br><span class="line">         length = l;</span><br><span class="line">         breadth = b;</span><br><span class="line">         height = h;</span><br><span class="line">         <span class="comment">// 每次创建对象时增加 1</span></span><br><span class="line">         objectCount++;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="function"><span class="keyword">double</span> <span class="title">Volume</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">         <span class="keyword">return</span> length * breadth * height;</span><br><span class="line">      &#125;</span><br><span class="line">   <span class="keyword">private</span>:</span><br><span class="line">      <span class="keyword">double</span> length;     <span class="comment">// 长度</span></span><br><span class="line">      <span class="keyword">double</span> breadth;    <span class="comment">// 宽度</span></span><br><span class="line">      <span class="keyword">double</span> height;     <span class="comment">// 高度</span></span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 初始化类 Box 的静态成员</span></span><br><span class="line"><span class="keyword">int</span> Box::objectCount = <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="function">Box <span class="title">Box1</span><span class="params">(<span class="number">3.3</span>, <span class="number">1.2</span>, <span class="number">1.5</span>)</span></span>;    <span class="comment">// 声明 box1</span></span><br><span class="line">   <span class="function">Box <span class="title">Box2</span><span class="params">(<span class="number">8.5</span>, <span class="number">6.0</span>, <span class="number">2.0</span>)</span></span>;    <span class="comment">// 声明 box2</span></span><br><span class="line"> </span><br><span class="line">   <span class="comment">// 输出对象的总数</span></span><br><span class="line">   cout &lt;&lt; <span class="string">&quot;Total objects: &quot;</span> &lt;&lt; Box::objectCount &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总结：一般类的静态成员可以看作是实例数或有效的实例数。</p>
+<p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Constructor called.</span><br><span class="line">Constructor called.</span><br><span class="line">Total objects: <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>2.用sizeof求数组大小是要记得数组是多占一位的，以字符/0技术；</p>
+<p>3.指针占4个字符，int占4个，char占一个，数组作为函数参数就相当于指针也是占四个，short占两个字符；</p>
+<p>4.联合体的大小取决于他所有成员中占用空间最大的一个成员的大小（union），注意区分结构体和类与联合体的区别。</p>
+<p>5.为什么要引入内联函数（内联函数的作用）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">用它替代宏定义，消除宏定义的缺点。宏定义使用预处理器实现，做一些简单的字符替换因此不能进行参数有效性的检测。另外它的返回值不能被强制转换为可转换的合适类型，且C++中引入了类及类的访问控制，在涉及到类的保护成员和私有成员就不能用宏定义来操作。</span><br><span class="line"></span><br><span class="line">1、内联函数与宏定义的区别：</span><br><span class="line"></span><br><span class="line">内联函数在编译时展开，可以做一些类型检测处理。宏在预编译时展开；内联函数直接嵌入到目标代码中，宏是简单的做文本替换。</span><br><span class="line">C++中引入了类及类的访问控制，在涉及到类的保护成员和私有成员就不能用宏定义来操作</span><br><span class="line">2、inline相比宏定义有哪些优越处</span><br><span class="line"></span><br><span class="line">（1）inline函数代码是被放到符号表中，使用时像宏一样展开，没有调用的开销效率很高；</span><br><span class="line">（2）inline函数是真正的函数，所以要进行一系列的数据类型检查；</span><br><span class="line">（3）inline函数作为类的成员函数，可以使用类的保护成员及私有成员；</span><br><span class="line"></span><br><span class="line">3、为什么不能把所有的函数写成inline函数</span><br><span class="line"></span><br><span class="line">内联函数以代码复杂为代价，它以省去函数调用的开销来提高执行效率。所以一方面如果内联函数体内代码执行时间相比函数调用开销较大没有太大的意义；另一方面每一处内联函数的调用都要复制代码，消耗更多的内存空间，因此以下情况不宜使用内联函数。</span><br><span class="line">（1）函数体内的代码比较长，将导致内存消耗代价；</span><br><span class="line">（2）函数体内有循环，函数执行时间要比函数调用开销大；</span><br><span class="line"></span><br><span class="line">另外两点需要注意：</span><br><span class="line">内联函数时无法获取其地址的。</span><br><span class="line">内联函数不可以做为虚函数（内联函数，构造函数，静态函数时都不能为虚函数的）</span><br><span class="line"></span><br><span class="line">所以要讲inline的作用，可以从两方面考虑：</span><br><span class="line"></span><br><span class="line">相比普通函数的效率</span><br><span class="line">相比宏定义</span><br><span class="line">另外我们再来说一点，类中的构造函数和析构函数可以是内联的吗？</span><br><span class="line"></span><br><span class="line">答案是你当然可以将其声明为内联的，因为你有权利向编译器建议任何函数为内联的。哈哈，当然我们应该换一种问法，类中的构造函数和析构函数适合作为内联函数吗？effective里面说，构造函数和析构函数往往是inlining的糟糕候选人。因为编译器在编译期间会给你的构造函数和析构函数额外加入很多的代码，像成员函数的构造析构等代码，所以通常构造析构函数比表面上看起来的要多，并不适合作为内联函数。</span><br><span class="line"></span><br><span class="line">inline很重要的一个缺点是：inline造成代码膨胀会导致额外的换页行为，降低指令高速缓存装置的命中率，以及伴随这些而来的效率降低。——-摘自effective</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>6.宏定义的时候一定要注意将参数用括号括起来，否则会产生二义性</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/11/26/c-note/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-位运算new" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -866,83 +958,6 @@
 
 
   
-    <article id="post-linux的网络基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/17/linux%E7%9A%84%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">linux的网络基础</a>
-    </h1>
-  
-
-        
-        <a href="/2021/06/17/linux%E7%9A%84%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2021-06-17T00:57:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​    Linux的网络基础</p>
-<p>记一个实用的在线工具网站，可以直接查找：tool.chinaz.com</p>
-        
-          <a class="article-more-a" href="/2021/06/17/linux%E7%9A%84%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/17/linux%E7%9A%84%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -957,7 +972,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 柳世雄
+    		&copy; 2022 柳世雄
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
