@@ -16,7 +16,7 @@
 <meta property="og:description" content="public 、protected、private修饰类的成员 类成员的访问权限由高到低依次为public-&gt;protected-&gt;private,public成员可以通过对象来访问，private成员不能通过对象来访问。protected成员和private成员类似，也不能通过对象访问。但是当存在继承关系时，protected和private就不一样了：基类中的protected成员">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-31T12:57:49.000Z">
-<meta property="article:modified_time" content="2021-06-02T00:56:51.498Z">
+<meta property="article:modified_time" content="2022-12-01T10:02:26.216Z">
 <meta property="article:author" content="柳世雄">
 <meta property="article:tag" content="小记">
 <meta name="twitter:card" content="summary">
@@ -232,7 +232,7 @@
 <li><p>如果希望基类的成员既不向外暴露（不能通过对象访问），还能在派生类中使用，那么只能声明为 protected。</p>
 </li>
 </ol>
-<p>注意，我们这里说的是基类的 private 成员不能在派生类中使用，并没有说基类的 private 成员不能被继承。实际上，基类的 private 成员是能够被继承的，并且（成员变量）会占用派生类对象的内存，它只是在派生类中不可见，导致无法使用罢了。private 成员的这种特性，能够很好的对派生类隐藏基类的实现，以体现面向对象的封装性。</p>
+<p>注意，<strong>我们这里说的是基类的 private 成员不能在派生类中使用，并没有说基类的 private 成员不能被继承</strong>。实际上，基类的 private 成员是能够被继承的，并且（成员变量）会占用派生类对象的内存，它只是在派生类中不可见，导致无法使用罢了。private 成员的这种特性，能够很好的对派生类隐藏基类的实现，以体现面向对象的封装性。</p>
 <table>
 <thead>
 <tr>
@@ -570,6 +570,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">多线程、互斥量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">多线程、C++11</a>
               </li>
             
             <div class="clearfix"></div>
